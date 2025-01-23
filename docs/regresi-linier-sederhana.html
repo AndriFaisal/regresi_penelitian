@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab 3 Regresi Linier Sederhana | Regresi Untuk Penelitian</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab 3 Regresi Linier Sederhana | Regresi Untuk Penelitian" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 3 Regresi Linier Sederhana | Regresi Untuk Penelitian" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="andri Faisal" />
+
+
+<meta name="date" content="2025-01-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pendahuluan.html"/>
+<link rel="next" href="regresi-linier-berganda.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>2</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Sederhana</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#keterbatasan-regresi-linear"><i class="fa fa-check"></i><b>3.1</b> Keterbatasan Regresi Linear</a></li>
+<li class="chapter" data-level="3.2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#regresi-linear-dengan-kategori"><i class="fa fa-check"></i><b>3.2</b> Regresi linear dengan kategori</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#latihan"><i class="fa fa-check"></i>Latihan</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>4</b> Regresi Linier Berganda</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#goodnes-of-fit"><i class="fa fa-check"></i><b>4.1</b> Goodnes of fit</a></li>
+<li class="chapter" data-level="4.2" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#scatter-diagram"><i class="fa fa-check"></i><b>4.2</b> Scatter diagram</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#latihan-1"><i class="fa fa-check"></i>Latihan</a></li>
+<li class="chapter" data-level="4.3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#regresi-dengan-menggunakan-data-panel"><i class="fa fa-check"></i><b>4.3</b> Regresi dengan menggunakan Data Panel</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#membuat-struktur-data-panel"><i class="fa fa-check"></i><b>4.3.1</b> Membuat Struktur Data Panel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>5</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>5.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="5.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>5.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>6</b> Parts</a></li>
+<li class="chapter" data-level="7" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>7</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>7.1</b> Footnotes</a></li>
+<li class="chapter" data-level="7.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>7.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>8</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>8.1</b> Equations</a></li>
+<li class="chapter" data-level="8.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>8.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="8.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>8.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html"><i class="fa fa-check"></i><b>9</b> Asumsi Regresi Linear</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#multikolinearitas"><i class="fa fa-check"></i><b>9.1</b> Multikolinearitas</a></li>
+<li class="chapter" data-level="9.2" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#autokorelasi"><i class="fa fa-check"></i><b>9.2</b> Autokorelasi</a></li>
+<li class="chapter" data-level="9.3" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#heteroskedatisitas"><i class="fa fa-check"></i><b>9.3</b> Heteroskedatisitas</a></li>
+<li class="chapter" data-level="9.4" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#asumsi-normalitas"><i class="fa fa-check"></i><b>9.4</b> Asumsi Normalitas</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regresi Untuk Penelitian</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regresi-linier-sederhana" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Bab 3</span> Regresi Linier Sederhana<a href="regresi-linier-sederhana.html#regresi-linier-sederhana" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Regresi Linear Sederhana</p>
+<p>Grafik Pencar atau Scatter Graph
+Salah satu hal yang penting adalah ketika kita mau menduga hubungan antara variabel X dengan variabel Y yakni dengan scatter graph. Dengan gambar yang ada hubungan. Variabel Y akan kita tempatkan di bagian vertikal atau bagian yang menghadap ke atas sebaliknya dengan bagian X yang mendatar seperti horizontal.</p>
+<p>Kita memasangkan sesuai dengan pasangan nilai data tersebut X dan Y. Jangan pasang teracak agar kita bisa melihat hubungan antara keduanya. Pasangan data tersebut adalah yang termasuk dalam individu misalnya ada seorang yang mempunyai pendapatan X dengan pengeluaran Y maka nilai itu yang kita pasangkan bukan malah membuat pendapatan seorang tertentu dengan pengeluaran yang lain karena itu akan menjadi berbeda nilainya.
+Dari hubungan tersebut akan membentuk scatter graph. Ada sejumlah titik-titik yang menyebar atau mengumpul di sekitar grafik pencar scatter graph tersebut. Titik titik itu mewakili banyak individu yang memiliki nilai dari kedua variabel X dan Y.
+Banyaknya kumpulan titik atau scatter itu bergantung dari banyaknya daat tersebut. Semakin banyak jumlah data yang dibuat sampel adalah dengan dimasukkan dalam grafik tersebut. Ada beberapa hal yang dapat kita pelajari dari scatter plot seperti:
+1. Pola dari titik tersebut mempunyai pola seperti cenderung mengumpul di satu tempat karena nilanya mempunyai yang sama
+2. Trend. Kita dapat melihat suatu trend ketika ada satu garis yang bisa kita tarik pada titik tersebut dan kita menunjukkan ada yang bisa menunjukan garis ke atas atau bahkan tidak memiliki trend.
+3. Outlier. Outlier adalah nilai yang terpencil . Ia hanya sendiri dan jauh di pinggir atau ditengah nilai-nilai yang lain karenanya disebut outlier. Outlier tentu sedikit dan ini menyebabkan data tidak normal.</p>
+<p>Regresi Linear adalah salah satu cara untuk melihat hubungan antara variabel bebas dengan variabel tidak bebas. Dalam hal ini yang mempengaruhi adalah variabel yang bebas sedangkan yang dipengaruhi adalah variabel tidak bebas. Dalam regresi hanya mengenal satu arah saja pengaruh yakni variabel bebas terhadap variabel dependen dan bukan sebaliknya.
+Pembatasan itu dengan tegas agar dalam mencari hubungan tidak akan ada kekeliruan. Misalnya pengaruh garam terhadap darah tinggi maka dari sini kita akan mencari hubungan antara garam dengan darah tinggi. Garamlah yang mempengaruhi tingginya tekanan darah (tensi) seseorang. Dengan alasan ilmiah dan penjelasan kalau zat garam akan meningkatkan tekanan darah tersebut. Kita tentu tidak akan menempatkan garam sebagai hal yang dependen tetapi ia adalah sesuatau yang bebas dalam hal ini karenanya ia mempengaruhi tekanan darah tinggi. Apakah ia akan menjadi faktor yang dipengaruhi. Hal itu bisa saja kalau dalam konteks yang lain misalnya kalau garam itu akan dipengaruhi oleh jumlah sinar matahari yang menerpa bumi.
+Regresi linear pertama kali dikenalkan oleh Galton yang menemukan adanya hubungan tinggi anak dengan tinggi orang tuanya. Ia menghitung jumlah banyaknya anak yang mempunyai dengan tinggi orang tuanya. Hal ini berkaiatan dengann keturunan atau hereditas. Galton ingin menemukan apakah ada tinggi orang tua akan mempengaruhi tinggi sang anak.<br />
+Regresi linear hanya memeriksa antara hubungan variabel beas dengan variabel tidak bebas. Dalam regresi ini karena hanya ada satu maka disebut juga regresi linier sederhana (simple linear regression). Metode seperti ini dipakai seperti di ilmu bisnis, ekonomi, manajemen, komunikasi dan ilmu sosial lainnya.
+Dalam regresi sederhana kita akan menggambarkan hubungan dengan garis y= a+ bx. Persamaan ini dihasilkan dari perhitungan regresi terhadap dua variabel tersbeut. Untuk nilai b diperoleh dengan perhitungan jelaskan dulu mengenai perhitungan ada simpangan x dengan simpangan y dibagi dengan jumlah sample atau n. maka bisa dilihat seperti ini. Kemudian nilai a diperoleh dari nilai y rata-rata dikurangi b dikalikan dengan nilai rata-rata X dan akan kita peroleh nilai a tersebut. Bisa saja dengan menggunakan nilai perhitungan komputasi seperti Excel atau menggunakan software statistic lainnya.
+Dimana a = nilai intercept atau nilai konstanta
+b = koefisen slope atau kemiringan
+Nilai a adalah konstanta ini adalah nilai awal dari persamaan suatu garis persamaan regresi tersebut. Nilai ini selalu ada. Hal yang ketika terjadi nilai regresor tersebut nol maka tetap saja nilai untuk Y prediksi tetap ada. Inilah nilai yang dinamakan nilai konstanta. Terkadang nama konstanta atau alpha disebut juga intercept sedangkan Beta dinamakan juga slope parameter atau ada juga yang menamakannya parameter.
+Y (x=0) = a + bx
+Y = a + 0.x = a
+Nilai b ini menunjukkan kemiringan dari garis yang menunjukan hubungan antara y dengan X nilai positif berarti nilai yang menunjukkan seiringan atau hubungan yang sama-sama naik atau sama-sama turun. Ketika variabel independen mempunyai nilai yang positif maka akan merubah juga variabel dependen juga akan turut berubah menjadi positif. Bagaimana kalau nilai alpha menjadi 0 maka nilai persamaan tersebut akan memotong garis x karena tidak ada nilai alphanya.
+Pengaruh nilai independen bergantung dengan koefisein semakin besar maka satau perubahan akan menjadi lebih besar dengan kemiringan yang curam sekali. Misalnya Y = 0,1 + 10 X berarti pengganda dari nilai regresi tersebut akan semakin besar dengan nilai tersebut. Jika nilai kurang dari 1 namun masih nilai positif maka kemiringan tetap ke sebelah kanan jadi nilai X meningkat namun dengan peningkatan nilai tersebut semakin kecil bukan besar. Untuk nilai yang negatif menunjukkan nilai tersebut adalah saling bertolak belakang. Ketika variabel independen bergerak naik maka yang terjadi adalah variabel dependen akan menurun dan sebaliknya. Hubungan yang negatif berarti juga saling bertolak belakang dan penambahan variabel independen akan mengurangi variabel dependen tersebut.</p>
+<div id="keterbatasan-regresi-linear" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Keterbatasan Regresi Linear<a href="regresi-linier-sederhana.html#keterbatasan-regresi-linear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Metode regresi linear adalah metode yang mendapatkan cara untuk menyelidiki hubungan antara variabel dependen dengan variabel independen. Dengan regresi tersebut kita akan mendapatkan nilai korelasi dari persamaan tersebut. Dari dua data yang disamakan tersebut kita akan mendapatkan suatu persamaan r yang mempunyai nilai -1≤r≤1 dengan perincian terhadap berikut.</p>
+<p>Nilai R Arti
+0,00 - 1,99 Sangat Lemah
+2,00 - 3,99 Lemah
+4,00 – 5,99 Sedang
+6,00 – 7,99 Kuat
+8,00 -1,00 Sangat Kuat</p>
+<p>Perbedaan nilai R2 dengan koefisien
+Kalau koefisien menyebutkan nilai koefisen menunjukkan banyaknya atau kuatnya nilai regresi tapi hati-hati kalau hal tersebut adalah berhubungan dengan nilai r dengan nilai koefisen regresi. Baik r dan beta adalah koefisien kalau beta adalah koefisien regresi sedangkan nilai r adalah koefisein korelasi. Koefisien regresi adalah menunjukkan besarnya hubungan ada suatu hubungan yang menjadi pengganda (multiplier). Koefisien regresi juga menjadi unsur dalam persamaan regresi. Hubungan ini menunjukkan akan ada besarnya pengali saja. Sedangkan koefisen korelasi adalah nilai yang menunjukkan adanya seberapa erat hubungan tersebut.
+Nilai koefisein regresi menaksir atau meramal nilai Y terhadap nilai X, sedangkan kalau untuk nilai R tersebut memperkirakan keeratan hubungan. Apakah nilai tersebut mempunyai keeratan dari nilai r tersebut. Nilai dalam korelasi r dapat disimpulkan apakah ada hubungan yang kuat atau sama sekali tidak ada hubungan dalam kedua variabel tersebut. Sedangkan untuk nilai koefisein regresi maka kita akan melihat lebih jauh lagi untuk mengintrepretasikan nilai tersebut. Kita dapat menyimpulkan karena nilai dari data mentah antara variabel X dengan Y sudah berbeda. Karena nilai X dan Y mempunyai perbedaan yang besar sehingga nilai koefisiennya menjadi besar. Setiap pengaruh nilai satu independent maka akan berdampak besarnya sesuai dengan koefisen yang dihasilkan.</p>
+<p>Kertebatasan
+Sebagai model awal yang menunjukkan hubungan anatara variabel indpenden dan variable dependen ilmu ini adalah atau metode yang memberikan suatu pengetahunan dalam mencari hubungan tersebut. Ada beberpa variabel yang sebelumnya belum diketahui dan mungkin hanya estimasi tersbeut.
+Perhitungan tersebut menghasilkan suatu hubungan yang merata ataupun hubungan seberapa besar pengaruh atau pengganda tersebut dalam koefisien regresi.</p>
+</div>
+<div id="regresi-linear-dengan-kategori" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Regresi linear dengan kategori<a href="regresi-linier-sederhana.html#regresi-linear-dengan-kategori" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bagaimana kita bisa melakukan regresi linear dengan data kategori atau variabel independennya adalah variabel bebas. Hal itu bisa saja. Kalau kita menganggap ada perbedaan antara nilai mahasiswa dan mahasiswi maka kita akan bisa melihat perbedaan keduanya, misalnya Y=a + bx pada saat nilai untuk perempuan maka nilanya adalah alpha saja sedangkan pada saat pria ada nilai alpha plus beta.
+Untuk melakukan regresi kita bisa melakukan hal itu dengan hati-hati. Kedua regresi ini akan menujukkan dua perbedaan karena adanya variable dikotomi tersebut. Untuk membedakan variable mana yang satu dan mana yang nol berdasarkan kebiasaaan saja. Misalnya kebiasaan dari dalam memilih sebuah regresi kategori untuk nilai nol (0) adalah dengan jenis kelamin perempuan dan juga maka akan ada yang dapat nilai satu (1) untuk nilai untuk laki-laki.
+Adapun regresi dengan nilai kategori karena terjadinya perbedaan yang cukup kentara atau signfikan dari kedua kategori tersebut. Di negeri belahan Timur seperti Indonesia, kita tahu ada suatu diskriminasi upah antara pria dan wanita. Pria lebih menerima banyak upah karena hasil pekerjaan mereka lebih banyak dari para wanita.
+Ketika ada dua hubungan yang berbeda ini maka akan dapat menjadikan nilai persamaan regresi bisa saja menjadi bias.</p>
+</div>
+<div id="latihan" class="section level2 unnumbered hasAnchor">
+<h2>Latihan<a href="regresi-linier-sederhana.html#latihan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Jawabalah pertanyaan dengan kata yang tepat</p>
+<ol style="list-style-type: decimal">
+<li><p>Jelaskan Konsep regresi linear menurut anda?</p></li>
+<li><p>Apa maksud Koefisen Korelasi tersebut?</p></li>
+<li><p>Apakah wajib dalam menjelaskan regresi menggunakan diagram Scatter?</p></li>
+<li><p>Anda mendapatkan pengetahuan variable bebas A dan variable tidak bebas B , bagaimana anda menenutukan garis regresi linear yang terbaik</p></li>
+<li><p>Pada setiap regresi ada residual atau sisa? Jelaskan apa maksud resisdual positif dan residual negative?</p></li>
+<li><p>Hasil output menunjukkan jika persamaan regresi adalah y=3x +5 apa arti dari persamaan regresi diatas?</p></li>
+<li><p>Dalam regresi ada namanya prediksi dan estimasi . apa perbedaan dari keduanya?</p></li>
+<li><p>Apakah heteroskedatisitas digunakan dalam regresi linier sederhana? Jelaskan?</p></li>
+<li><p>Jelaskan bagaimana variable independent dapat menjelaskan variable dependen?</p></li>
+<li><p>Jika nilai R square sekitar 0,90. Apakah artinya itu?</p></li>
+</ol>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pendahuluan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresi-linier-berganda.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

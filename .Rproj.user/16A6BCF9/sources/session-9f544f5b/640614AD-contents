@@ -1,0 +1,242 @@
+# Pendahuluan 
+
+Dalam waktu penelitian kita membutuhakan hal sesuatua yang menyeelsaikan permasalahan kita. Manusia mempunyai naluri untuk menyelesaikan masalah sendiri. Dahulu banyak sekali hal yang bisa kita carikan. Hal mencari soulusi yang akan ada untuk mencari yang memudahkan hidup mereka sendiri. 
+Ada hal yang selalu berubah itu kita tidak pungkisiri seperti itu. Kita kesulitan untuk memprediksi suatua atau beberapa hal. Dalam regresi kita akan melihat hubungan antara satu dengan variabel yang lainnya . Kita bisa memprediksi satu variabel tersebut dengan caa melihat variabel yang lain. 
+Sifat asli manusia yang mempunyai rasa ingin tahu dan mencari faktor yang menjadi pneghubung. Kenapa sesuatua yaitu faktor independen mempunyai pengaruh. Ada beberapa pengaruh yang harus di cari untuk menerangkan hal yang lain. 
+Dalam buku ini saya akan menyajikan pengenalan terhadap regresi itu sendiri. *Regresi adalah sesuatu metode perhitungan atau kalkulasi dari covarian berhubungan antara variabel bebas dan juga variabel tak bebas.* Dari nilai ini kita akan dapat menduga nilai hubungan yang erat yang diwakili dengan nilai satu sampai dengan nilai 0. Sesudah itu akan diterangkan konsep dasar statistik mengenai regresi. Kita tahu regresi adalah berbeda dnegan stataistik sebelumnya yakni stataistik deskriptif. Untuk kalkukasi regresi termasuk da;lam stataistik analisis. Dari sini seorang mulai menganalisis data yang sudah ada berita megenai hubungan antara kedua data. 
+Sebelumnya juga ada suatau ulangan mengenai apa itu stataistik. Pengenalan regresi akan ada pada variabel. Variabel yang merupakan nilai dari kharakteristik suatu sample. Kita mendapat nilai tersebut untuk dihubungkan dengan dengan yang lain. Penulis memandang penting agar para pembaca bisa untuk memahami maksuda dari model analisis regresi tersebut. 
+Setelah penegnalan maka masuk ke dalam regresi sederhana yang hanya memuat satu variabel independen saja. Dalam regresi sederhana , maka faktor dependen atau variabel terikat hanya terpengaruh dari satu variabel saja. Ada variabel dominan yang dapat mempengaruhi suatu faktor seperti hubungan anatara penghasilan dengan kepandaian. Bisa jadi nilai kepandaian atau variabel kepandaian tersebut dapat ubtu mempengaruhi penghasilan orang.
+Karena hanya satu variable maka rasanya kurang untuk menghitung hanya satu variabel saja arenanya ada regresi dengan eberapa faktor independen. Faktor-faktor inilah yang diduga dengan bersama-sama turut dalam memepgaruhi variabel indeonden tersbeut. Dengan regresi yang begitu komplek tersebut maka akan ada sejumlah asumsi. 
+Sebelum ke asumsi namanya regresi juga mempunyai syarat yang harus dipenuhi. Appaun model analisis juga harus memenuhi syarat. Dari syarat tersebut nanti kita akan mendapatkan sutaua bentuk peramalan yang sesuai atau sedikit kesalahan. Peramalan yang baik adalah peramalan yang bukan memiliki kesalahalan akan tetapi peramalan yang baik adalah yang kesalahannya sedikit. Dengan adanya asusmi linear itu akan memastikan kalau model sudah cukup untuk memenuhi kriteria peramalan yang baik. 
+Adapun asumsi linear yang harus dipenuhi seperti multikolinearitas, autokorelasi, heteroskedatisitas dan lainnya. Dalam regresi linear juga harus mempertimbangkan asumsi normal. Data harus terdistribusi normal agar setiap bentuk pendugaan akan benar. 
+Setelah regresi selesai maka ada evaluasi model dengan ebebrapa kriteria seperti nilai MSE dan MAE. Dengan penulaian seperti ini kita akan mengetahu ada regresi yang baik. Buku ini ditutup dengan studi kasus agar setiap pembavca dapat mempelajari kasus apa yang terjadi. Hal ini akan bisa untuk semakin mendalami maksud dari pelajaran regresi kali ini. 
+
+# Regresi Linier Sederhana
+
+Regresi Linear Sederhana 
+
+Grafik Pencar atau Scatter Graph 
+Salah satu hal yang penting adalah ketika kita mau menduga hubungan antara variabel X dengan variabel Y  yakni dengan scatter graph. Dengan gambar yang ada hubungan. Variabel Y akan kita tempatkan di bagian  vertikal atau bagian yang menghadap ke atas sebaliknya dengan bagian X yang mendatar seperti horizontal. 
+
+ 
+Kita memasangkan sesuai dengan pasangan nilai data tersebut X dan Y. Jangan pasang teracak agar kita bisa melihat hubungan antara keduanya. Pasangan data tersebut adalah yang termasuk dalam individu misalnya ada seorang yang mempunyai pendapatan X dengan pengeluaran Y maka nilai itu yang kita pasangkan bukan malah membuat pendapatan seorang tertentu dengan pengeluaran yang lain karena itu akan menjadi berbeda nilainya. 
+Dari hubungan tersebut akan membentuk scatter graph. Ada sejumlah titik-titik yang menyebar atau mengumpul di sekitar grafik pencar scatter graph tersebut. Titik titik itu mewakili banyak individu yang memiliki nilai dari kedua variabel X dan Y.
+Banyaknya kumpulan titik atau scatter itu bergantung dari banyaknya daat tersebut. Semakin banyak jumlah data yang dibuat sampel adalah dengan dimasukkan dalam grafik tersebut. Ada beberapa hal yang dapat kita pelajari dari scatter plot seperti:
+1.	Pola dari titik tersebut mempunyai pola seperti cenderung mengumpul di satu tempat karena nilanya mempunyai yang sama 
+2.	Trend. Kita dapat melihat suatu trend ketika ada satu garis yang bisa kita tarik pada titik tersebut dan kita menunjukkan ada yang bisa menunjukan garis ke atas atau bahkan tidak memiliki trend. 
+3.	Outlier. Outlier adalah nilai yang terpencil . Ia hanya sendiri dan jauh di pinggir atau ditengah nilai-nilai yang lain karenanya disebut outlier. Outlier tentu sedikit dan ini menyebabkan data tidak normal. 
+
+
+Regresi Linear adalah salah satu cara untuk melihat hubungan antara variabel bebas dengan variabel tidak bebas. Dalam hal ini yang mempengaruhi adalah variabel yang bebas sedangkan yang dipengaruhi adalah variabel tidak bebas. Dalam regresi hanya mengenal satu arah saja pengaruh yakni variabel bebas terhadap variabel dependen dan bukan sebaliknya. 
+Pembatasan itu dengan tegas agar dalam mencari hubungan tidak akan ada kekeliruan. Misalnya pengaruh garam terhadap darah tinggi maka dari sini kita akan mencari hubungan antara garam dengan darah tinggi. Garamlah yang mempengaruhi tingginya tekanan darah (tensi) seseorang. Dengan alasan ilmiah dan penjelasan kalau zat garam akan meningkatkan tekanan darah tersebut. Kita tentu tidak akan menempatkan garam sebagai hal yang dependen tetapi ia adalah sesuatau yang bebas dalam hal ini karenanya ia mempengaruhi tekanan darah tinggi. Apakah ia akan menjadi faktor yang dipengaruhi. Hal itu bisa saja kalau dalam konteks yang lain misalnya kalau garam itu akan dipengaruhi oleh jumlah sinar matahari yang menerpa bumi.
+Regresi linear pertama kali dikenalkan oleh Galton yang menemukan adanya hubungan tinggi anak dengan tinggi orang tuanya. Ia menghitung jumlah banyaknya anak yang mempunyai dengan tinggi orang tuanya. Hal ini berkaiatan dengann keturunan atau hereditas. Galton ingin menemukan apakah ada tinggi orang tua akan mempengaruhi tinggi sang anak.  
+Regresi linear hanya memeriksa antara hubungan variabel beas dengan variabel tidak bebas. Dalam regresi ini karena hanya ada satu maka disebut juga regresi linier sederhana (simple linear regression).  Metode seperti ini dipakai seperti di ilmu bisnis, ekonomi, manajemen, komunikasi dan ilmu sosial lainnya. 
+Dalam regresi sederhana kita akan menggambarkan hubungan dengan garis y= a+ bx. Persamaan ini dihasilkan dari perhitungan regresi terhadap dua variabel tersbeut. Untuk nilai b diperoleh dengan perhitungan jelaskan dulu mengenai perhitungan ada simpangan x dengan simpangan y dibagi dengan jumlah sample atau n. maka bisa dilihat seperti ini. Kemudian nilai a diperoleh dari nilai y rata-rata dikurangi b dikalikan dengan nilai rata-rata X dan akan kita peroleh  nilai a tersebut. Bisa saja dengan menggunakan nilai perhitungan komputasi seperti Excel atau menggunakan software statistic lainnya. 
+Dimana a = nilai intercept atau nilai konstanta
+               b = koefisen slope atau kemiringan 
+Nilai a adalah konstanta ini adalah nilai awal dari persamaan  suatu garis persamaan regresi tersebut. Nilai ini selalu ada. Hal yang ketika terjadi nilai regresor tersebut nol maka tetap saja nilai untuk Y prediksi tetap ada. Inilah nilai yang dinamakan nilai konstanta. Terkadang nama konstanta atau alpha disebut juga intercept sedangkan Beta dinamakan juga slope parameter atau ada juga yang menamakannya parameter. 
+Y (x=0) = a + bx 
+Y = a + 0.x = a 
+Nilai b ini menunjukkan kemiringan dari garis yang menunjukan hubungan antara y dengan X nilai positif berarti nilai yang menunjukkan seiringan atau hubungan yang sama-sama naik atau sama-sama turun. Ketika variabel independen mempunyai nilai yang positif maka akan merubah juga variabel dependen juga akan turut berubah menjadi positif. Bagaimana kalau nilai alpha menjadi 0 maka nilai persamaan tersebut akan memotong garis x karena tidak ada nilai alphanya. 
+Pengaruh nilai independen bergantung dengan koefisein semakin besar maka satau perubahan akan menjadi lebih besar dengan kemiringan yang curam sekali. Misalnya Y = 0,1 + 10 X berarti pengganda dari nilai regresi tersebut akan semakin besar dengan nilai tersebut. Jika nilai kurang dari 1 namun masih nilai positif maka kemiringan tetap ke sebelah kanan jadi nilai X meningkat namun dengan peningkatan nilai tersebut semakin kecil bukan besar. Untuk nilai yang negatif menunjukkan nilai tersebut adalah saling bertolak belakang. Ketika variabel independen bergerak naik maka yang terjadi adalah variabel dependen akan menurun dan sebaliknya. Hubungan yang negatif berarti juga saling bertolak belakang dan penambahan variabel independen akan mengurangi variabel dependen tersebut. 
+
+## Keterbatasan Regresi Linear 
+Metode regresi linear adalah metode yang mendapatkan cara untuk menyelidiki hubungan antara variabel dependen dengan variabel independen. Dengan regresi tersebut kita akan mendapatkan nilai korelasi dari persamaan tersebut. Dari dua data yang disamakan tersebut kita akan mendapatkan suatu persamaan r yang mempunyai nilai -1≤r≤1 dengan perincian terhadap berikut. 
+
+Nilai R 	Arti
+0,00 - 1,99	Sangat Lemah
+2,00 - 3,99	Lemah
+4,00 – 5,99	Sedang
+6,00 – 7,99	Kuat
+8,00 -1,00	Sangat Kuat
+
+Perbedaan nilai R2 dengan koefisien 
+Kalau koefisien menyebutkan nilai koefisen menunjukkan banyaknya atau kuatnya nilai regresi tapi hati-hati kalau hal tersebut adalah berhubungan dengan nilai r dengan nilai koefisen regresi. Baik r dan beta adalah koefisien kalau beta adalah koefisien regresi sedangkan nilai r adalah koefisein korelasi. Koefisien regresi adalah menunjukkan besarnya hubungan ada suatu hubungan yang menjadi pengganda (multiplier). Koefisien regresi juga menjadi unsur dalam persamaan regresi.  Hubungan ini menunjukkan akan ada besarnya pengali saja. Sedangkan koefisen korelasi adalah nilai yang menunjukkan adanya seberapa erat hubungan tersebut. 
+Nilai koefisein regresi menaksir atau meramal nilai Y terhadap nilai X, sedangkan kalau untuk nilai R tersebut memperkirakan keeratan hubungan. Apakah nilai tersebut mempunyai keeratan dari nilai r tersebut. Nilai dalam korelasi r dapat disimpulkan apakah ada hubungan yang kuat atau sama sekali tidak ada hubungan dalam kedua variabel tersebut. Sedangkan untuk nilai koefisein regresi maka kita akan melihat lebih jauh lagi untuk mengintrepretasikan nilai tersebut. Kita dapat menyimpulkan karena nilai dari data mentah antara variabel X dengan Y sudah berbeda. Karena nilai X dan Y mempunyai perbedaan yang besar sehingga nilai koefisiennya menjadi besar. Setiap pengaruh nilai satu independent maka akan berdampak besarnya sesuai dengan koefisen yang dihasilkan. 
+
+Kertebatasan 
+Sebagai model awal yang menunjukkan hubungan anatara variabel indpenden dan variable dependen ilmu ini adalah atau metode yang memberikan suatu pengetahunan dalam mencari hubungan tersebut. Ada beberpa variabel yang sebelumnya belum diketahui dan mungkin hanya estimasi tersbeut. 
+Perhitungan tersebut menghasilkan suatu hubungan yang merata ataupun hubungan seberapa besar pengaruh atau pengganda tersebut dalam koefisien regresi. 
+
+## Regresi linear dengan kategori 
+
+Bagaimana kita bisa melakukan regresi linear dengan data kategori atau variabel independennya adalah variabel bebas. Hal itu bisa saja. Kalau kita menganggap ada perbedaan antara nilai mahasiswa dan mahasiswi maka kita akan bisa melihat perbedaan keduanya, misalnya Y=a + bx pada saat nilai untuk perempuan maka nilanya adalah alpha saja sedangkan pada saat pria ada nilai alpha plus beta. 
+Untuk melakukan regresi kita bisa melakukan hal itu dengan hati-hati. Kedua regresi ini akan menujukkan dua perbedaan karena adanya variable dikotomi tersebut. Untuk membedakan variable mana yang satu dan mana yang nol berdasarkan kebiasaaan saja. Misalnya kebiasaan dari dalam  memilih sebuah regresi kategori untuk nilai nol (0) adalah dengan jenis kelamin perempuan dan juga maka akan ada yang dapat nilai satu (1) untuk nilai untuk laki-laki. 
+Adapun regresi dengan nilai kategori karena terjadinya perbedaan yang cukup kentara atau signfikan dari kedua kategori tersebut. Di negeri belahan Timur seperti Indonesia, kita tahu ada suatu diskriminasi upah antara pria dan wanita. Pria lebih menerima banyak upah karena hasil pekerjaan mereka lebih banyak dari para wanita. 
+Ketika ada dua hubungan yang berbeda ini maka akan dapat menjadikan nilai persamaan regresi bisa saja menjadi bias. 
+
+## Latihan {-}
+
+Jawabalah pertanyaan dengan kata yang tepat
+
+1.	Jelaskan Konsep regresi linear menurut anda? 
+
+2.	Apa maksud Koefisen Korelasi tersebut?
+
+3.	Apakah wajib dalam menjelaskan regresi menggunakan diagram Scatter?
+
+4.	Anda mendapatkan pengetahuan variable bebas A dan variable tidak bebas B , bagaimana anda menenutukan garis regresi linear yang terbaik 
+
+5.	Pada setiap regresi ada residual atau sisa? Jelaskan apa maksud resisdual positif dan residual negative?
+
+6.	Hasil output menunjukkan jika persamaan regresi adalah y=3x +5 apa arti dari persamaan regresi diatas?
+
+7.	Dalam regresi ada namanya prediksi dan estimasi . apa perbedaan dari keduanya?
+
+8.	Apakah heteroskedatisitas digunakan dalam regresi linier sederhana? Jelaskan?
+
+9.	 Jelaskan bagaimana variable independent dapat menjelaskan variable dependen?
+
+10.	Jika nilai R square sekitar 0,90. Apakah artinya itu? 
+
+# Regresi Linier Berganda
+
+Suatu faktor bukan dipengaruhi satu faktor saja. Seorang yang sukses bukan berasal dari ayah atau ibu yang sukses saja karena ada faktor lain. Ada anak orang kaya yang menjadi miskin karena tidak bisa mengelola harta ayahnya saja. Pada anak yang miskin ia bisa mendapatkan pendidikan dan ia meraih kekayaan yang melimpah karena keahliannya. Dalam praktik regresi linier sederhana sulit sekali dipraktekkan dan pencarian nilai tersebut hanya sederhana untuk mencari faktor yang dapat mempengaruhi faktor independen lainnya. 
+
+Adanya regresi berganda karena keterbatasan regresi linear itu maksudnya yang sederhana karena tidak mungkin bahwa hal yang mempengaruhi tersebut hanya satu faktor. Sangat sederhana kalau suatu peubah dipengaruhi oleh beberapa peubah yang lainnya. 
+
+Kita bisa melihat kalau nilai r square itu begitu rendah sekali karena pengaruhnya sedikit sekali. Maka kita harus mencari peubah lain yang akan mempengaruhi juga dan akan meningkatkan nilai R kuadrat. Memang tidak ada jaminan kalau peningkatan variabel atau peubah akan membuat nilai R squared akan meningkat terus. Dalam ilmu pengetahuan kita selalu mengeksplorasi dengan factor-faktor yang lain agar bisa mencari yang paling berpengaruh. Terkadang memang faktor yang diduga tidak berpengaruh maka ternyata membuatnya berpengaruh, Memang dalam regresi kita tidak tahu mana faktor yang paling yang paling berpengaruh tersebut. 
+Sampai saat ini belum ada ukuran yang jelas mengenai hal tersebut kalu dalam penggunaan yang sama. Namun dalam penggunaan determinasi yang satu mungkin akan terlihat mana faktor yang berpengaruh. Tetapi kalau sudah tercampur terkadang sulit juga karena bias, jadi pengaruh tersebut akan berbeda? 
+
+Dari matriks kita bisa melihat peramalan dalam meregresi nilai X atau beberapa variabel independen. Kita lihat perhitungannya sampai sudah rumit apalagi dengan banyak sekali variabel yang ada. Kalau regresi dua faktor hanya ada dua dimensi maka akan ada banyak dimensi. Dimensi ini akan mampu menjelaskan hubungan dari variable independent dan juga variable dependen. 
+Adapun tujuan dari regresi adalah mencari garis persamaan yang dapat digunakan untuk meramal nilai prediksi Y atau variabel independennya sama seperti yang terjadi pada suatu masa. Terkadang data tersebut akan dapat berguna bagi banyak hal sebagai bentuk untuk menilai kebijakan yang akan diterapkan baik oleh organisasi besar dan kecil maupun juga individual yang akan menentukan kebijakan tersebut. 
+Metode regresi linier mempunyai arti adalah untuk mencari hubungan satu variabel tidak bebas atau dependen terhadap beberapa variabel bebas lainnya. Sama halnya regresi sederhana, dalam regresi linier berganda kita akan menguji apakah beberapa variabel bebas akan dapat mempengaruhi dari variabel tidak bebas tersebut. 
+Hasil dari regresi adalah    persamaan regresi yang terdiri dari nilai Y terhadap nilai X dengan nilai koefisien seperti nilai variabel satu, variabel dua, dan selanjutnya. Nama dari hasil ini disebut juga persamaan regresi dan juga namanya adalah model regresi.
+Jika sudah mempunyai masalah dan ingin mengeksplore variabel atau peubah apa saja yang dapat digunakan untuk regresi maka kita dapat melakukan hal seperti ini. Anda harus tahu bahwa variabel yang akan anda cari adalah variabel yang benar-benar berpengaruh. Kalau variabel asal kita sambungkan saja maka kita tidak akan mendapatkan hal yang seperti harapan kita. Kita mengharapkan akan mendapatkan sesuatu yang baik.
+Hal pertama yang kita bisa lakukan adalah mengumpulkan data yang sesuai dengan tujuan penelitian atau variabel yang kita selidiki. Semuanya harus terkumpul.  Semua yang akan dapat kita olah ke dalam regresi tersebut. 
+Penting untuk menata data tersebut dan mengorganisasikan data tersebut. Sebelumnya kita lihat terlebih dulu di tabel apakah ada data outlier. Mungkin agak sulit sekali kalau kita mengandalkan tabel untuk mencari outlier. 
+Setelah itu kita mengeksplorasi data analisis. Sebelum regresi ini bisa dilakukan bagi yang berpengalaman dari grafik akan dapat menduga apakah semua ini akan menjadi nilai estimasi yang baik atau tidak? Justru awal ini adalah mendeteksi ada kemungkinan kita akan melihat adanya hal yang tidak sesuai dengan data yang hendak kita regresi.
+Setelah itu kita bisa melihat adanya outliers. Data di grafik tersebut maka kita akan melihat adanya outlier yang ada. Penting mempertimbangkan adanya outlier ini. Outlier adalah salah satu nilai yang berbeda dari kebanyakan rata-rata. Nilai dari outlier dapat membuat hasil dari model regresi bias. 
+Kita harus memastikan data yang kita dapatkan adalah data yang obyektif dan memenuhi syarat. Terkadang kita mengumpulkan data yang salah. Apalagi sampai menggunakan data yang salah ini menjadi permasalahan tersendiri. 
+Setelah itu lakukan regresi untuk menghitung atau mengkalkulasi nilai dari persamaan regresi tersebut. Kita akan mendapatkan nilai R kuadrat atau yang dikenal dengan R Square tersebut. Nilai R2 akan mencapai sekitar 100% namun kemungkinan itu tidak ada karena kalau ada yang 100% maka patut kita curigai. Kemudian kita akan mencari nilai F tersebut yang sudah dihitung. Nilai ini adalah nilai signifikasi dari model yang kita buat. 
+Setelah itu kita bisa untuk menilai dari variabel yang sesuai dengan nilai signifikasi. Tidak semua yang akan ada akan ada maka akan membuat semuanya signifikan karena ada saja yang hasilmya berbeda sesuai dengan data yang ada. 
+Terakhir kita harus melihat juga asumsi model. Kita akan memastikan nilai dari persamaan regresi sudah “benar”. Hasil regresi itu tidak bisa dikatakan benar atau salah karena semuanya ada perhitungannya.
+
+## Goodnes of fit
+
+Untuk mendapatkan nilai yang paling baik adalah hal yang diinginkan. Tentu tidak memaksakan sesuatu hal yang akan menjadikan sesuatunya tidak benar atau tidak shahih dan valid. Kita dapat memeriksa nilai dari residu yang merupakan nilai Y aktual dengan Y prediksi atau sering disebut Y topi. Nilai ini merupakan nilai dari total semua residu. Sedangkan di sisi lain adalah kita menilai nilai Y dengan nilai y rata-rata dari variabel Y tersebut yang bisa jadi akan nilainya besar. Kemudian kita juga memperlihatkan nilai selisih antara Variabel Y dengan regrsi dalam nilai tersebut nilai SST yang besar sangat diharapkan menandakan nilai yang baik juga. Kemudian ada juga Nilai SSE atau nilai Sum Square Explained adalah nilai yang paling diharapkan tinggi. Ini adalah selisih nilai y aktual dengan nilai y rata-rata. Sedangkan nilai dari SSR adalah sum square dari residual dan nilai ini adalah nilai y prediksi dengan y aktual. 
+
+Sum Square Total = SST = SSR + SSE 
+Dari nilai ini kita akan memperoleh nilai R squared atau R kuadrat yang rumusnya adalah SSE/SST. Oleh karena itu yang diharapkan adalah nilai R2 besar sekali. Karena semakin nilai itu besar sekali akan menunjukkan bahwa ada hubungan yang mempunyai porsi besar sekali.
+Kita juga harus bisa membandingkan dengan nilai adjusted R square yang membandingkan dengan berbagai variabel atau variabel yang lebih dari satu. Cara Adjusted R square ini adalah cara yang lebih konservatif dalam menjelaskan kesesuaian (fit) model. Adapun rumus dari adjusted R Square adalah sebagai berikut  ini: 
+Adjusted R2 = 1-[(1-R2)*(n-1)/(n-p-1)]
+Nilai ini adalah jumlah obesravsi atau jumlah data yang dilibatkan dalam regresi. Dengan demikian nilai R square adjusted itu lebih digunakan pada waktu regresi terhadapa variable ini lebih dari dua variable bebas. Hal ini ada seperti penyesuaian dengan niai R2 tersebut. 
+Nilai yang paling penting adalah nilai F. Nilai yang diperoleh dari nilai ANOVA ini menunjukkan kesesuaian model (fit of model). Kalau nilai dari F signifikan ini lebih kecil dari 0,05 dalam nilai ini adalah nilai yang baik. Kalau sebaliknya nilai peluang (probability value) adalah lebih besar maka tidak diterima model tersebut. Ada yang menjadi masalah dalam model tersebut. Itu yang dapat kita ketahui. Kalau model tersebut mungkin kita pikirkan model yang lain yang dapat kita jadikan model yang baru tersebut. 
+Setelah yakin bahwa model tersebut sah kita melihat beberapa variable independent yang diduga mempengaruhi variable dependen tersebut. Kita melihat nilai t yang ada pada bagian setiap variable yang ada. Kalau nilai t hitung dalam hal ini t hitung yang dikalkulasi oleh software. Nilai t itu mempunyai nilai mutlak yang lebih besar daripada nilai table IthitungI > IttabelI. Nilai dalam kurung menunjukan nilai mutlak dari t. Ketika nilai t hitung positif maka nilai yang paling besar juga akan menjadi niai yang paling besar. Kalau nilai negatf maka nilai tersebut nilai yang paling besar. Sejatinya nilai minus yang paling besar adalah nilai yang kecil namun karena masuk dalam nilai mutlak maka nilai minus yang besar menjadi nilai yang paling besar. Masalah penerimaan ini juga bergantung dengan uji nilai yang untuk ditetapkan. Ada uji yang dua arah dan ada juga uji satu arah bergantung dengan kebutuhan yang dibutuhkan oleh regresi tersebut. 
+Adapun daerah penolakan tersebut terkait dengan dua arah, Jika berada dalam jangkauan t table maka kita dapat menolak hipotesis yang menyatakan bahwa ada pengaruh pada variable tersebut.  
+
+## Scatter diagram 
+Mungkin sulit menggambarkan hubungan antara lebih dari satu variable. Kalau satu variable mungkin kita akan menyambungkan atau menghubungkan variable dengan variable independennya.  Sejak awal saya kira semua variabel akan digambarkan dengan bentuk grafik 3D.  Apa jadinya kalau variable tersebut lebih dari tiga, empat, lima dan bahkan enam,  sulit pastinya mellihat dengan mengambarkan beberapa dimensi yang banyak sekali. Tentu saja scatter masih relevan karena itu menunjukkan hubungan antara variable independent dengan variable dependen. 
+ 
+ Analisis grafik untuk mengidentifikasi pola, trend, atau perubahan sesuai waktu untuk time series namun untuk data cross section bisa menggunakan hubungan dengan variabel lain. 
+ 
+Scatter diagram ini adalah bagian yang penting dalam regresi berganda karena inilah yang menggambarkan hubungan antara variable independent dengan variabel dependennya. Titik-titik tersebut akan memberikan suatau gambaran atau pola dari hubungan tersebut. Setidaknya ada empat macam dari hubungan yang kita bisa perkirakan adalah sebagai berikut :
+1.	Tidak ada korelasi 
+2.	Korelasi Lemah 
+3.	Korekasi Kuat 
+4.	Korelasi sempurna
+
+ 
+Kemudian kita akan melihat dari jenis hubungan tersebut. Inilah yang menandakan adanya hubungan atau korelasi. 
+1.	Korelasi positif 
+2.	Korelasi negative 
+3.	Korelasi non linear 
+
+Salah satu contoh adalah menggunakan seperti ini, Scatter bis adilihat di sini \@ref(fig:scatter-fig)
+
+```{r scatter-fig, fig.cap='Grafik Scatter Horse Power dan Milage', fig.path="docs/images/"}
+hpMpg <- mtcars[,c('hp','mpg')]
+plot(x = hpMpg$hp,y = hpMpg$mpg,
+     xlab = "Horse Power",
+     ylab = "Milage",
+     xlim = c(50,350),
+     ylim = c(10,35),        
+     main = "Horsepower vs Milage"
+)
+```
+
+
+ 
+Istilah 
+Korelasi : Hubungan anatara suatau variable dengan suatu variable 
+Regresi : Metode Statistik untuk mencari hubungan antara peubah bebas terhadap peubah tidak bebas 
+Model regresi : model prediksi yang merupakan hasil regresi 
+Outlier : data yang nilainya berbeda dari banyak data umumnya atau rata-ratanya. 
+R kuadrat : Nilai yang menunjukkan porsi pengaruh variable independent terhadap variable dependen
+Adjusted R square : Nikalia R kuadrat yang sudah di sesuaikan 
+Goodness of fit : Dalam Bahasa Indonesia keseuaian model ini menunjukkan model dari regresi yang sudah sesuai
+Scatter Diagram: diagram pencar adalah titik yang menghubungkan antara variabel bebas dan varaibel tidak bebas
+
+## Latihan {-} 
+B-S Pada regresi berganda yang menjadi variable independent boleh lebih dari satu sedangkan variabel dependen hanya satu saja. 
+B-S Pada regresi variable dependen boeh saja menggunakan variable dummy dan variable gabungan yang lainnya 
+B-S Regresi dapat menunjukkan kekuatan dalam satu variable independent terhadap variable dependen
+B-S Data outlier adalah data yang berbeda dengan lainnya dan menyebabakan kerusakan dalam regresi. 
+B-S Uji t untuk menunjukkan hubungan yang signifikan variable dependen terhadap variable independent 
+B-S untuk melihat apakah regresi tersebut sudah baik kita dapat melihat nilai Chi Square
+B-S Autokorelasi bias terjadi dalam regresi linier berganda dan dapat menyebabkan kesalahan 
+B-S Kalau kita menggunakan vairabel dummy adalah variable yang digunakan untuk membedakan antara varabel yang mempunyai kategori. 
+B-S Nilai Adjusted R Square selalu lebih besar daripada nilai R Square karena ada tambahan berupa penyesuaian nilai banyaknya variable. 
+
+Soal 
+1.	Buatlah model dengan cara menilai kesehatan tulang untuk yang segar dengan orang yang sakit sehingga bisa mengembangkan dengan bisa membedakan yang berolahraga ataupun yang tidak?
+
+2.	Asumsi apakah yang harus dipenuhi dalam regresi logistik coba jelaskan hal itu?
+
+3.	Pada Altman Z Score setidaknya Z Score dibagi menjadi dua dan ada wilayah abu. saya akan gabungkan wilayah abu ke dalam wilayah yang bangkrut. Akankah ini dibenarkan ? Bagaimana cara menjelaskannya?
+
+4.	Dalam asumsi ternyata tidak ditemukan maka yang sesuai goodnes of fit atau kebaikan model. Bagaimana mengatasi hal tersebut? 
+
+5.	Kalau di regresi logit maka iti kita lihat kalau kita melihat ada yang berbeda maka itu seperti variabel dikotomi maka akan bisa melihat misalnya dikotomi dari kesehatan jantung untuk satu dan kesehatan lainnya?
+
+6.	Pada suatu hasil regresi ditunjukkan nilai R squarenya adalah 75%. Carilah nilai Adjusted R square model tersebut jika jumlah sample 30 dan variable bebasnya ada tiga? 
+
+7.	Carilah contoh beberapa variable independent yang mempengaruhi kepuasan pelanggan?  
+
+8.	Sebutkan beberapa kemungkinan yang ada dari regresi berganda?
+
+9.	Apakah semakin banyak variable independent akan meningkatkan nilai R Square. Coba jelaskan jawaban anda?
+
+10.	Apakah beda korelasi dengan regresi? 
+
+## Regresi dengan menggunakan Data Panel 
+
+Mengelola data panel di RStudio untuk mengestimasi persamaan regresi dan mencari pengaruh variable independent terhadapa variable dependen. 
+Salah satu metode untuk mencari pengarih variable adalah dengan data panel. Pengaruh seperti ini adalah untuk kita dapat mengestimasi daripada variable dependen. Data panel adalah data kumpulan dalam bentuk 
+
+### Membuat Struktur Data Panel 
+Rstudio berbeda dari perangkat lunak (software) statistik lainnya. Untuk mengelola dalam analisis appaun membutuhkan struktur data dalam bentuk rstudio. Kalau software lain cukup menyalin dan menempel (copy and paste) data spreadsheet baik itu Excel atau Google Spreadsheet dan langsung dapat untuk mengelola data namun untuk RStuido harus merubahkan dalam bentuk model data yang dikenal oleh Rstudio. 
+Langkahnya adalah mengimpor file speadhheet dan membuat ebberapa pengaturan yang relative mudah untuk membuat data anda mudah diolah. Khusus untuk analisis panel maka yang dibutuhkan bentuk data atau struktur dari data pdata.frame yang merupakan singkatan panel data frame. Ini berbeda dengan data frame biasa di rtsuido karena ini mempertimbangkan dimensi individual dan juga dimensi waktu. Perlakukan inilah yang membuat berbeda. 
+Disebelak kana anda dapat mengklik import data set dan pilihlah excel. Ada beberapa pilihan lain seperti spss sas, stata, text dan lain-lain. KAlau mempunyai speadsheet maka pilihlah excel. 
+Setelah itu anda akan mmeilih beberapa sheet. Kalau anda bekerja dalam banyak sheet di satu file maka anda harus memilih salah satu sheet. Dibawah itu anda pilih. Maka anda harus meperhatikan kerapihan dari text yang anda buat. Misalnya ada sela diantara judul table dan juga isi data maka di table yang kosong itu akan tertulis NA atau Not Available yang berarti data tidak tersedia. 
+Menyiapkan excel sebagai data
+Untuk menyusun data maka yang bisa kita lakukan adalah dengan data. Karena data dnegan speadhseet kita lebih mudah. Kita bisa menyusun dengan data seperti contoh dibawah ini
+
+```{r}
+tobinq <- read.csv2("~/jurnal/tobinq3.csv")
+#setelah data diupload saya akan membuat data frame khusus panel yang disebut pdata frame dengan seperti ini. jangan lupa gunakan library plm
+library(plm)
+ptobinq=pdata.frame(tobinq,index=c("Comp","Tahun"),drop.index = TRUE,row.names=TRUE)
+```
+Setelah data sudah benar masuk kita dapat mengecek struktur dari data tersebut
+```{r}
+str(ptobinq)
+```
+Sudah benar maka langkahnya adlah mennetukan jenis regresi data panel yang akan kita lakukan. Kemudian sesuai langkah yang sudah kita rencanakan adalah awalnya dengan melakukan regresi dari ketiga metode seperti Pooling (pooling), Fixed Effect (within) dan Random. Dalam contoh kali ini saya akan mennamakan kalau pooling adalah regplmtobinq, untuk fixed effect adalah regplmtobinq2 dan untuk random adalah regplmtobinq3.  Dalam tiap perintah aka nada Namanya perintah summary yang artinya adalah menampilkan hasil regresi tersebut. 
+
+```{r}
+#Regresi Model Pooling 
+regplmtobinq<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="pooling")
+
+summary(regplmtobinq)
+
+#Regresi Model Fixed 
+regplmtobinq2<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="within")
+summary(regplmtobinq2)
+
+#Regresi Model Random Effcet
+
+regplmtobinq3<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="random")
+summary(regplmtobinq3)
+
+```

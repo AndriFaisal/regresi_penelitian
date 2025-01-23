@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab 4 Regresi Linier Berganda | Regresi Untuk Penelitian</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab 4 Regresi Linier Berganda | Regresi Untuk Penelitian" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 4 Regresi Linier Berganda | Regresi Untuk Penelitian" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="andri Faisal" />
+
+
+<meta name="date" content="2025-01-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regresi-linier-sederhana.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>2</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Sederhana</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#keterbatasan-regresi-linear"><i class="fa fa-check"></i><b>3.1</b> Keterbatasan Regresi Linear</a></li>
+<li class="chapter" data-level="3.2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#regresi-linear-dengan-kategori"><i class="fa fa-check"></i><b>3.2</b> Regresi linear dengan kategori</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#latihan"><i class="fa fa-check"></i>Latihan</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>4</b> Regresi Linier Berganda</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#goodnes-of-fit"><i class="fa fa-check"></i><b>4.1</b> Goodnes of fit</a></li>
+<li class="chapter" data-level="4.2" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#scatter-diagram"><i class="fa fa-check"></i><b>4.2</b> Scatter diagram</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#latihan-1"><i class="fa fa-check"></i>Latihan</a></li>
+<li class="chapter" data-level="4.3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#regresi-dengan-menggunakan-data-panel"><i class="fa fa-check"></i><b>4.3</b> Regresi dengan menggunakan Data Panel</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#membuat-struktur-data-panel"><i class="fa fa-check"></i><b>4.3.1</b> Membuat Struktur Data Panel</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>5</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>5.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="5.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>5.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>6</b> Parts</a></li>
+<li class="chapter" data-level="7" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>7</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>7.1</b> Footnotes</a></li>
+<li class="chapter" data-level="7.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>7.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>8</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>8.1</b> Equations</a></li>
+<li class="chapter" data-level="8.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>8.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="8.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>8.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html"><i class="fa fa-check"></i><b>9</b> Asumsi Regresi Linear</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#multikolinearitas"><i class="fa fa-check"></i><b>9.1</b> Multikolinearitas</a></li>
+<li class="chapter" data-level="9.2" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#autokorelasi"><i class="fa fa-check"></i><b>9.2</b> Autokorelasi</a></li>
+<li class="chapter" data-level="9.3" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#heteroskedatisitas"><i class="fa fa-check"></i><b>9.3</b> Heteroskedatisitas</a></li>
+<li class="chapter" data-level="9.4" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#asumsi-normalitas"><i class="fa fa-check"></i><b>9.4</b> Asumsi Normalitas</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regresi Untuk Penelitian</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regresi-linier-berganda" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Bab 4</span> Regresi Linier Berganda<a href="regresi-linier-berganda.html#regresi-linier-berganda" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Suatu faktor bukan dipengaruhi satu faktor saja. Seorang yang sukses bukan berasal dari ayah atau ibu yang sukses saja karena ada faktor lain. Ada anak orang kaya yang menjadi miskin karena tidak bisa mengelola harta ayahnya saja. Pada anak yang miskin ia bisa mendapatkan pendidikan dan ia meraih kekayaan yang melimpah karena keahliannya. Dalam praktik regresi linier sederhana sulit sekali dipraktekkan dan pencarian nilai tersebut hanya sederhana untuk mencari faktor yang dapat mempengaruhi faktor independen lainnya.</p>
+<p>Adanya regresi berganda karena keterbatasan regresi linear itu maksudnya yang sederhana karena tidak mungkin bahwa hal yang mempengaruhi tersebut hanya satu faktor. Sangat sederhana kalau suatu peubah dipengaruhi oleh beberapa peubah yang lainnya.</p>
+<p>Kita bisa melihat kalau nilai r square itu begitu rendah sekali karena pengaruhnya sedikit sekali. Maka kita harus mencari peubah lain yang akan mempengaruhi juga dan akan meningkatkan nilai R kuadrat. Memang tidak ada jaminan kalau peningkatan variabel atau peubah akan membuat nilai R squared akan meningkat terus. Dalam ilmu pengetahuan kita selalu mengeksplorasi dengan factor-faktor yang lain agar bisa mencari yang paling berpengaruh. Terkadang memang faktor yang diduga tidak berpengaruh maka ternyata membuatnya berpengaruh, Memang dalam regresi kita tidak tahu mana faktor yang paling yang paling berpengaruh tersebut.
+Sampai saat ini belum ada ukuran yang jelas mengenai hal tersebut kalu dalam penggunaan yang sama. Namun dalam penggunaan determinasi yang satu mungkin akan terlihat mana faktor yang berpengaruh. Tetapi kalau sudah tercampur terkadang sulit juga karena bias, jadi pengaruh tersebut akan berbeda?</p>
+<p>Dari matriks kita bisa melihat peramalan dalam meregresi nilai X atau beberapa variabel independen. Kita lihat perhitungannya sampai sudah rumit apalagi dengan banyak sekali variabel yang ada. Kalau regresi dua faktor hanya ada dua dimensi maka akan ada banyak dimensi. Dimensi ini akan mampu menjelaskan hubungan dari variable independent dan juga variable dependen.
+Adapun tujuan dari regresi adalah mencari garis persamaan yang dapat digunakan untuk meramal nilai prediksi Y atau variabel independennya sama seperti yang terjadi pada suatu masa. Terkadang data tersebut akan dapat berguna bagi banyak hal sebagai bentuk untuk menilai kebijakan yang akan diterapkan baik oleh organisasi besar dan kecil maupun juga individual yang akan menentukan kebijakan tersebut.
+Metode regresi linier mempunyai arti adalah untuk mencari hubungan satu variabel tidak bebas atau dependen terhadap beberapa variabel bebas lainnya. Sama halnya regresi sederhana, dalam regresi linier berganda kita akan menguji apakah beberapa variabel bebas akan dapat mempengaruhi dari variabel tidak bebas tersebut.
+Hasil dari regresi adalah persamaan regresi yang terdiri dari nilai Y terhadap nilai X dengan nilai koefisien seperti nilai variabel satu, variabel dua, dan selanjutnya. Nama dari hasil ini disebut juga persamaan regresi dan juga namanya adalah model regresi.
+Jika sudah mempunyai masalah dan ingin mengeksplore variabel atau peubah apa saja yang dapat digunakan untuk regresi maka kita dapat melakukan hal seperti ini. Anda harus tahu bahwa variabel yang akan anda cari adalah variabel yang benar-benar berpengaruh. Kalau variabel asal kita sambungkan saja maka kita tidak akan mendapatkan hal yang seperti harapan kita. Kita mengharapkan akan mendapatkan sesuatu yang baik.
+Hal pertama yang kita bisa lakukan adalah mengumpulkan data yang sesuai dengan tujuan penelitian atau variabel yang kita selidiki. Semuanya harus terkumpul. Semua yang akan dapat kita olah ke dalam regresi tersebut.
+Penting untuk menata data tersebut dan mengorganisasikan data tersebut. Sebelumnya kita lihat terlebih dulu di tabel apakah ada data outlier. Mungkin agak sulit sekali kalau kita mengandalkan tabel untuk mencari outlier.
+Setelah itu kita mengeksplorasi data analisis. Sebelum regresi ini bisa dilakukan bagi yang berpengalaman dari grafik akan dapat menduga apakah semua ini akan menjadi nilai estimasi yang baik atau tidak? Justru awal ini adalah mendeteksi ada kemungkinan kita akan melihat adanya hal yang tidak sesuai dengan data yang hendak kita regresi.
+Setelah itu kita bisa melihat adanya outliers. Data di grafik tersebut maka kita akan melihat adanya outlier yang ada. Penting mempertimbangkan adanya outlier ini. Outlier adalah salah satu nilai yang berbeda dari kebanyakan rata-rata. Nilai dari outlier dapat membuat hasil dari model regresi bias.
+Kita harus memastikan data yang kita dapatkan adalah data yang obyektif dan memenuhi syarat. Terkadang kita mengumpulkan data yang salah. Apalagi sampai menggunakan data yang salah ini menjadi permasalahan tersendiri.
+Setelah itu lakukan regresi untuk menghitung atau mengkalkulasi nilai dari persamaan regresi tersebut. Kita akan mendapatkan nilai R kuadrat atau yang dikenal dengan R Square tersebut. Nilai R2 akan mencapai sekitar 100% namun kemungkinan itu tidak ada karena kalau ada yang 100% maka patut kita curigai. Kemudian kita akan mencari nilai F tersebut yang sudah dihitung. Nilai ini adalah nilai signifikasi dari model yang kita buat.
+Setelah itu kita bisa untuk menilai dari variabel yang sesuai dengan nilai signifikasi. Tidak semua yang akan ada akan ada maka akan membuat semuanya signifikan karena ada saja yang hasilmya berbeda sesuai dengan data yang ada.
+Terakhir kita harus melihat juga asumsi model. Kita akan memastikan nilai dari persamaan regresi sudah “benar”. Hasil regresi itu tidak bisa dikatakan benar atau salah karena semuanya ada perhitungannya.</p>
+<div id="goodnes-of-fit" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Goodnes of fit<a href="regresi-linier-berganda.html#goodnes-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Untuk mendapatkan nilai yang paling baik adalah hal yang diinginkan. Tentu tidak memaksakan sesuatu hal yang akan menjadikan sesuatunya tidak benar atau tidak shahih dan valid. Kita dapat memeriksa nilai dari residu yang merupakan nilai Y aktual dengan Y prediksi atau sering disebut Y topi. Nilai ini merupakan nilai dari total semua residu. Sedangkan di sisi lain adalah kita menilai nilai Y dengan nilai y rata-rata dari variabel Y tersebut yang bisa jadi akan nilainya besar. Kemudian kita juga memperlihatkan nilai selisih antara Variabel Y dengan regrsi dalam nilai tersebut nilai SST yang besar sangat diharapkan menandakan nilai yang baik juga. Kemudian ada juga Nilai SSE atau nilai Sum Square Explained adalah nilai yang paling diharapkan tinggi. Ini adalah selisih nilai y aktual dengan nilai y rata-rata. Sedangkan nilai dari SSR adalah sum square dari residual dan nilai ini adalah nilai y prediksi dengan y aktual.</p>
+<p>Sum Square Total = SST = SSR + SSE
+Dari nilai ini kita akan memperoleh nilai R squared atau R kuadrat yang rumusnya adalah SSE/SST. Oleh karena itu yang diharapkan adalah nilai R2 besar sekali. Karena semakin nilai itu besar sekali akan menunjukkan bahwa ada hubungan yang mempunyai porsi besar sekali.
+Kita juga harus bisa membandingkan dengan nilai adjusted R square yang membandingkan dengan berbagai variabel atau variabel yang lebih dari satu. Cara Adjusted R square ini adalah cara yang lebih konservatif dalam menjelaskan kesesuaian (fit) model. Adapun rumus dari adjusted R Square adalah sebagai berikut ini:
+Adjusted R2 = 1-[(1-R2)*(n-1)/(n-p-1)]
+Nilai ini adalah jumlah obesravsi atau jumlah data yang dilibatkan dalam regresi. Dengan demikian nilai R square adjusted itu lebih digunakan pada waktu regresi terhadapa variable ini lebih dari dua variable bebas. Hal ini ada seperti penyesuaian dengan niai R2 tersebut.
+Nilai yang paling penting adalah nilai F. Nilai yang diperoleh dari nilai ANOVA ini menunjukkan kesesuaian model (fit of model). Kalau nilai dari F signifikan ini lebih kecil dari 0,05 dalam nilai ini adalah nilai yang baik. Kalau sebaliknya nilai peluang (probability value) adalah lebih besar maka tidak diterima model tersebut. Ada yang menjadi masalah dalam model tersebut. Itu yang dapat kita ketahui. Kalau model tersebut mungkin kita pikirkan model yang lain yang dapat kita jadikan model yang baru tersebut.
+Setelah yakin bahwa model tersebut sah kita melihat beberapa variable independent yang diduga mempengaruhi variable dependen tersebut. Kita melihat nilai t yang ada pada bagian setiap variable yang ada. Kalau nilai t hitung dalam hal ini t hitung yang dikalkulasi oleh software. Nilai t itu mempunyai nilai mutlak yang lebih besar daripada nilai table IthitungI &gt; IttabelI. Nilai dalam kurung menunjukan nilai mutlak dari t. Ketika nilai t hitung positif maka nilai yang paling besar juga akan menjadi niai yang paling besar. Kalau nilai negatf maka nilai tersebut nilai yang paling besar. Sejatinya nilai minus yang paling besar adalah nilai yang kecil namun karena masuk dalam nilai mutlak maka nilai minus yang besar menjadi nilai yang paling besar. Masalah penerimaan ini juga bergantung dengan uji nilai yang untuk ditetapkan. Ada uji yang dua arah dan ada juga uji satu arah bergantung dengan kebutuhan yang dibutuhkan oleh regresi tersebut.
+Adapun daerah penolakan tersebut terkait dengan dua arah, Jika berada dalam jangkauan t table maka kita dapat menolak hipotesis yang menyatakan bahwa ada pengaruh pada variable tersebut.</p>
+</div>
+<div id="scatter-diagram" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Scatter diagram<a href="regresi-linier-berganda.html#scatter-diagram" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mungkin sulit menggambarkan hubungan antara lebih dari satu variable. Kalau satu variable mungkin kita akan menyambungkan atau menghubungkan variable dengan variable independennya. Sejak awal saya kira semua variabel akan digambarkan dengan bentuk grafik 3D. Apa jadinya kalau variable tersebut lebih dari tiga, empat, lima dan bahkan enam, sulit pastinya mellihat dengan mengambarkan beberapa dimensi yang banyak sekali. Tentu saja scatter masih relevan karena itu menunjukkan hubungan antara variable independent dengan variable dependen.</p>
+<p>Analisis grafik untuk mengidentifikasi pola, trend, atau perubahan sesuai waktu untuk time series namun untuk data cross section bisa menggunakan hubungan dengan variabel lain.</p>
+<p>Scatter diagram ini adalah bagian yang penting dalam regresi berganda karena inilah yang menggambarkan hubungan antara variable independent dengan variabel dependennya. Titik-titik tersebut akan memberikan suatau gambaran atau pola dari hubungan tersebut. Setidaknya ada empat macam dari hubungan yang kita bisa perkirakan adalah sebagai berikut :
+1. Tidak ada korelasi
+2. Korelasi Lemah
+3. Korekasi Kuat
+4. Korelasi sempurna</p>
+<p>Kemudian kita akan melihat dari jenis hubungan tersebut. Inilah yang menandakan adanya hubungan atau korelasi.
+1. Korelasi positif
+2. Korelasi negative
+3. Korelasi non linear</p>
+<p>Salah satu contoh adalah menggunakan seperti ini, Scatter bis adilihat di sini <a href="regresi-linier-berganda.html#fig:scatter-fig">4.1</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="regresi-linier-berganda.html#cb3-1" tabindex="-1"></a>hpMpg <span class="ot">&lt;-</span> mtcars[,<span class="fu">c</span>(<span class="st">&#39;hp&#39;</span>,<span class="st">&#39;mpg&#39;</span>)]</span>
+<span id="cb3-2"><a href="regresi-linier-berganda.html#cb3-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> hpMpg<span class="sc">$</span>hp,<span class="at">y =</span> hpMpg<span class="sc">$</span>mpg,</span>
+<span id="cb3-3"><a href="regresi-linier-berganda.html#cb3-3" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Horse Power&quot;</span>,</span>
+<span id="cb3-4"><a href="regresi-linier-berganda.html#cb3-4" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Milage&quot;</span>,</span>
+<span id="cb3-5"><a href="regresi-linier-berganda.html#cb3-5" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">50</span>,<span class="dv">350</span>),</span>
+<span id="cb3-6"><a href="regresi-linier-berganda.html#cb3-6" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">35</span>),        </span>
+<span id="cb3-7"><a href="regresi-linier-berganda.html#cb3-7" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Horsepower vs Milage&quot;</span></span>
+<span id="cb3-8"><a href="regresi-linier-berganda.html#cb3-8" tabindex="-1"></a>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:scatter-fig"></span>
+<img src="docs/images/scatter-fig-1.png" alt="Grafik Scatter Horse Power dan Milage" width="672" />
+<p class="caption">
+Figure 4.1: Grafik Scatter Horse Power dan Milage
+</p>
+</div>
+<p>Istilah
+Korelasi : Hubungan anatara suatau variable dengan suatu variable
+Regresi : Metode Statistik untuk mencari hubungan antara peubah bebas terhadap peubah tidak bebas
+Model regresi : model prediksi yang merupakan hasil regresi
+Outlier : data yang nilainya berbeda dari banyak data umumnya atau rata-ratanya.
+R kuadrat : Nilai yang menunjukkan porsi pengaruh variable independent terhadap variable dependen
+Adjusted R square : Nikalia R kuadrat yang sudah di sesuaikan
+Goodness of fit : Dalam Bahasa Indonesia keseuaian model ini menunjukkan model dari regresi yang sudah sesuai
+Scatter Diagram: diagram pencar adalah titik yang menghubungkan antara variabel bebas dan varaibel tidak bebas</p>
+</div>
+<div id="latihan-1" class="section level2 unnumbered hasAnchor">
+<h2>Latihan<a href="regresi-linier-berganda.html#latihan-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>B-S Pada regresi berganda yang menjadi variable independent boleh lebih dari satu sedangkan variabel dependen hanya satu saja.
+B-S Pada regresi variable dependen boeh saja menggunakan variable dummy dan variable gabungan yang lainnya
+B-S Regresi dapat menunjukkan kekuatan dalam satu variable independent terhadap variable dependen
+B-S Data outlier adalah data yang berbeda dengan lainnya dan menyebabakan kerusakan dalam regresi.
+B-S Uji t untuk menunjukkan hubungan yang signifikan variable dependen terhadap variable independent
+B-S untuk melihat apakah regresi tersebut sudah baik kita dapat melihat nilai Chi Square
+B-S Autokorelasi bias terjadi dalam regresi linier berganda dan dapat menyebabkan kesalahan
+B-S Kalau kita menggunakan vairabel dummy adalah variable yang digunakan untuk membedakan antara varabel yang mempunyai kategori.
+B-S Nilai Adjusted R Square selalu lebih besar daripada nilai R Square karena ada tambahan berupa penyesuaian nilai banyaknya variable.</p>
+<p>Soal
+1. Buatlah model dengan cara menilai kesehatan tulang untuk yang segar dengan orang yang sakit sehingga bisa mengembangkan dengan bisa membedakan yang berolahraga ataupun yang tidak?</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Asumsi apakah yang harus dipenuhi dalam regresi logistik coba jelaskan hal itu?</p></li>
+<li><p>Pada Altman Z Score setidaknya Z Score dibagi menjadi dua dan ada wilayah abu. saya akan gabungkan wilayah abu ke dalam wilayah yang bangkrut. Akankah ini dibenarkan ? Bagaimana cara menjelaskannya?</p></li>
+<li><p>Dalam asumsi ternyata tidak ditemukan maka yang sesuai goodnes of fit atau kebaikan model. Bagaimana mengatasi hal tersebut?</p></li>
+<li><p>Kalau di regresi logit maka iti kita lihat kalau kita melihat ada yang berbeda maka itu seperti variabel dikotomi maka akan bisa melihat misalnya dikotomi dari kesehatan jantung untuk satu dan kesehatan lainnya?</p></li>
+<li><p>Pada suatu hasil regresi ditunjukkan nilai R squarenya adalah 75%. Carilah nilai Adjusted R square model tersebut jika jumlah sample 30 dan variable bebasnya ada tiga?</p></li>
+<li><p>Carilah contoh beberapa variable independent yang mempengaruhi kepuasan pelanggan?</p></li>
+<li><p>Sebutkan beberapa kemungkinan yang ada dari regresi berganda?</p></li>
+<li><p>Apakah semakin banyak variable independent akan meningkatkan nilai R Square. Coba jelaskan jawaban anda?</p></li>
+<li><p>Apakah beda korelasi dengan regresi?</p></li>
+</ol>
+</div>
+<div id="regresi-dengan-menggunakan-data-panel" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Regresi dengan menggunakan Data Panel<a href="regresi-linier-berganda.html#regresi-dengan-menggunakan-data-panel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mengelola data panel di RStudio untuk mengestimasi persamaan regresi dan mencari pengaruh variable independent terhadapa variable dependen.
+Salah satu metode untuk mencari pengarih variable adalah dengan data panel. Pengaruh seperti ini adalah untuk kita dapat mengestimasi daripada variable dependen. Data panel adalah data kumpulan dalam bentuk</p>
+<div id="membuat-struktur-data-panel" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Membuat Struktur Data Panel<a href="regresi-linier-berganda.html#membuat-struktur-data-panel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rstudio berbeda dari perangkat lunak (software) statistik lainnya. Untuk mengelola dalam analisis appaun membutuhkan struktur data dalam bentuk rstudio. Kalau software lain cukup menyalin dan menempel (copy and paste) data spreadsheet baik itu Excel atau Google Spreadsheet dan langsung dapat untuk mengelola data namun untuk RStuido harus merubahkan dalam bentuk model data yang dikenal oleh Rstudio.
+Langkahnya adalah mengimpor file speadhheet dan membuat ebberapa pengaturan yang relative mudah untuk membuat data anda mudah diolah. Khusus untuk analisis panel maka yang dibutuhkan bentuk data atau struktur dari data pdata.frame yang merupakan singkatan panel data frame. Ini berbeda dengan data frame biasa di rtsuido karena ini mempertimbangkan dimensi individual dan juga dimensi waktu. Perlakukan inilah yang membuat berbeda.
+Disebelak kana anda dapat mengklik import data set dan pilihlah excel. Ada beberapa pilihan lain seperti spss sas, stata, text dan lain-lain. KAlau mempunyai speadsheet maka pilihlah excel.
+Setelah itu anda akan mmeilih beberapa sheet. Kalau anda bekerja dalam banyak sheet di satu file maka anda harus memilih salah satu sheet. Dibawah itu anda pilih. Maka anda harus meperhatikan kerapihan dari text yang anda buat. Misalnya ada sela diantara judul table dan juga isi data maka di table yang kosong itu akan tertulis NA atau Not Available yang berarti data tidak tersedia.
+Menyiapkan excel sebagai data
+Untuk menyusun data maka yang bisa kita lakukan adalah dengan data. Karena data dnegan speadhseet kita lebih mudah. Kita bisa menyusun dengan data seperti contoh dibawah ini</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="regresi-linier-berganda.html#cb4-1" tabindex="-1"></a>tobinq <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;~/jurnal/tobinq3.csv&quot;</span>)</span>
+<span id="cb4-2"><a href="regresi-linier-berganda.html#cb4-2" tabindex="-1"></a><span class="co">#setelah data diupload saya akan membuat data frame khusus panel yang disebut pdata frame dengan seperti ini. jangan lupa gunakan library plm</span></span>
+<span id="cb4-3"><a href="regresi-linier-berganda.html#cb4-3" tabindex="-1"></a><span class="fu">library</span>(plm)</span></code></pre></div>
+<pre><code>## Warning: package &#39;plm&#39; was built under R version 4.3.3</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="regresi-linier-berganda.html#cb6-1" tabindex="-1"></a>ptobinq<span class="ot">=</span><span class="fu">pdata.frame</span>(tobinq,<span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;Comp&quot;</span>,<span class="st">&quot;Tahun&quot;</span>),<span class="at">drop.index =</span> <span class="cn">TRUE</span>,<span class="at">row.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Setelah data sudah benar masuk kita dapat mengecek struktur dari data tersebut</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="regresi-linier-berganda.html#cb7-1" tabindex="-1"></a><span class="fu">str</span>(ptobinq)</span></code></pre></div>
+<pre><code>## Classes &#39;pdata.frame&#39; and &#39;data.frame&#39;:  40 obs. of  3 variables:
+##  $ DAR    : &#39;pseries&#39; Named num  0.49 0.44 0.42 0.4 0.4 0.49 0.44 0.42 0.4 0.4 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:40] &quot;Adaro-2014&quot; &quot;Adaro-2015&quot; &quot;Adaro-2016&quot; &quot;Adaro-2017&quot; ...
+##   ..- attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:    40 obs. of  2 variables:
+##   .. ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   .. ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  $ DER    : &#39;pseries&#39; Named num  0.97 0.78 0.72 0.67 0.66 0.97 0.78 0.72 0.67 0.66 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:40] &quot;Adaro-2014&quot; &quot;Adaro-2015&quot; &quot;Adaro-2016&quot; &quot;Adaro-2017&quot; ...
+##   ..- attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:    40 obs. of  2 variables:
+##   .. ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   .. ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  $ Tobin.Q: &#39;pseries&#39; Named num  -0.2702 0.2346 0.2706 0.034 0.0336 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:40] &quot;Adaro-2014&quot; &quot;Adaro-2015&quot; &quot;Adaro-2016&quot; &quot;Adaro-2017&quot; ...
+##   ..- attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:    40 obs. of  2 variables:
+##   .. ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   .. ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  - attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:   40 obs. of  2 variables:
+##   ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...</code></pre>
+<p>Sudah benar maka langkahnya adlah mennetukan jenis regresi data panel yang akan kita lakukan. Kemudian sesuai langkah yang sudah kita rencanakan adalah awalnya dengan melakukan regresi dari ketiga metode seperti Pooling (pooling), Fixed Effect (within) dan Random. Dalam contoh kali ini saya akan mennamakan kalau pooling adalah regplmtobinq, untuk fixed effect adalah regplmtobinq2 dan untuk random adalah regplmtobinq3. Dalam tiap perintah aka nada Namanya perintah summary yang artinya adalah menampilkan hasil regresi tersebut.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="regresi-linier-berganda.html#cb9-1" tabindex="-1"></a><span class="co">#Regresi Model Pooling </span></span>
+<span id="cb9-2"><a href="regresi-linier-berganda.html#cb9-2" tabindex="-1"></a>regplmtobinq<span class="ot">&lt;-</span><span class="fu">plm</span>(Tobin.Q <span class="sc">~</span> DAR<span class="sc">+</span>DER,<span class="at">data=</span>ptobinq,<span class="at">model=</span><span class="st">&quot;pooling&quot;</span>)</span>
+<span id="cb9-3"><a href="regresi-linier-berganda.html#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="regresi-linier-berganda.html#cb9-4" tabindex="-1"></a><span class="fu">summary</span>(regplmtobinq)</span></code></pre></div>
+<pre><code>## Pooling Model
+## 
+## Call:
+## plm(formula = Tobin.Q ~ DAR + DER, data = ptobinq, model = &quot;pooling&quot;)
+## 
+## Balanced Panel: n = 8, T = 5, N = 40
+## 
+## Residuals:
+##     Min.  1st Qu.   Median  3rd Qu.     Max. 
+## -1.02749 -0.70659 -0.29490  0.20208  4.38311 
+## 
+## Coefficients:
+##               Estimate Std. Error t-value  Pr(&gt;|t|)    
+## (Intercept)  1.5134678  0.3209255  4.7159 3.381e-05 ***
+## DAR         -1.7072093  0.4715372 -3.6205 0.0008754 ***
+## DER         -0.0038299  0.0682864 -0.0561 0.9555757    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    62.653
+## Residual Sum of Squares: 46.235
+## R-Squared:      0.26204
+## Adj. R-Squared: 0.22215
+## F-statistic: 6.56918 on 2 and 37 DF, p-value: 0.003619</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="regresi-linier-berganda.html#cb11-1" tabindex="-1"></a><span class="co">#Regresi Model Fixed </span></span>
+<span id="cb11-2"><a href="regresi-linier-berganda.html#cb11-2" tabindex="-1"></a>regplmtobinq2<span class="ot">&lt;-</span><span class="fu">plm</span>(Tobin.Q <span class="sc">~</span> DAR<span class="sc">+</span>DER,<span class="at">data=</span>ptobinq,<span class="at">model=</span><span class="st">&quot;within&quot;</span>)</span>
+<span id="cb11-3"><a href="regresi-linier-berganda.html#cb11-3" tabindex="-1"></a><span class="fu">summary</span>(regplmtobinq2)</span></code></pre></div>
+<pre><code>## Oneway (individual) effect Within Model
+## 
+## Call:
+## plm(formula = Tobin.Q ~ DAR + DER, data = ptobinq, model = &quot;within&quot;)
+## 
+## Balanced Panel: n = 8, T = 5, N = 40
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -1.196028 -0.130457  0.092081  0.186883  1.890241 
+## 
+## Coefficients:
+##      Estimate Std. Error t-value  Pr(&gt;|t|)    
+## DAR -2.400988   0.589834 -4.0706 0.0003144 ***
+## DER -0.087783   0.042093 -2.0854 0.0456365 *  
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    17.173
+## Residual Sum of Squares: 11.017
+## R-Squared:      0.35847
+## Adj. R-Squared: 0.16601
+## F-statistic: 8.3817 on 2 and 30 DF, p-value: 0.001283</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="regresi-linier-berganda.html#cb13-1" tabindex="-1"></a><span class="co">#Regresi Model Random Effcet</span></span>
+<span id="cb13-2"><a href="regresi-linier-berganda.html#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="regresi-linier-berganda.html#cb13-3" tabindex="-1"></a>regplmtobinq3<span class="ot">&lt;-</span><span class="fu">plm</span>(Tobin.Q <span class="sc">~</span> DAR<span class="sc">+</span>DER,<span class="at">data=</span>ptobinq,<span class="at">model=</span><span class="st">&quot;random&quot;</span>)</span>
+<span id="cb13-4"><a href="regresi-linier-berganda.html#cb13-4" tabindex="-1"></a><span class="fu">summary</span>(regplmtobinq3)</span></code></pre></div>
+<pre><code>## Oneway (individual) effect Random Effect Model 
+##    (Swamy-Arora&#39;s transformation)
+## 
+## Call:
+## plm(formula = Tobin.Q ~ DAR + DER, data = ptobinq, model = &quot;random&quot;)
+## 
+## Balanced Panel: n = 8, T = 5, N = 40
+## 
+## Effects:
+##                  var std.dev share
+## idiosyncratic 0.3672  0.6060   0.4
+## individual    0.5506  0.7420   0.6
+## theta: 0.6569
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -0.977977 -0.350254 -0.074708  0.106930  2.785480 
+## 
+## Coefficients:
+##              Estimate Std. Error z-value  Pr(&gt;|z|)    
+## (Intercept)  1.786432   0.417645  4.2774 1.891e-05 ***
+## DAR         -2.087653   0.510836 -4.0867 4.375e-05 ***
+## DER         -0.069591   0.043000 -1.6184    0.1056    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    22.526
+## Residual Sum of Squares: 15.489
+## R-Squared:      0.31236
+## Adj. R-Squared: 0.27519
+## Chisq: 16.8073 on 2 DF, p-value: 0.00022405</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regresi-linier-sederhana.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
