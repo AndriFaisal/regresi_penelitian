@@ -1,4 +1,15 @@
-h1:footnotes-and-citations Footnotes and citations
-h2:footnotes Footnotes
-h2:citations Citations
+h1:regresi-dengan-rstudio Regresi Dengan Rstudio
+h2:regresi-berganda-mtcars Regresi Berganda Mtcars
+tab:tab-mtcars Tabel Data Mobil
+h3:uji-normalitas Uji Normalitas
+fig:normal-fig Grafik Normalitas
+h3:uji-multikolinearitas Uji Multikolinearitas
+h3:autokorelasi Autokorelasi
+h3:uji-heteroskedatisitas Uji Heteroskedatisitas
+h2:regresi-dummy Regresi Dummy
+h2:regresi-logistic Regresi Logistic
+h2:regresi-kuadratik Regresi Kuadratik
+fig:scatter2-fig Grafik Scatter Girth
+h2:regresi-dengan-menggunakan-data-panel Regresi dengan menggunakan Data Panel
+h3:membuat-struktur-data-panel Membuat Struktur Data Panel
 

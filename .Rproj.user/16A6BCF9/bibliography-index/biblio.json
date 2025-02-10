@@ -24,6 +24,32 @@
             "type": "book"
         },
         {
+            "DOI": "10.1080/02664760802695900",
+            "ISBN": "9781584889519",
+            "ISSN": "0266-4763",
+            "author": [
+                {
+                    "family": "Dobson",
+                    "given": "Annette J."
+                },
+                {
+                    "family": "Barnett",
+                    "given": "Adrian G."
+                }
+            ],
+            "id": "Dobson2008",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "1-303",
+            "title": "An introduction to generalized linear models, third edition",
+            "type": "book"
+        },
+        {
             "URL": "http://yihui.org/knitr/",
             "author": [
                 {
@@ -581,6 +607,65 @@
             "publisher-place": "New York",
             "title": "Theory and problem of statistics",
             "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "M.Hilbe",
+                    "given": "Joseph"
+                }
+            ],
+            "edition": "1st",
+            "id": "Hilbe2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "note": "ISBN 978-1-4987-0958-3",
+            "publisher": "CRC Press",
+            "publisher-place": "New York",
+            "title": "Basic practical guide to logsitic regression",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Nelder",
+                    "given": "Author J A"
+                },
+                {
+                    "family": "Wedderburn",
+                    "given": "R W M"
+                },
+                {
+                    "family": "Journal",
+                    "given": "Source"
+                },
+                {
+                    "family": "Statistical",
+                    "given": "Royal"
+                },
+                {
+                    "family": "Series",
+                    "given": "Society"
+                }
+            ],
+            "id": "Nelder1972",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1972
+                    ]
+                ]
+            },
+            "page": "370-384",
+            "title": "Generalized Linear Models Published by : Wiley for the Royal Statistical Society Stable URL : https://www.jstor.org/stable/2344614",
+            "type": "article-journal",
+            "volume": "135"
         },
         {
             "URL": "https://www.R-project.org/",

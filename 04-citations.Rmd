@@ -1,15 +1,325 @@
-# Footnotes and citations 
+# Regresi Dengan Rstudio
 
-## Footnotes
+Salah satu cara untuk menghitung regresi adalah dengan RStudio maka kita bisa menggunakan salah satu perangkat lunak ini untuk membantu menghitung nilai persamaan regresi. secara ringkas adalah pertama menyiapkan data yang akan dilakukan analisis. 
+Kemudian memilih beberapa *package* yang cocok untuk melakukan analisis ada beberapa contoh package yang dapat seperti lm yang dapat digunakan untuk menduga untuk regresi ada juga ggplot2 untuk grafik dan juga lain-lain. Ada beberapa modul yang dapat digunakan untuk melakukan regresi  tersebut. 
+A.	Persiapan
+Sebelum melakukan regresi kita harus menentukan terlebih dahulu yang mana yang menjadi variabel yang kita regresi. KIta harus mengetahui bahwa niat regresi adalah untuk mengetahui faktor yang mempengaruhi variabel independen terhadap faktor yang mempengaruhi variabel independen. Setelah kita melakukan sesuai dengan teori yang kita dapatkan maka kita menyiapkan data yang sudah akan kita lakukan regresi di tempat itu. 
 
-Footnotes are put inside the square brackets after a caret `^[]`. Like this one ^[This is a footnote.]. 
+Maka kita dapat menyiapkan data. Kalau data yang  kita kumpulkan berupa data yang kita tabulasi dalam bentuk spreadhseet maka kita akan menyesuaikan terlebih dahulu dengan apa yang kita hendak lakukan. Karena RStudio berbeda dengan data yang ada di dalam spreadsheet atau software liannya. Kita bisa membuat penyesuaian terlebih dahulu sehingga kita bisa untuk menyelesaikan pekerjaan yang kita lakukan
 
-## Citations
+B.	Memastikan data struktur yang ada 
+Kita dapat mengimport data dengan cara menyiapak spreadsheet terlebih dahulu. Kita impor telerbih dahulu dengan seperti ini. Kita apilih file spearadsheet. dan kita akan mendpatkan data set tersebut masuk. Kita mengatur beberapa variable yang sudah kita pilih ke dalam data yang numeric atau data kuantitaif. Setelah itu baru kita set data tersebut sesuai dengan persamaan yang kita hendak cari.  
 
-Reference items in your bibliography file(s) using `@key`.
+C.	Sebelumnya kita tampilkan dahulu library beberapa uji yang masuk dalam regresi tersebut. Seperti melakukan uji heteroskedatisitas untuk emmastikam bahwa error karena dapat membuat estimasi menjadi tidak pas. Kemudian menguji autokorelasi dari model regresi. Hal seperti ini mutlak dilakukan
 
-For example, we are using the **bookdown** package [@R-bookdown] (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and **knitr** [@xie2015] (this citation was added manually in an external file book.bib). 
-Note that the `.bib` files need to be listed in the index.Rmd with the YAML `bibliography` key.
+D.	Kita menjalankan regresi dan melihat apakah nilainya sudah sesuai dengan harapan. Untuk itu kita melihat apakah sudah sesuai dengan asumsi. 
+Seperti yang ditunjukkan pada Tabel @ref(tab:mtcars), konsumsi bahan bakar bervariasi berdasarkan jumlah silinder.
+
+Salah satu analisis statistic yang mencari hubungan atau relasi antara satu variable dengan variable yang lain adalah regresi. Ada hubungan dua vriabel yang sifatnya dipengaruhi yakni variable dependen dan juga variabel yang mempengaruhi. 
+Kedua variable tersebut diuji untuk mencari hubungan, Hubungan tersebut berdasarkan teori yang sudah ada. Ada suatu konstruksi yang dapat menjelaskan hubungan teori tersebut. 
+Untuk melaksanakan regresi dengan RStudio kita bisa lakukan seperti ini :
+1.	Persiapan data. Kita sudah menyiapakan data yang sudah berlandaskan teori. KIat Sudha enetapkan data tersebut yang mana variable Y dan mana variable X nya. Pastikan sudah kita sudah mempunyai kecukupan data untuk regresi analisis ini . Persiapaan data dalam bentuk excel atau spreadsheet. 
+2.	Import data dari spreadsheet ke bentuk data Rstudio. Kita akan mendapatkan data bentuk data frame dan bentuk data tibble. Jika ingin belajar mengenai data silahkan kli ke ebook saya yang lain <https://andrifaisal.github.io/StatDesk/>
+3.	Kemudian lakukan regresi dengan fungsi LM. Kita jangan lupa masukkan package lmtest dan juga zoo 
+4.	Uji normalitas dari hasil regresi yang kita sudah buat . Hal ini untuk memastikam kalau hasil dari regresi sudah tersebar normal dailihat dari residualsnya. 
+5.	Uji Autokorelasi dengan menggunakan dw test. Uji ini memastikan tidak terjadinya korelasi serial atau autokorelasi pada data tersebut . 
+6.	Uji Hetresokedtasisitas untuk melihat apakah data menunjukan ada hubungan yang terjadi anatara erros. Seharusnya error tersebut harus bernilai nol. (E(ε))=0
+7.	Memberikan interperestasi dari hasil regresi itu baik t test dan juga F test 
+8.	Memberikan kesimpulan pada hasil regresi kita. Berikan kalimat pada hasil regresi yang sudah dibuat. Hal ini berkait dengan variabel mana yang mau kita teliti tersebut. 
+
+## Regresi Berganda Mtcars 
+Mencoba untuk meregresi dalam data persamaan mtcars. Sebagai variable indpenden adalah mpg sedangkan variable independent berjumlah dua yakni variable cyl dan juga variable disp. Pada kesempatan kali ini saya akan menggunakan data yang ada di rstudio yakni data set dari yang terdapat di package car. Nama datanya adalah mt cars. MT cars ini adalah satu set data yang berisi sebanyak 32 data dengan banyak sekali variabelnya namun pada kesempatan kali ini saya akan memilih dua variable independennya sakja yakni variabve yakni cyl dan disp. 
+Kita bisa menampilkan dengan klik yang namaya mtcars maka hasilnya adalah dengan perintah View (mtcars). Sengaja tidak ditampilkan karena data ini begitu Panjang sehingga bisa memenuhi halaman dari buku. Tetapi kita bisa tampilkan di bagian depan dengan depan atau head atau tail untuk bagian bawah table. 
+
+Kita bisa melihat struktur data dari mtcars seperti dibawah ini dengan mengetik mtcars. Maka akan melihat tampilan banyak dari mtcars. 
+Kita perlu untuk melihat structure dati mtcars: 
+```{r}
+str(mtcars)
+head(mtcars)
+```
+
+Ini adalah struktur data dari mt cars. Terlihat struktur data dari mtcars adalah data. Frame dengan 32 jumlah data (n) atau observasi (obs). Data ini terdiri dari 11 kolom yakni variable dependent satu mpg dengan 10 variabel independent lainnya. Tentu dari banyak variable ini anda bisa melakukan analisis data. Di baris pertama ada mpg yang merupakan nama variabelnya sedangkan baris selanjutanya ada kata num yang berarti itu adalah data numerik atau data angka. Sedangkan di sebelah kanan num adalah ada sejumlah angka yang menunjukkan sample dari data variable tersebut. 
+1. mpg adalah mile per gallon 
+2. cyl adalah jumlah silincer
+3.disp atau dispalcement (cu.in)
+4. he adalah horse power atau tenaga kuda
+5, drat adalah rear axel ratio 
+6. wt adlah berat dalam 1000 lbs
+7.qsec adalah seperempat mile 
+8. vs adalah bentuk mesin dimana 0 adalah V shaped dan 1 adalah straight 
+9. am adalah transmisi kalau 0 adalah otomatis and 1 manual 
+10. gear jumlah gigi depan 
+11. carb adalah jumlah karburator
+
+Atau kita bisa melihat dengan perintah View(mtcars) . Beginilah tampilan dari mtcars 
+Kita bisa melihat kalau begitu banyak data variable yang ada yakni 11 dengan hanya satu variable dependen yang bernama mpg atau mile per gallon. Itu adalah jumlah mil yang ditempuh dengan satu gallon (sekitar lima liter) oleh kendaraan tersebut. 
+Setelah kita sudah menyaipakn maka kita harus menggunakan beberapa paket yang dibutuhkan untuk pertama adalah kita menggunakan paaket lmtest atau paket zoo. Ini adalah paket yang biasa digunakan dalam analisis regresi. Kita lihat dibawah ada peringatan mengenai penggunaan paket kalau lm test harus juga mengikuti paket zoo. 
+```{r}
+library(lmtest)
+library(zoo)
+```
+Setelah paket zoo terpasang. Maka perintahnya adalah menggunakan metode regresi sesuai dengan apa yang kita tujukan atau niatkan. Perintah dalam regresi adalah lm(variable dependent ~ variable independent 1 + Variabel independent 2, data=data)
+Pertama kita mengetikkan fungsi lm diikuti dengan buka kurung variable independen ada lambang seperti garis bergelombang tersebut dan diikuti dengan beberapa variable   independennya. Jangan lupa dengan memasukan nama data karena ini yang akan menuju pada data yang akan kita regresi. Kalau kita lupa untuk menaruh data maka tidak akan terjadi hasil regresi tersebut.tanda sama dnegan memang jarang digunakan karena spsifik untuk meentukan parameter tertentu sebaliknya tanda yang sering digunakan adalah kurang dari dan strip (“<-”)
+Ketika kita mengetikkan regresi tersebut dengan tanda sama dengan adalah nama regresimtcar1 adalah nama yang saya tuliskan sendiri untuk mengingat  nama model saya. Nama ini memang tidak harus diingat tapi nanti kalau ini digunakan untuk melakukan beberapa perintah setelahnya. Setelah menteik perintah tersebut maka tidak ada oputput maka kita ketik perintah summary () seperti yang ada di bawah ini. 
+
+Sebelum itu kita tampilkan terlebih dahulu variabel yang akan kita regresi seperti dibawah ini:\@ref(tab-mtcars)
 
 
-The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
+```{r, tab-mtcars, tidy=FALSE}
+library(knitr)
+kable(mtcars[, c("mpg", "cyl", "disp")], caption = "Tabel Data Mobil")
+
+```
+
+Setelah itu kita melakukan regresi dari data tersebut seperti dibawah ini
+
+```{r regresimtcars1}
+regresimtcars1<-lm(mpg~cyl+disp,data=mtcars)
+summary(regresimtcars1)
+```
+
+Pada bagian atas kita melihat ada ringkasan Call atau perihal dari sebelumnya karena mungkin itu untuk mengingatkan agar kjita bisa untuk memastikan formula tersbeut sudah benar. Terkadang kita memang lupa untuk formula yang kita gunakan. 
+
+Dibagian bawah ada yang Namanya residuals atau sisa. Ini adalah sisa dari bentuk dari model regresi dari peramalan hasil regreis tersebut terdiri dari nilai minimal yakni nilai yang palin terkecil dari nilai residuals dan juga ada nilai yang paling tinggi yakni maks. Ada juga nilai kuartil 1, kuartil 2 ( median) atau kuartil 3 yang menunjukkan pembagian residuals. 
+
+Pada bagian bawah ada yang Namanya coefficients. Bagian ini adalah menjadi summary atau dari hasil regresi tersebut. Dari sini kita akan meligat ebberapa kolom yakni ; kolom pertama tanpa judul, kolom estimates, kolom standard error, nilai t (tvalue) dan nilai p (PRI<tI).  Pada kolom pertama ada konstantanta atau intercept. Ini adalah nilai alpha atau nilai konstanta. Ini adalah nilai yang ada meski nilai koefisein adalah nilai yang ada. Ini menjadi garis titik awal  dari persaman regresi.  Pada variable dari cyl dan disp terlihat ada nilai estimasi yang menunjjukan nilai koefisien dari persamaan regresi. Maka kalau ditulis persamaan dari regresi tersebut adalah sebagai berikut : 
+Y = 34,66099 -1,58728 cyl – 0,02058 disp + e
+
+Inilah nilai yang bisa kita masukkan untuk melakukan peramalan terhadap variable dependent Y atau mpg. Pada variable cyl  menunjukan p value yakni 0,337. Nilai ini adlah lebih kecil dari 0,05 maka keuputsannya adalah menolak HO dan melihat adanya pengaruh signifikan anatara variable cyl terhadap avriabel mpg. Dengan nilai -1,58728 maka menunjukkan semakin meningkatnya nilai cyl akan menurunkan mpg yakni sebesar 1,58728 satuan. Seadngkan pada variable disp yang terjdi adalah sebaliknya karena nilainya nyaris lebih kecil dari 0,05 maka 0,542 maka menunjukkan hubungan yang tidak signifkan.Artinya pengaruh tersebut tidak terlihat signifikan menurut peluang yang ada nilai peluang di bagian output model tersebut. 
+
+Hasil model dari regresi ini membuktikan kalau nilai F value 29 artinya nilai derajat bebas dengan jumlah sample sebanyak 32 dan dikurangi varabel bebas (k)=2 dan juga 1. df atau v = n-k-1 = 32-2-1 =29. Dari nilai F hitung 45,81 maka hasilnya menunjukkan kalau model yang digunakan tersebut sudah sah. 
+Dari hasil regresi kita bisa lihat kalau nilai Adjsuted R square tersebut 0,743, Artinya dua variable independedn baik cyl dan disp mempunyai pengaruh 74,3 % terhadap variable indepnden mpg. 
+
+### Uji Normalitas 
+
+Dalam melakukan uji regresi kita harus memastikan kalau data tersebut juga harus mempunyai normal.Data yang tersebar normal ini penting untuk memastikan kalau hasil regresi tersebut menjadi sah. Untuk melakukan itu kita bisa melalukan uji baik dengan test Shapiro-Wilk Normality Test atau kita juga menggunakan qqnorm atau qqline dari reisudal tersebut. 
+Melakukan uji normalitas pada data dengan Shapiro Wilk tesy adalah dengan mengetikan perintah shapiro.test terhadap residual regresi mt cars. Dari sana terlihat output tersebut. 
+
+```{r}
+shapiro.test(residuals(regresimtcars1))
+```
+
+Hasil nilai dari Uji Shapiro adalah 0,9419. Dalam uji ini Nilai Ho adalah Data tersebar normal sedangkan Hipotesis Alternatif (Ha) dari uji ini adalah data tidak tersebar normal. Aturan dalam uji ini jika nilai p (P-Value) ebih besar dari 0,05 (p>0,05) maka keputusan dari uji ini dalah tidak bisa menolak H_O. Artinya Data pada reiduals ini adalah tersebar dengan normal.
+ 
+Selain itu kita bisa melakukan dengan grafil normal qq plot. Dengan data itu kita bisa untuk melihat adanya data yang tersebar normal. Kita bisa menggunakan perintah qq normal dengan residuas. Kemudian kita bisa menambahkan qqline. Agar terlihat garis data normalitasnya. \@ref(fig:normal-fig)
+```{r normal-fig, fig.cap='Grafik Normalitas', fig.path="docs/images/"}
+qqnorm(residuals(regresimtcars1))
+qqline(residuals(regresimtcars1))
+
+```
+
+Dari Grafik Garis tersebut kita bisa melihat data tersebar mendekati garis lurus tersebut sehingga memang kita bsia menyimpulkan kalau regresi tersebut normal. Ada keraguan nilai residual di bagian atas sedikit menjauh dari garis lurus akan tetapi kita yakin karena sudah melakukan uji Shapiro Wilk maka data residual tersebar normal. 
+
+### Uji Multikolinearitas 
+Dalam analisis regresi lebih dari dua variable atau berganda maka kita harus memperhatikan adanya kemungkinan hubungan antara dua variable independen. Hubungan dua variable independent ini akan menjadi masalah bagi hasil estimasi regresi tersebut. Hasil yang ditampilkan adalah bukan hasil estimasi yang sesungguhnya tetapi hasil yang efisien. 
+Salah satu cara untuk mencari bukti adanya multikolinearitas kita bisa emnilai nilai eugine value dan vif. Untuk menampilkan uji ini kita menggunakan library (car) kemudian kita akan mnegguakan 
+```{r}
+library(car)
+vif(regresimtcars1)
+```
+
+Dalam uji Multikolinearitas terlihat kalau nilai dari VIF yakni 5,37. Nilai ini masih jauh dibawah 10 maka kita bisa membuat kesimpulamn kalau memang tidak terjadi korelasi antara variabel independen baik cyl maupun juga disp. 
+
+### Autokorelasi 
+
+Jika terjadi autokorelasi maka kita harus memperbaiki terlebih dahulu. Dalam data cross section umumnya tidak didapatkan terjadinya autokorelasi atau serial korelasi. Tetapi kita dapat menguji dengan plot atau grafik dengan melihat plot reisudals dari regreis tersebut. 
+
+```{r}
+library(sandwich)
+plot(residuals(lm(mpg ~ cyl + disp, data = mtcars)))
+```
+
+Jika ingin memastikan lagi kita bisa menggunakan Newey Test. Dalam Newey Test kita bisa melihat apakah ada nilai yang mengandung autokorelasi dari nilai t hitungnya. Untuk menggunakan uji ini kita mengaktifkan terlebih dahulu paket (package) sandwich. 
+Untuk itu kita bisa menggunakan perintash seperti yang dibawah ini yakni coeftest model dan juga vcov pada model. Tulisan atau syntasx perintahnya seperti dibawah ini
+
+```{r}
+coeftest(regresimtcars1, vcov = NeweyWest(regresimtcars1))
+```
+
+Hasil menunjukkan kalau model regresi ini tidak terjadi autokorelasi karenanya dapat digunakan sebagai bukti kalau model regresi tidak terjadi autokorelasi.
+
+Uji Breusch Godfrey 
+Salah satu untuk menuji autokorelasi adalah dengan menggunakan BG Test. Untuk melakukan ini kita melakukan bg test pada model yang kita sudah cari yakni regresimtcars. 
+```{r}
+bgtest(regresimtcars1)
+```
+
+
+Uji Durbin Watson 
+Salah satu uji yang digunakan untuk autokorelasi adalah Durbin Watson. Biasanya uji ini yang paling banyak digunakan untuk mendeteksi adanya autokorelasi. Nilai yang sering digunakan adalah nilai yang mendekati dua. Kalau nilai dw mendekati dua maka hampir bisa dikatakan tidak terjadi autokorelasi. Jika terjadi nilai dibawa dua kita masih bsia melakukan beberapa hal seperti menilai du dan dl. Kita bisa melihat di dalam table ada panduan untuk menilai adanya autokorelasi dengan cara seperti dibawah ini. 
+
+```{r}
+dwtest(regresimtcars1)
+```
+
+
+
+### Uji Heteroskedatisitas 
+JIka kita ingin melihat variable residualsinya maka kita bisa menampilkannya speerti ini. Kita beri perintah residuals (model regresi). Residualas adalah nilai sisa selisih anatara nilai peramalan dengan nila nilai actual. Nilai residuals ini akan kita gunakan untuk menduga adanya kesalahan heteroksedatisitas. Dengan prosedur yang seperti dilakuan oleh buku Modul Probabilitas dan statistik(Reny Rian, 2018) kita akan menduga adanya heteroksedatisitas dari model dengan langkah : 
+1.	Hitunglah nilai residuals 
+2.	Mengkuadratkan residuals menjadi kresid
+3.	Kemudian ganakn taksiran fitted(regresimtcars)
+4.	Buatlah suatu plot yang menghubungkan kresid dan taksiran 
+5.	Kita bisa menduga dari sini yang mana yang mengalami heteroskedatisitas.
+
+```{r}
+residuals(regresimtcars1)
+kresid=residuals(regresimtcars1)*residuals(regresimtcars1)
+taksiran=fitted(regresimtcars1)
+plot(taksiran,kresid)
+
+```
+Hasil menunjukkan tidak terjadi heteroskedatisitas karena tidak ada pola yang jelas antara taksiran dan juga dengan kuadrat residual. BIla ingin memastikan lagi anda bisa menggunakan beberapa uji mengenai heteroskedatisitas. Yang lain untuk memastikan adanya kehadiran heteroskedatisitas. 
+Selain itu ada beberapa uji yang dapat anda lakukan seperti uji dibawah ini Berusch Pagan jadi uji ini yang cukup dikenal untuk mendeteksi adanya heteroskedattisitas. Dalam uji ini juga menggunakan hasil dari model regresi. Bentuk ini adalah bentuk yang paling sederhana , dalam uji ini kita menetapkan Hipotesis nol adalah menunjukkan tidak ada terjadinya heteroskedatisitas.
+```{r}
+bptest(regresimtcars1)
+```
+
+## Regresi Dummy 
+
+
+
+## Regresi Logistic 
+Dalam Perangkat lunak Rstudio juga bisa menggunakan regresi logistik dengan seperti ini:
+```{r}
+# Load dataset
+data(ChickWeight)
+
+# Buat variabel target biner: berat > 100 dianggap 1, sebaliknya 0
+ChickWeight$weight_high <- ifelse(ChickWeight$weight > 100, 1, 0)
+
+# Ubah ke faktor
+ChickWeight$weight_high <- as.factor(ChickWeight$weight_high)
+
+# Cek struktur data
+str(ChickWeight)
+
+```
+
+Kemudian kita membangun model sehingga akan kkta dapatkan seperti ini: 
+```{r}
+logit_model <- glm(weight_high ~ Time + Diet, data = ChickWeight, family = binomial)
+summary(logit_model)
+
+```
+
+Kita harus melihat terlebih dahulu apakah yang menjadi lebih baik 
+KIta uji dengan multikolinearitasnya>
+```{r}
+library(car)
+vif(logit_model)
+```
+NIlai VIF masih jauh dibawah 10 artinya model ini terbebas dari multikolinearitas. 
+
+```{r}
+# Prediksi probabilitas
+pred_prob <- predict(logit_model, type = "response")
+
+# Ubah menjadi kategori (cutoff 0.5)
+pred_class <- ifelse(pred_prob > 0.5, 1, 0)
+
+# Konversi ke faktor untuk evaluasi
+pred_class <- as.factor(pred_class)
+
+# Confusion Matrix
+library(caret)
+conf_matrix <- confusionMatrix(pred_class, ChickWeight$weight_high)
+print(conf_matrix)
+
+```
+HAsil menunjukkan test itu baik dengan nilai MC Nemar yang lebih dari 0,05 atau hasilnya sekitar o,4. pada sensisitivity dan juga Specificynya yang masing-masing sekitar 0,9 dan 0,89 berarati hanya menyisakan sedikit prosentase untuk kesalahan?
+
+## Regresi Kuadratik 
+
+Ketika regresi linear yang sudah kita pelajari adalah menggambarkan suatau hubungan yang dalam bentuk garis lurus atau linear. Kini dengan adanya non linear maka hal itu masih menjadi kompleks lagi dengan hubungan yang bukan linear atau non linear. Hubungan dalam grafik antara regresi non linear akan berbeda dan bukan lagi digambarkan sebagai garis lurus akan tetapi sebagai garis yang tidak lurus. 
+Dalam regresi kuadratik kita dihadapi dengan nilai yang berhubungan tidak bisa liner. Umumnya kudaratik membuat gerakan seperti gerakan parabola yang akan sulit dibaca dengan menggunakan garis yang linier. Memang apakah linier itu selalu hebat? ini menjadi pertanyaan sendiri. Jarang sekali model yang bentuknya kudrat dan itu memang yang sering terjadi karena memang hubungan itu mungkin hampir setara. Mungkin banyak orang yang berpikir kalau kuadrat itu memang tidak umum. Apalagi kalau sudah variable lebih dari satu, hubungan tu akan seperti pencaran yang berbeda-beda. 
+Ada pola-pola hubungan yang tidak bisa digambarkan dengan regresi non linear sehingga tidak menghasilkan regresi linier seperti polynom, logaritmik dan eksponensial. Kalau anda bisa melihat maka anda akan lihat hubungan garis ini tidak normal. 
+Untuk mencari adanya hubungan yang tidak linier kita dapat untuk membuat scatter diagram atau diagram pencar. Dari kumpulan titik-titik itu kita bisa menduga sebuah hubungan antara satu variable dengan variable lainnya. 
+Seharusnya atau awalnya garis dalam hubungan variabel tersebut lurus namun ternyata tidak lurus. Tentu, tidak semua hubungan akan selalau linear dan juga bukan berarti seluruh hubungan juga non linear. Kita melihat atau mendeteksi dari perubahan apakah ada data yang terlihat berubah secara drastis?
+Zaman telah berubah karena begitu pesat sekali tekhnologi dnengan nama yang awalnya mesin penghitung *(computer)* ada yang namanya perhitungan dengan model sederhana namun kini perhitungan tersebut sudah lebih canggih lagi dari keadaan masa lampau.
+
+Kalau sekarang begitu banyak software statistik yang dapat menghitung banyak dengan cepat. karenanya dengan ilmu yang modern tersebut maka bisa untuk mencari hal yang baru dengan perhitungan yang akurat. 
+
+Awalnya mungkin kita akan kesulitan untuk menentukan apakah akan terjadi regresi linear atau tidak. 
+
+Mendeteksi awal
+ 
+Ketika kita ingin menduga suatau hubungan kita dapata melihat pola hubungan variable bebas terhadap variable tidak bebas atau dependent. Kita akan membuat suatau diagram ppencar yang menunjukkan hubungan antara kedua variable tersebut di \@ref(fig:scatter2-fig)
+
+```{r scatter2-fig, fig.cap='Grafik Scatter Girth', fig.path="docs/images/"}
+ggplot(trees, aes(x = Girth, y = Volume)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2), color = "blue")
+```
+
+
+
+Ada beberapa hubungan tidak linier dan maka kita bisa lakukan untuk hal yang seperti ini ; 
+
+```{r}
+model_kuadrat <- lm(Volume ~ Girth + I(Girth^2), data = trees)
+summary(model_kuadrat)
+
+```
+Kemudian kita melihat grafiknya terlebih dahulu 
+
+Kemudian kita evluasi model 
+```{r}
+#multikolinearitas 
+library(car)
+vif(model_kuadrat)
+#heteroskedatisitas
+library(lmtest)
+bptest(model_kuadrat)
+#autokorelasi
+dwtest(model_kuadrat)
+
+```
+Membandingkan dengan model linier 
+```{r}
+model_linear <- lm(Volume ~ Girth, data = trees)
+anova(model_linear, model_kuadrat)
+
+```
+## Regresi dengan menggunakan Data Panel 
+
+Mengelola data panel di RStudio untuk mengestimasi persamaan regresi dan mencari pengaruh variable independent terhadapa variable dependen. 
+Salah satu metode untuk mencari pengarih variable adalah dengan data panel. Pengaruh seperti ini adalah untuk kita dapat mengestimasi daripada variable dependen. Data panel adalah data kumpulan dalam bentuk 
+
+### Membuat Struktur Data Panel 
+Rstudio berbeda dari perangkat lunak (software) statistik lainnya. Untuk mengelola dalam analisis appaun membutuhkan struktur data dalam bentuk rstudio. Kalau software lain cukup menyalin dan menempel (copy and paste) data spreadsheet baik itu Excel atau Google Spreadsheet dan langsung dapat untuk mengelola data namun untuk RStuido harus merubahkan dalam bentuk model data yang dikenal oleh Rstudio. 
+Langkahnya adalah mengimpor file speadhheet dan membuat beberapa pengaturan yang relatif mudah untuk membuat data anda mudah diolah. Khusus untuk analisis panel maka yang dibutuhkan bentuk data atau struktur dari data pdata.frame yang merupakan singkatan panel data frame. Ini berbeda dengan data frame biasa di Rstudio karena ini mempertimbangkan dimensi individual dan juga dimensi waktu. Perlakukan inilah yang membuat berbeda. 
+Disebelah kanan anda dapat mengklik import data set dan pilihlah excel. Ada beberapa pilihan lain seperti spss sas, stata, text dan lain-lain. KAlau mempunyai speadsheet maka pilihlah excel. 
+Setelah itu anda akan mmeilih beberapa sheet. Kalau anda bekerja dalam banyak sheet di satu file maka anda harus memilih salah satu sheet. Dibawah itu anda pilih. Maka anda harus meperhatikan kerapihan dari text yang anda buat. Misalnya ada sela diantara judul table dan juga isi data maka di table yang kosong itu akan tertulis NA atau Not Available yang berarti data tidak tersedia. 
+Menyiapkan excel sebagai data
+Untuk menyusun data maka yang bisa kita lakukan adalah dengan data. Karena data dnegan speadhseet kita lebih mudah. Kita bisa menyusun dengan data seperti contoh dibawah ini
+
+```{r}
+tobinq <- read.csv2("~/jurnal/tobinq3.csv")
+#setelah data diupload saya akan membuat data frame khusus panel yang disebut pdata frame dengan seperti ini. jangan lupa gunakan library plm
+library(plm)
+ptobinq=pdata.frame(tobinq,index=c("Comp","Tahun"),drop.index = TRUE,row.names=TRUE)
+```
+Setelah data sudah benar masuk kita dapat mengecek struktur dari data tersebut
+```{r}
+str(ptobinq)
+```
+Sudah benar maka langkahnya adlah mennetukan jenis regresi data panel yang akan kita lakukan. Kemudian sesuai langkah yang sudah kita rencanakan adalah awalnya dengan melakukan regresi dari ketiga metode seperti Pooling (pooling), Fixed Effect (within) dan Random. Dalam contoh kali ini saya akan mennamakan kalau pooling adalah regplmtobinq, untuk fixed effect adalah regplmtobinq2 dan untuk random adalah regplmtobinq3.  Dalam tiap perintah aka nada Namanya perintah summary yang artinya adalah menampilkan hasil regresi tersebut. 
+
+```{r}
+#Regresi Model Pooling 
+regplmtobinq<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="pooling")
+
+summary(regplmtobinq)
+
+#Regresi Model Fixed 
+regplmtobinq2<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="within")
+summary(regplmtobinq2)
+
+#Regresi Model Random Effcet
+
+regplmtobinq3<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="random")
+summary(regplmtobinq3)
+
+```
+

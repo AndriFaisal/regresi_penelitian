@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab5 Regresi Logistik | Regresi Untuk Penelitian</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab5 Regresi Logistik | Regresi Untuk Penelitian" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab5 Regresi Logistik | Regresi Untuk Penelitian" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="andri Faisal" />
+
+
+<meta name="date" content="2025-02-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="regresi-linier-berganda.html"/>
+<link rel="next" href="parts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>2</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Sederhana</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#keterbatasan-regresi-linear"><i class="fa fa-check"></i><b>3.1</b> Keterbatasan Regresi Linear</a></li>
+<li class="chapter" data-level="3.2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#regresi-linear-dengan-kategori"><i class="fa fa-check"></i><b>3.2</b> Regresi linear dengan kategori</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#latihan"><i class="fa fa-check"></i>Latihan</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>4</b> Regresi Linier Berganda</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#goodnes-of-fit"><i class="fa fa-check"></i><b>4.1</b> Goodnes of fit</a></li>
+<li class="chapter" data-level="4.2" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#scatter-diagram"><i class="fa fa-check"></i><b>4.2</b> Scatter diagram</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#latihan-1"><i class="fa fa-check"></i>Latihan</a></li>
+<li class="chapter" data-level="4.3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#regresi-dengan-dummy"><i class="fa fa-check"></i><b>4.3</b> Regresi dengan Dummy</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresi-logistik.html"><a href="regresi-logistik.html"><i class="fa fa-check"></i><b>5</b> Regresi Logistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="regresi-logistik.html"><a href="regresi-logistik.html#glosarry"><i class="fa fa-check"></i>Glosarry</a></li>
+<li class="chapter" data-level="" data-path="regresi-logistik.html"><a href="regresi-logistik.html#pertanyaan"><i class="fa fa-check"></i>Pertanyaan</a></li>
+<li class="chapter" data-level="5.1" data-path="regresi-logistik.html"><a href="regresi-logistik.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>5.1</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>6</b> Parts</a></li>
+<li class="chapter" data-level="7" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html"><i class="fa fa-check"></i><b>7</b> Asumsi Regresi Linear</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#multikolinearitas"><i class="fa fa-check"></i><b>7.1</b> Multikolinearitas</a></li>
+<li class="chapter" data-level="7.2" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#autokorelasi"><i class="fa fa-check"></i><b>7.2</b> Autokorelasi</a></li>
+<li class="chapter" data-level="7.3" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#heteroskedatisitas"><i class="fa fa-check"></i><b>7.3</b> Heteroskedatisitas</a>
+<ul>
+<li class="chapter" data-level="" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#ibarat-memperbaiki-kursi"><i class="fa fa-check"></i>Ibarat memperbaiki Kursi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#asumsi-normalitas"><i class="fa fa-check"></i><b>7.4</b> Asumsi Normalitas</a></li>
+<li class="chapter" data-level="7.5" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#regresi-dengan-rstudio"><i class="fa fa-check"></i><b>7.5</b> Regresi Dengan Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html"><i class="fa fa-check"></i><b>8</b> Regresi Dengan Rstudio</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-berganda-mtcars"><i class="fa fa-check"></i><b>8.1</b> Regresi Berganda Mtcars</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#uji-normalitas"><i class="fa fa-check"></i><b>8.1.1</b> Uji Normalitas</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#uji-multikolinearitas"><i class="fa fa-check"></i><b>8.1.2</b> Uji Multikolinearitas</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#autokorelasi-1"><i class="fa fa-check"></i><b>8.1.3</b> Autokorelasi</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#uji-heteroskedatisitas"><i class="fa fa-check"></i><b>8.1.4</b> Uji Heteroskedatisitas</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-dummy"><i class="fa fa-check"></i><b>8.2</b> Regresi Dummy</a></li>
+<li class="chapter" data-level="8.3" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-logistic"><i class="fa fa-check"></i><b>8.3</b> Regresi Logistic</a></li>
+<li class="chapter" data-level="8.4" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-kuadratik"><i class="fa fa-check"></i><b>8.4</b> Regresi Kuadratik</a></li>
+<li class="chapter" data-level="8.5" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-dengan-menggunakan-data-panel"><i class="fa fa-check"></i><b>8.5</b> Regresi dengan menggunakan Data Panel</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#membuat-struktur-data-panel"><i class="fa fa-check"></i><b>8.5.1</b> Membuat Struktur Data Panel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-mediasi-dengan-rstudio"><i class="fa fa-check"></i><b>8.6</b> Regresi Mediasi dengan RStudio</a></li>
+<li class="chapter" data-level="8.7" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-dengan-moderasi"><i class="fa fa-check"></i><b>8.7</b> Regresi dengan Moderasi</a>
+<ul>
+<li class="chapter" data-level="" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#pertanyaan-1"><i class="fa fa-check"></i>Pertanyaan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regresi Untuk Penelitian</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regresi-logistik" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Bab5</span> Regresi Logistik<a href="regresi-logistik.html#regresi-logistik" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dalam regresi logisitik kita akan membuat sesuatu variabel logistik atau logit yang berbeda dengan regresi linear . Hal ini berbeda karena regresi linear biasa menggunakan variabel rasio. Untuk regresi logistik kita dapat memberikan variabel independen antara 0 atau 1 <span class="citation">M.Hilbe (<a href="#ref-Hilbe2015">2015</a>)</span> Pemilihan variabel independen ini hanya dua saja biner atau <em>(binary)</em>, misalnya antara laki dan perempuan, sakit dan sehat, sejahtera dan non sejahtera dan lain-lain. Adapun untuk variabel dependen maka hal itu dibolehkan berupa data rasio Terkadang ada juga data yang menggunakan data yang lain juga. Hal ini bergantung dengan kebutuhan penelitian yang ada. Tetapi pada beberapa kasus bisa jadi regresi yang dilakukan adalah regresi kategorik juga.
+Kita bisa mengembangkan model dari variabel independen yang akan kita cari prediksinya dengan beberapa faktor independen yang diduga dapat untuk mempengaruhi dari nilai variabel Y tersebut. Hal itu bisa kita lihat dalam studi mengenai regresi logistik tersebut yang ada di jurnal. Kita sambungkan teori dengan penerapan regresi logistik.<br />
+Regresi logistik sebagai suatu jawaban atau respon dari keterbatasan regresi linear. Ada nilai yang sebagai variabel explanatory yang berkisar anatara pilihan nilai 1 dan juga nili 0 saja.
+Bagaimana interprestasi model ?
+Hasil regresi menghasilkan beberapa nilai yang perlu dianalisis . Nilai-nilai tersebut sama-sama seputar regresi namun karena adanya nilai dikotomi maka kita ajan sedikit berbeda untuk Apakah kita akan membedakan analisis dua data kategori tersebutnya. Tentu hal itu akan dibicarakan dan akan dijelaskan dari nilai dikotomi tersebut. Misalnya untuk regresi yang nilai angka 1 dan angka 0 maka kita harus memperhatikan kedua dikotomi tersebut. Ada hal yang membedakan karena dari awalnya memang untuk melihat pengaruh antara dua variabel kategori tersebut.
+Mungkinkah dari hal tersebut kita bisa memberikan interprestasi yang berbeda? Pada hubungan antara variable dependen dengan variable independen maka kita melihat nilai dari singnifikasi dari hubungan atau relasi antara variable dependen dengan variabel independennya. Kita melihat nilai p value atau Probability value. Seperti sudah menjadi kebiasaaan kalau nilai pvalue tidak boleh lebih dari 0,05 atau 5%,
+Kemudian melihat table ANOVA apakah nilai model sudah sesuai dengan harapan. Nilai ini menghitung kalkulasi perbedaan antara variabel dependenden maupun variabel independen. Hipotesis nol adalah tidak terjadi perbedaan yang artinya seluruh rata-rata dari nilai akan menjadi sama. Sedangkan pada hipotesis alternatif atau Ha adalah setidaknya ada satu variabel yang memiliki nilai yang berbeda.
+Adapun persamaan dari nilai logisitik adalah seperti ini :</p>
+<p>$ln⁡〖(p/(1-p))=β_0+β_1x 〗 $
+Pada bagian variabel independen atau juga variabel bebas aka ada nilai p/(1-p) maka hal itu adalah perbandingan anatara variabel dikotomi dalam variabel independen tersebut. Misalnya kita menetapkan p itu sebagai sukses maka nilai (1-p) adalah nilai non sukses atau gagal. Contoh juka demikian kita dapat menulis kemungkinan sukses atas kemungkinan gagal. Kalau kita tetapkan kemumgkinan sukses tersebut adalah 0,7 maka kita bisa masukkan nilai sebagai berikut 0,7/(1-0,7)= 0,7/0,3 = 2,33 . hal ini berarti kita bisa artikan kalau nilai kesuksesan mempunyai peluang 2,33 kali lebih banyak daripada kegagalan. Begitu juga nilai tersebut kita bisa gunakan yang lain untuk memasukkan nilai p sebagai nilai untuk satu peluang yang sudah saya tunjuk. Perbandingan rasio antara sukses dan tidak sukse disebut juga odds.
+<span class="math inline">\(p ̅=exp(β_0+β_1x )/(1+exp⁡(β_0+β_1x ) )\)</span></p>
+<p>Dalam regresi logistik tidak perlu lagi untuk melakukan ujian asumsi klasik seperti yang dialkukan pada regresi linear lainnya. Hal ini mungkin dikarenakan karena sifat nilainya yang sederhana sehingga berbeda. Variabel dikotomi yang lebih sederhana membuat <em>error</em> mungkin tidak seberapa besar dengan regresi linear.</p>
+<p>Meski tidak menggunakan model asumsi linear akan tetapi kita tetap saja memerlukan untuk menggunakan nilai Chis Square. Hal ini penting juga untuk menilai dari regresi tersebut. Hal ini cukup sebagai tujuam uuntuk mendapatkan nilai regresi tersebut.
+Untuk langkah-langkah dalam regresi logistik ini kita bisa lakukan sebagai berikut :
+Mengumpulkan data mengenai variabel bebas maupun variabel tidak bebas dan mendapatkan seluruhnya ke dalam suatau tabulasi yang baik. Yakinkan data sudah terhitung dengan benar sesuai dengan yang hendak kita carikan.
+Melakukan regresi logistik menggunakan software yang sudah digunakan sebelumnya. Saya memilih menggunakan R karena lebih mudah.
+Memastkam nilai dari regresi itu sesuai dengan yang kita iningnkan. Nilai dari regresi terlepas dari beberapa hal seperti nlai Chi square
+Menginterprestasikan nilai dari regresi logistik dari perhitungan probabilitas dari hasil software.</p>
+<p><strong>Interprestasi dari hasil regresi logistik</strong>
+Ketika kita sudah mendpatkan hasil regresi maka kita harus tahu untuk menerjemahkan hal ini. Dalam regresi logisitik tidak seperti regresi persamaan yang bentuknya linear. Kalau dalam regresi linear variabel bebas dapat memepengaruhi dalam besaran sekian berkat dari nilai koefisien yang ada dalam persamaan tersebut.
+Tetapi karena ada dua dari jenis dari variabel independen. Maksudnya ada dua kemungkinan binary atau dua peluang ketika seorang untuk memeilih nilai satu atau dua saja. Mudah seperti itu maka interprestasinya dalah seperti ini. Kalau saya mencontohkan dengan anak yang luslu maka anak yang lulus harus mempunyai syarat seperti nilai ujian yang bagus, kehadiran yang menutupi yang lain.
+Ketika itu kita dapat memilih peluang dari anak yang akan khusus dari nilai ujian Mata Kuliah Ujian tertentu harus memenuhi beberapa hal.
+Untuk yang sederhana saja kita bisa mencari hubungan perokok dengan usia yang ada. Apakah kita hubungkan anatar usia sebagai varabel bebas berhubungan dengan variabel yang kita cari. Tentu kita masih memetingkan apakah nilai signifikan dari variabel tersebut karena kalau tidak signifikan maka kita tidak bisa untuk memprediksi dari nilai tersebut.
+Misalnya saya akan meprediksi nilai kebangrkutan dari perusahaan dengan nilai seperti ini:</p>
+<p><span class="math inline">\(Log(p/(1-p) = b0 + b1*ROA\)</span></p>
+<p>Nilai p adalah nilai peluang perusahaan mengalami kesulitan keuangan, b0 adalah nilai konstanta dan b1 adalah nilai koefiseien dari variabel bebasnya, dalam hal ini variabel bebasnya adalah Return on Assets (ROA).
+Untuk kta melakukan interprestasi adalah seperti dibawah ini. Nilai intercept atau konstanta adalah nilai yang masih ada ketika nilai ROA menjadi nol. Apakah mungkin nilia tersebut atau nilai ROA itu bisa nol. Ini mungkin saja karena ada perusahaan yang tidak menghasilkan nilai keutnungan atau nilainya menjadi nol sehingga pendapatan dari perusahaan tersebut adalah nol. Kemudian adalah nilai koefisein dari ROA ini adalah seberapa besar pengaruh jadi bukan menunjukkan kuatnya hubungan melainkan nilai besaran yang mempengaruhi rasio logit tersebut.
+Tentu menerjemhakan dari persamaan itu butuh berupa hasil. Katakanlah jika kemungkinan dari financial distress itu hanya 0,1 maka peluang maka ada kemungkinan kebangkrutan itu hanya sekitar 0,11 kali karena dari nilai 0,1/0,9 maka akan ada nilai yang besar sekali.</p>
+<p>Maka kita dapatkan</p>
+<p>Dalam regresi logisitik ada berapa asumsi yang bisa kita penuhi antara lain:
+Error harus berdistribusi normal
+Heterosedatisitas
+Hubungan variable bebas dan tidak bebas yang ternyata tidak linear</p>
+<div id="glosarry" class="section level2 unnumbered hasAnchor">
+<h2>Glosarry<a href="regresi-logistik.html#glosarry" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>logistik
+logit
+probit</p>
+</div>
+<div id="pertanyaan" class="section level2 unnumbered hasAnchor">
+<h2>Pertanyaan<a href="regresi-logistik.html#pertanyaan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>1.Apa Perbedaan Regresi Liniear dan Regresi Logistik?</p>
+<p>2.Apa definsi dari regresi logistik?</p>
+<p>3.Apa tahapan dalam regresi logistik?</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Setelah mendapatkan nilai regresi logsitik maka bagaimana kita meyakinkan kalau nilai hasil regresi kita sudah terbebas dari asumsi yang buruk?</li>
+</ol>
+<p>5.Apa saja yang bisa kita tafsirkan jika kita mendapatkan hasil regresi demikian?</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Bagiamana cara memprediksi probabilitas kejadian dari model regresi logisitik ?</p></li>
+<li><p>Jelaskan bagaimana menetapkan nilai 1 dan 0 pada variable independen tersebut?</p></li>
+<li><p>Bagiamana penerapan regresi logistik dari bidang manajemen ?</p></li>
+</ol>
+<p>9.Apa yang dimaksud odds ratio dan mengapa itu penting?</p>
+<ol start="10" style="list-style-type: decimal">
+<li>Bagiamana cara pemilihan variable dalam regresi logistic?</li>
+</ol>
+<p>There are two steps to cross-reference any heading:</p>
+<ol style="list-style-type: decimal">
+<li>Label the heading: <code># Hello world {#nice-label}</code>.
+<ul>
+<li>Leave the label off if you like the automated heading generated based on your heading title: for example, <code># Hello world</code> = <code># Hello world {#hello-world}</code>.</li>
+<li>To label an un-numbered heading, use: <code># Hello world {-#nice-label}</code> or <code>{# Hello world .unnumbered}</code>.</li>
+</ul></li>
+<li>Next, reference the labeled heading anywhere in the text using <code>\@ref(nice-label)</code>;
+<ul>
+<li>If you prefer text as the link instead of a numbered reference use: <a href="#cross">any text you want can go here</a>.</li>
+</ul></li>
+</ol>
+</div>
+<div id="captioned-figures-and-tables" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Captioned figures and tables<a href="regresi-logistik.html#captioned-figures-and-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Figures and tables <em>with captions</em> can also be cross-referenced from elsewhere in your book using <code>\@ref(fig:chunk-label)</code> and <code>\@ref(tab:chunk-label)</code>, respectively.</p>
+<p>Don’t miss Table <a href="regresi-logistik.html#tab:nice-tab">5.1</a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="regresi-logistik.html#cb4-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb4-2"><a href="regresi-logistik.html#cb4-2" tabindex="-1"></a>  <span class="fu">head</span>(pressure, <span class="dv">10</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb4-3"><a href="regresi-logistik.html#cb4-3" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
+<span id="cb4-4"><a href="regresi-logistik.html#cb4-4" tabindex="-1"></a>)</span></code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 5.1: </span>Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">temperature</th>
+<th align="right">pressure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0.0002</td>
+</tr>
+<tr class="even">
+<td align="right">20</td>
+<td align="right">0.0012</td>
+</tr>
+<tr class="odd">
+<td align="right">40</td>
+<td align="right">0.0060</td>
+</tr>
+<tr class="even">
+<td align="right">60</td>
+<td align="right">0.0300</td>
+</tr>
+<tr class="odd">
+<td align="right">80</td>
+<td align="right">0.0900</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">0.2700</td>
+</tr>
+<tr class="odd">
+<td align="right">120</td>
+<td align="right">0.7500</td>
+</tr>
+<tr class="even">
+<td align="right">140</td>
+<td align="right">1.8500</td>
+</tr>
+<tr class="odd">
+<td align="right">160</td>
+<td align="right">4.2000</td>
+</tr>
+<tr class="even">
+<td align="right">180</td>
+<td align="right">8.8000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Hilbe2015" class="csl-entry">
+M.Hilbe, Joseph. 2015. <em>Basic Practical Guide to Logsitic Regression</em>. 1st ed. New York: CRC Press.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="regresi-linier-berganda.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-cross-refs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

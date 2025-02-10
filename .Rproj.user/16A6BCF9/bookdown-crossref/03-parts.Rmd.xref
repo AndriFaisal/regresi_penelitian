@@ -1,2 +1,10 @@
 h1:parts Parts
+h1:asumsi-regresi-linear Asumsi Regresi Linear
+h2:multikolinearitas Multikolinearitas
+h2:autokorelasi Autokorelasi
+h2:heteroskedatisitas Heteroskedatisitas
+h3:ibarat-memperbaiki-kursi Ibarat memperbaiki Kursi
+h2:asumsi-normalitas Asumsi Normalitas
+tab:tbl-asumsi Perbandingan Tabel Asumsi Regresi
+h2:regresi-dengan-rstudio Regresi Dengan Rstudio
 

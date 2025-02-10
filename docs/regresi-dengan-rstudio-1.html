@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab8 Regresi Dengan Rstudio | Regresi Untuk Penelitian</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab8 Regresi Dengan Rstudio | Regresi Untuk Penelitian" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab8 Regresi Dengan Rstudio | Regresi Untuk Penelitian" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="andri Faisal" />
+
+
+<meta name="date" content="2025-02-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="asumsi-regresi-linear.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="pendahuluan.html"><a href="pendahuluan.html"><i class="fa fa-check"></i><b>2</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html"><i class="fa fa-check"></i><b>3</b> Regresi Linier Sederhana</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#keterbatasan-regresi-linear"><i class="fa fa-check"></i><b>3.1</b> Keterbatasan Regresi Linear</a></li>
+<li class="chapter" data-level="3.2" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#regresi-linear-dengan-kategori"><i class="fa fa-check"></i><b>3.2</b> Regresi linear dengan kategori</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-sederhana.html"><a href="regresi-linier-sederhana.html#latihan"><i class="fa fa-check"></i>Latihan</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html"><i class="fa fa-check"></i><b>4</b> Regresi Linier Berganda</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#goodnes-of-fit"><i class="fa fa-check"></i><b>4.1</b> Goodnes of fit</a></li>
+<li class="chapter" data-level="4.2" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#scatter-diagram"><i class="fa fa-check"></i><b>4.2</b> Scatter diagram</a></li>
+<li class="chapter" data-level="" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#latihan-1"><i class="fa fa-check"></i>Latihan</a></li>
+<li class="chapter" data-level="4.3" data-path="regresi-linier-berganda.html"><a href="regresi-linier-berganda.html#regresi-dengan-dummy"><i class="fa fa-check"></i><b>4.3</b> Regresi dengan Dummy</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regresi-logistik.html"><a href="regresi-logistik.html"><i class="fa fa-check"></i><b>5</b> Regresi Logistik</a>
+<ul>
+<li class="chapter" data-level="" data-path="regresi-logistik.html"><a href="regresi-logistik.html#glosarry"><i class="fa fa-check"></i>Glosarry</a></li>
+<li class="chapter" data-level="" data-path="regresi-logistik.html"><a href="regresi-logistik.html#pertanyaan"><i class="fa fa-check"></i>Pertanyaan</a></li>
+<li class="chapter" data-level="5.1" data-path="regresi-logistik.html"><a href="regresi-logistik.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>5.1</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>6</b> Parts</a></li>
+<li class="chapter" data-level="7" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html"><i class="fa fa-check"></i><b>7</b> Asumsi Regresi Linear</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#multikolinearitas"><i class="fa fa-check"></i><b>7.1</b> Multikolinearitas</a></li>
+<li class="chapter" data-level="7.2" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#autokorelasi"><i class="fa fa-check"></i><b>7.2</b> Autokorelasi</a></li>
+<li class="chapter" data-level="7.3" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#heteroskedatisitas"><i class="fa fa-check"></i><b>7.3</b> Heteroskedatisitas</a>
+<ul>
+<li class="chapter" data-level="" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#ibarat-memperbaiki-kursi"><i class="fa fa-check"></i>Ibarat memperbaiki Kursi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#asumsi-normalitas"><i class="fa fa-check"></i><b>7.4</b> Asumsi Normalitas</a></li>
+<li class="chapter" data-level="7.5" data-path="asumsi-regresi-linear.html"><a href="asumsi-regresi-linear.html#regresi-dengan-rstudio"><i class="fa fa-check"></i><b>7.5</b> Regresi Dengan Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html"><i class="fa fa-check"></i><b>8</b> Regresi Dengan Rstudio</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-berganda-mtcars"><i class="fa fa-check"></i><b>8.1</b> Regresi Berganda Mtcars</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#uji-normalitas"><i class="fa fa-check"></i><b>8.1.1</b> Uji Normalitas</a></li>
+<li class="chapter" data-level="8.1.2" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#uji-multikolinearitas"><i class="fa fa-check"></i><b>8.1.2</b> Uji Multikolinearitas</a></li>
+<li class="chapter" data-level="8.1.3" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#autokorelasi-1"><i class="fa fa-check"></i><b>8.1.3</b> Autokorelasi</a></li>
+<li class="chapter" data-level="8.1.4" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#uji-heteroskedatisitas"><i class="fa fa-check"></i><b>8.1.4</b> Uji Heteroskedatisitas</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-dummy"><i class="fa fa-check"></i><b>8.2</b> Regresi Dummy</a></li>
+<li class="chapter" data-level="8.3" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-logistic"><i class="fa fa-check"></i><b>8.3</b> Regresi Logistic</a></li>
+<li class="chapter" data-level="8.4" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-kuadratik"><i class="fa fa-check"></i><b>8.4</b> Regresi Kuadratik</a></li>
+<li class="chapter" data-level="8.5" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-dengan-menggunakan-data-panel"><i class="fa fa-check"></i><b>8.5</b> Regresi dengan menggunakan Data Panel</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#membuat-struktur-data-panel"><i class="fa fa-check"></i><b>8.5.1</b> Membuat Struktur Data Panel</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-mediasi-dengan-rstudio"><i class="fa fa-check"></i><b>8.6</b> Regresi Mediasi dengan RStudio</a></li>
+<li class="chapter" data-level="8.7" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#regresi-dengan-moderasi"><i class="fa fa-check"></i><b>8.7</b> Regresi dengan Moderasi</a>
+<ul>
+<li class="chapter" data-level="" data-path="regresi-dengan-rstudio-1.html"><a href="regresi-dengan-rstudio-1.html#pertanyaan-1"><i class="fa fa-check"></i>Pertanyaan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Regresi Untuk Penelitian</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regresi-dengan-rstudio-1" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Bab8</span> Regresi Dengan Rstudio<a href="regresi-dengan-rstudio-1.html#regresi-dengan-rstudio-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Salah satu cara untuk menghitung regresi adalah dengan RStudio maka kita bisa menggunakan salah satu perangkat lunak ini untuk membantu menghitung nilai persamaan regresi. secara ringkas adalah pertama menyiapkan data yang akan dilakukan analisis.
+Kemudian memilih beberapa <em>package</em> yang cocok untuk melakukan analisis ada beberapa contoh package yang dapat seperti lm yang dapat digunakan untuk menduga untuk regresi ada juga ggplot2 untuk grafik dan juga lain-lain. Ada beberapa modul yang dapat digunakan untuk melakukan regresi tersebut.
+A. Persiapan
+Sebelum melakukan regresi kita harus menentukan terlebih dahulu yang mana yang menjadi variabel yang kita regresi. KIta harus mengetahui bahwa niat regresi adalah untuk mengetahui faktor yang mempengaruhi variabel independen terhadap faktor yang mempengaruhi variabel independen. Setelah kita melakukan sesuai dengan teori yang kita dapatkan maka kita menyiapkan data yang sudah akan kita lakukan regresi di tempat itu.</p>
+<p>Maka kita dapat menyiapkan data. Kalau data yang kita kumpulkan berupa data yang kita tabulasi dalam bentuk spreadhseet maka kita akan menyesuaikan terlebih dahulu dengan apa yang kita hendak lakukan. Karena RStudio berbeda dengan data yang ada di dalam spreadsheet atau software liannya. Kita bisa membuat penyesuaian terlebih dahulu sehingga kita bisa untuk menyelesaikan pekerjaan yang kita lakukan</p>
+<ol start="2" style="list-style-type: upper-alpha">
+<li><p>Memastikan data struktur yang ada
+Kita dapat mengimport data dengan cara menyiapak spreadsheet terlebih dahulu. Kita impor telerbih dahulu dengan seperti ini. Kita apilih file spearadsheet. dan kita akan mendpatkan data set tersebut masuk. Kita mengatur beberapa variable yang sudah kita pilih ke dalam data yang numeric atau data kuantitaif. Setelah itu baru kita set data tersebut sesuai dengan persamaan yang kita hendak cari.</p></li>
+<li><p>Sebelumnya kita tampilkan dahulu library beberapa uji yang masuk dalam regresi tersebut. Seperti melakukan uji heteroskedatisitas untuk emmastikam bahwa error karena dapat membuat estimasi menjadi tidak pas. Kemudian menguji autokorelasi dari model regresi. Hal seperti ini mutlak dilakukan</p></li>
+<li><p>Kita menjalankan regresi dan melihat apakah nilainya sudah sesuai dengan harapan. Untuk itu kita melihat apakah sudah sesuai dengan asumsi.
+Seperti yang ditunjukkan pada Tabel <span class="citation">(<a href="#ref-ref"><strong>ref?</strong></a>)</span>(tab:mtcars), konsumsi bahan bakar bervariasi berdasarkan jumlah silinder.</p></li>
+</ol>
+<p>Salah satu analisis statistic yang mencari hubungan atau relasi antara satu variable dengan variable yang lain adalah regresi. Ada hubungan dua vriabel yang sifatnya dipengaruhi yakni variable dependen dan juga variabel yang mempengaruhi.
+Kedua variable tersebut diuji untuk mencari hubungan, Hubungan tersebut berdasarkan teori yang sudah ada. Ada suatu konstruksi yang dapat menjelaskan hubungan teori tersebut.
+Untuk melaksanakan regresi dengan RStudio kita bisa lakukan seperti ini :
+1. Persiapan data. Kita sudah menyiapakan data yang sudah berlandaskan teori. KIat Sudha enetapkan data tersebut yang mana variable Y dan mana variable X nya. Pastikan sudah kita sudah mempunyai kecukupan data untuk regresi analisis ini . Persiapaan data dalam bentuk excel atau spreadsheet.
+2. Import data dari spreadsheet ke bentuk data Rstudio. Kita akan mendapatkan data bentuk data frame dan bentuk data tibble. Jika ingin belajar mengenai data silahkan kli ke ebook saya yang lain <a href="https://andrifaisal.github.io/StatDesk/" class="uri">https://andrifaisal.github.io/StatDesk/</a>
+3. Kemudian lakukan regresi dengan fungsi LM. Kita jangan lupa masukkan package lmtest dan juga zoo
+4. Uji normalitas dari hasil regresi yang kita sudah buat . Hal ini untuk memastikam kalau hasil dari regresi sudah tersebar normal dailihat dari residualsnya.
+5. Uji Autokorelasi dengan menggunakan dw test. Uji ini memastikan tidak terjadinya korelasi serial atau autokorelasi pada data tersebut .
+6. Uji Hetresokedtasisitas untuk melihat apakah data menunjukan ada hubungan yang terjadi anatara erros. Seharusnya error tersebut harus bernilai nol. (E(ε))=0
+7. Memberikan interperestasi dari hasil regresi itu baik t test dan juga F test
+8. Memberikan kesimpulan pada hasil regresi kita. Berikan kalimat pada hasil regresi yang sudah dibuat. Hal ini berkait dengan variabel mana yang mau kita teliti tersebut.</p>
+<div id="regresi-berganda-mtcars" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Regresi Berganda Mtcars<a href="regresi-dengan-rstudio-1.html#regresi-berganda-mtcars" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mencoba untuk meregresi dalam data persamaan mtcars. Sebagai variable indpenden adalah mpg sedangkan variable independent berjumlah dua yakni variable cyl dan juga variable disp. Pada kesempatan kali ini saya akan menggunakan data yang ada di rstudio yakni data set dari yang terdapat di package car. Nama datanya adalah mt cars. MT cars ini adalah satu set data yang berisi sebanyak 32 data dengan banyak sekali variabelnya namun pada kesempatan kali ini saya akan memilih dua variable independennya sakja yakni variabve yakni cyl dan disp.
+Kita bisa menampilkan dengan klik yang namaya mtcars maka hasilnya adalah dengan perintah View (mtcars). Sengaja tidak ditampilkan karena data ini begitu Panjang sehingga bisa memenuhi halaman dari buku. Tetapi kita bisa tampilkan di bagian depan dengan depan atau head atau tail untuk bagian bawah table.</p>
+<p>Kita bisa melihat struktur data dari mtcars seperti dibawah ini dengan mengetik mtcars. Maka akan melihat tampilan banyak dari mtcars.
+Kita perlu untuk melihat structure dati mtcars:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="regresi-dengan-rstudio-1.html#cb9-1" tabindex="-1"></a><span class="fu">str</span>(mtcars)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    32 obs. of  13 variables:
+##  $ mpg    : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+##  $ cyl    : num  6 6 4 6 8 6 8 4 4 6 ...
+##  $ disp   : num  160 160 108 258 360 ...
+##  $ hp     : num  110 110 93 110 175 105 245 62 95 123 ...
+##  $ drat   : num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+##  $ wt     : num  2.62 2.88 2.32 3.21 3.44 ...
+##  $ qsec   : num  16.5 17 18.6 19.4 17 ...
+##  $ vs     : num  0 0 1 1 0 1 0 1 1 1 ...
+##  $ am     : num  1 1 1 0 0 0 0 0 0 0 ...
+##  $ gear   : num  4 4 4 3 3 3 3 4 4 4 ...
+##  $ carb   : num  4 4 1 1 2 1 4 2 2 4 ...
+##  $ hp_wt  : num  288 316 216 354 602 ...
+##  $ log_mpg: num  3.04 3.04 3.13 3.06 2.93 ...</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="regresi-dengan-rstudio-1.html#cb11-1" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1
+##                   am gear carb  hp_wt  log_mpg
+## Mazda RX4          1    4    4 288.20 3.044522
+## Mazda RX4 Wag      1    4    4 316.25 3.044522
+## Datsun 710         1    4    1 215.76 3.126761
+## Hornet 4 Drive     0    3    1 353.65 3.063391
+## Hornet Sportabout  0    3    2 602.00 2.928524
+## Valiant            0    3    1 363.30 2.895912</code></pre>
+<p>Ini adalah struktur data dari mt cars. Terlihat struktur data dari mtcars adalah data. Frame dengan 32 jumlah data (n) atau observasi (obs). Data ini terdiri dari 11 kolom yakni variable dependent satu mpg dengan 10 variabel independent lainnya. Tentu dari banyak variable ini anda bisa melakukan analisis data. Di baris pertama ada mpg yang merupakan nama variabelnya sedangkan baris selanjutanya ada kata num yang berarti itu adalah data numerik atau data angka. Sedangkan di sebelah kanan num adalah ada sejumlah angka yang menunjukkan sample dari data variable tersebut.
+1. mpg adalah mile per gallon
+2. cyl adalah jumlah silincer
+3.disp atau dispalcement (cu.in)
+4. he adalah horse power atau tenaga kuda
+5, drat adalah rear axel ratio
+6. wt adlah berat dalam 1000 lbs
+7.qsec adalah seperempat mile
+8. vs adalah bentuk mesin dimana 0 adalah V shaped dan 1 adalah straight
+9. am adalah transmisi kalau 0 adalah otomatis and 1 manual
+10. gear jumlah gigi depan
+11. carb adalah jumlah karburator</p>
+<p>Atau kita bisa melihat dengan perintah View(mtcars) . Beginilah tampilan dari mtcars
+Kita bisa melihat kalau begitu banyak data variable yang ada yakni 11 dengan hanya satu variable dependen yang bernama mpg atau mile per gallon. Itu adalah jumlah mil yang ditempuh dengan satu gallon (sekitar lima liter) oleh kendaraan tersebut.
+Setelah kita sudah menyaipakn maka kita harus menggunakan beberapa paket yang dibutuhkan untuk pertama adalah kita menggunakan paaket lmtest atau paket zoo. Ini adalah paket yang biasa digunakan dalam analisis regresi. Kita lihat dibawah ada peringatan mengenai penggunaan paket kalau lm test harus juga mengikuti paket zoo.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="regresi-dengan-rstudio-1.html#cb13-1" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code></pre></div>
+<pre><code>## Warning: package &#39;lmtest&#39; was built under R version
+## 4.3.1</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## Warning: package &#39;zoo&#39; was built under R version 4.3.1</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="regresi-dengan-rstudio-1.html#cb19-1" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
+<p>Setelah paket zoo terpasang. Maka perintahnya adalah menggunakan metode regresi sesuai dengan apa yang kita tujukan atau niatkan. Perintah dalam regresi adalah lm(variable dependent ~ variable independent 1 + Variabel independent 2, data=data)
+Pertama kita mengetikkan fungsi lm diikuti dengan buka kurung variable independen ada lambang seperti garis bergelombang tersebut dan diikuti dengan beberapa variable independennya. Jangan lupa dengan memasukan nama data karena ini yang akan menuju pada data yang akan kita regresi. Kalau kita lupa untuk menaruh data maka tidak akan terjadi hasil regresi tersebut.tanda sama dnegan memang jarang digunakan karena spsifik untuk meentukan parameter tertentu sebaliknya tanda yang sering digunakan adalah kurang dari dan strip (“&lt;-”)
+Ketika kita mengetikkan regresi tersebut dengan tanda sama dengan adalah nama regresimtcar1 adalah nama yang saya tuliskan sendiri untuk mengingat nama model saya. Nama ini memang tidak harus diingat tapi nanti kalau ini digunakan untuk melakukan beberapa perintah setelahnya. Setelah menteik perintah tersebut maka tidak ada oputput maka kita ketik perintah summary () seperti yang ada di bawah ini.</p>
+<p>Sebelum itu kita tampilkan terlebih dahulu variabel yang akan kita regresi seperti dibawah ini:<a href="#tab-mtcars"><strong>??</strong></a></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="regresi-dengan-rstudio-1.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb20-2"><a href="regresi-dengan-rstudio-1.html#cb20-2" tabindex="-1"></a><span class="fu">kable</span>(mtcars[, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;disp&quot;</span>)], <span class="at">caption =</span> <span class="st">&quot;Tabel Data Mobil&quot;</span>)</span></code></pre></div>
+<table>
+<caption><span id="tab:tab-mtcars">Table 8.1: </span>Tabel Data Mobil</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+</tr>
+<tr class="even">
+<td align="left">Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108.0</td>
+</tr>
+<tr class="even">
+<td align="left">Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+</tr>
+<tr class="even">
+<td align="left">Valiant</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Duster 360</td>
+<td align="right">14.3</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+</tr>
+<tr class="even">
+<td align="left">Merc 240D</td>
+<td align="right">24.4</td>
+<td align="right">4</td>
+<td align="right">146.7</td>
+</tr>
+<tr class="odd">
+<td align="left">Merc 230</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">140.8</td>
+</tr>
+<tr class="even">
+<td align="left">Merc 280</td>
+<td align="right">19.2</td>
+<td align="right">6</td>
+<td align="right">167.6</td>
+</tr>
+<tr class="odd">
+<td align="left">Merc 280C</td>
+<td align="right">17.8</td>
+<td align="right">6</td>
+<td align="right">167.6</td>
+</tr>
+<tr class="even">
+<td align="left">Merc 450SE</td>
+<td align="right">16.4</td>
+<td align="right">8</td>
+<td align="right">275.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Merc 450SL</td>
+<td align="right">17.3</td>
+<td align="right">8</td>
+<td align="right">275.8</td>
+</tr>
+<tr class="even">
+<td align="left">Merc 450SLC</td>
+<td align="right">15.2</td>
+<td align="right">8</td>
+<td align="right">275.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Cadillac Fleetwood</td>
+<td align="right">10.4</td>
+<td align="right">8</td>
+<td align="right">472.0</td>
+</tr>
+<tr class="even">
+<td align="left">Lincoln Continental</td>
+<td align="right">10.4</td>
+<td align="right">8</td>
+<td align="right">460.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Chrysler Imperial</td>
+<td align="right">14.7</td>
+<td align="right">8</td>
+<td align="right">440.0</td>
+</tr>
+<tr class="even">
+<td align="left">Fiat 128</td>
+<td align="right">32.4</td>
+<td align="right">4</td>
+<td align="right">78.7</td>
+</tr>
+<tr class="odd">
+<td align="left">Honda Civic</td>
+<td align="right">30.4</td>
+<td align="right">4</td>
+<td align="right">75.7</td>
+</tr>
+<tr class="even">
+<td align="left">Toyota Corolla</td>
+<td align="right">33.9</td>
+<td align="right">4</td>
+<td align="right">71.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Toyota Corona</td>
+<td align="right">21.5</td>
+<td align="right">4</td>
+<td align="right">120.1</td>
+</tr>
+<tr class="even">
+<td align="left">Dodge Challenger</td>
+<td align="right">15.5</td>
+<td align="right">8</td>
+<td align="right">318.0</td>
+</tr>
+<tr class="odd">
+<td align="left">AMC Javelin</td>
+<td align="right">15.2</td>
+<td align="right">8</td>
+<td align="right">304.0</td>
+</tr>
+<tr class="even">
+<td align="left">Camaro Z28</td>
+<td align="right">13.3</td>
+<td align="right">8</td>
+<td align="right">350.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Pontiac Firebird</td>
+<td align="right">19.2</td>
+<td align="right">8</td>
+<td align="right">400.0</td>
+</tr>
+<tr class="even">
+<td align="left">Fiat X1-9</td>
+<td align="right">27.3</td>
+<td align="right">4</td>
+<td align="right">79.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Porsche 914-2</td>
+<td align="right">26.0</td>
+<td align="right">4</td>
+<td align="right">120.3</td>
+</tr>
+<tr class="even">
+<td align="left">Lotus Europa</td>
+<td align="right">30.4</td>
+<td align="right">4</td>
+<td align="right">95.1</td>
+</tr>
+<tr class="odd">
+<td align="left">Ford Pantera L</td>
+<td align="right">15.8</td>
+<td align="right">8</td>
+<td align="right">351.0</td>
+</tr>
+<tr class="even">
+<td align="left">Ferrari Dino</td>
+<td align="right">19.7</td>
+<td align="right">6</td>
+<td align="right">145.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Maserati Bora</td>
+<td align="right">15.0</td>
+<td align="right">8</td>
+<td align="right">301.0</td>
+</tr>
+<tr class="even">
+<td align="left">Volvo 142E</td>
+<td align="right">21.4</td>
+<td align="right">4</td>
+<td align="right">121.0</td>
+</tr>
+</tbody>
+</table>
+<p>Setelah itu kita melakukan regresi dari data tersebut seperti dibawah ini</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="regresi-dengan-rstudio-1.html#cb21-1" tabindex="-1"></a>regresimtcars1<span class="ot">&lt;-</span><span class="fu">lm</span>(mpg<span class="sc">~</span>cyl<span class="sc">+</span>disp,<span class="at">data=</span>mtcars)</span>
+<span id="cb21-2"><a href="regresi-dengan-rstudio-1.html#cb21-2" tabindex="-1"></a><span class="fu">summary</span>(regresimtcars1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ cyl + disp, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4213 -2.1722 -0.6362  1.1899  7.0516 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 34.66099    2.54700  13.609 4.02e-14 ***
+## cyl         -1.58728    0.71184  -2.230   0.0337 *  
+## disp        -0.02058    0.01026  -2.007   0.0542 .  
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.055 on 29 degrees of freedom
+## Multiple R-squared:  0.7596, Adjusted R-squared:  0.743 
+## F-statistic: 45.81 on 2 and 29 DF,  p-value: 1.058e-09</code></pre>
+<p>Pada bagian atas kita melihat ada ringkasan Call atau perihal dari sebelumnya karena mungkin itu untuk mengingatkan agar kjita bisa untuk memastikan formula tersbeut sudah benar. Terkadang kita memang lupa untuk formula yang kita gunakan.</p>
+<p>Dibagian bawah ada yang Namanya residuals atau sisa. Ini adalah sisa dari bentuk dari model regresi dari peramalan hasil regreis tersebut terdiri dari nilai minimal yakni nilai yang palin terkecil dari nilai residuals dan juga ada nilai yang paling tinggi yakni maks. Ada juga nilai kuartil 1, kuartil 2 ( median) atau kuartil 3 yang menunjukkan pembagian residuals.</p>
+<p>Pada bagian bawah ada yang Namanya coefficients. Bagian ini adalah menjadi summary atau dari hasil regresi tersebut. Dari sini kita akan meligat ebberapa kolom yakni ; kolom pertama tanpa judul, kolom estimates, kolom standard error, nilai t (tvalue) dan nilai p (PRI&lt;tI). Pada kolom pertama ada konstantanta atau intercept. Ini adalah nilai alpha atau nilai konstanta. Ini adalah nilai yang ada meski nilai koefisein adalah nilai yang ada. Ini menjadi garis titik awal dari persaman regresi. Pada variable dari cyl dan disp terlihat ada nilai estimasi yang menunjjukan nilai koefisien dari persamaan regresi. Maka kalau ditulis persamaan dari regresi tersebut adalah sebagai berikut :
+Y = 34,66099 -1,58728 cyl – 0,02058 disp + e</p>
+<p>Inilah nilai yang bisa kita masukkan untuk melakukan peramalan terhadap variable dependent Y atau mpg. Pada variable cyl menunjukan p value yakni 0,337. Nilai ini adlah lebih kecil dari 0,05 maka keuputsannya adalah menolak HO dan melihat adanya pengaruh signifikan anatara variable cyl terhadap avriabel mpg. Dengan nilai -1,58728 maka menunjukkan semakin meningkatnya nilai cyl akan menurunkan mpg yakni sebesar 1,58728 satuan. Seadngkan pada variable disp yang terjdi adalah sebaliknya karena nilainya nyaris lebih kecil dari 0,05 maka 0,542 maka menunjukkan hubungan yang tidak signifkan.Artinya pengaruh tersebut tidak terlihat signifikan menurut peluang yang ada nilai peluang di bagian output model tersebut.</p>
+<p>Hasil model dari regresi ini membuktikan kalau nilai F value 29 artinya nilai derajat bebas dengan jumlah sample sebanyak 32 dan dikurangi varabel bebas (k)=2 dan juga 1. df atau v = n-k-1 = 32-2-1 =29. Dari nilai F hitung 45,81 maka hasilnya menunjukkan kalau model yang digunakan tersebut sudah sah.
+Dari hasil regresi kita bisa lihat kalau nilai Adjsuted R square tersebut 0,743, Artinya dua variable independedn baik cyl dan disp mempunyai pengaruh 74,3 % terhadap variable indepnden mpg.</p>
+<div id="uji-normalitas" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Uji Normalitas<a href="regresi-dengan-rstudio-1.html#uji-normalitas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dalam melakukan uji regresi kita harus memastikan kalau data tersebut juga harus mempunyai normal.Data yang tersebar normal ini penting untuk memastikan kalau hasil regresi tersebut menjadi sah. Untuk melakukan itu kita bisa melalukan uji baik dengan test Shapiro-Wilk Normality Test atau kita juga menggunakan qqnorm atau qqline dari reisudal tersebut.
+Melakukan uji normalitas pada data dengan Shapiro Wilk tesy adalah dengan mengetikan perintah shapiro.test terhadap residual regresi mt cars. Dari sana terlihat output tersebut.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="regresi-dengan-rstudio-1.html#cb23-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(regresimtcars1))</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(regresimtcars1)
+## W = 0.9419, p-value = 0.08479</code></pre>
+<p>Hasil nilai dari Uji Shapiro adalah 0,9419. Dalam uji ini Nilai Ho adalah Data tersebar normal sedangkan Hipotesis Alternatif (Ha) dari uji ini adalah data tidak tersebar normal. Aturan dalam uji ini jika nilai p (P-Value) ebih besar dari 0,05 (p&gt;0,05) maka keputusan dari uji ini dalah tidak bisa menolak H_O. Artinya Data pada reiduals ini adalah tersebar dengan normal.</p>
+<p>Selain itu kita bisa melakukan dengan grafil normal qq plot. Dengan data itu kita bisa untuk melihat adanya data yang tersebar normal. Kita bisa menggunakan perintah qq normal dengan residuas. Kemudian kita bisa menambahkan qqline. Agar terlihat garis data normalitasnya. <a href="regresi-dengan-rstudio-1.html#fig:normal-fig">8.1</a></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="regresi-dengan-rstudio-1.html#cb25-1" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(regresimtcars1))</span>
+<span id="cb25-2"><a href="regresi-dengan-rstudio-1.html#cb25-2" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">residuals</span>(regresimtcars1))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:normal-fig"></span>
+<img src="docs/images/normal-fig-1.png" alt="Grafik Normalitas" width="672" />
+<p class="caption">
+Figure 8.1: Grafik Normalitas
+</p>
+</div>
+<p>Dari Grafik Garis tersebut kita bisa melihat data tersebar mendekati garis lurus tersebut sehingga memang kita bsia menyimpulkan kalau regresi tersebut normal. Ada keraguan nilai residual di bagian atas sedikit menjauh dari garis lurus akan tetapi kita yakin karena sudah melakukan uji Shapiro Wilk maka data residual tersebar normal.</p>
+</div>
+<div id="uji-multikolinearitas" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Uji Multikolinearitas<a href="regresi-dengan-rstudio-1.html#uji-multikolinearitas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dalam analisis regresi lebih dari dua variable atau berganda maka kita harus memperhatikan adanya kemungkinan hubungan antara dua variable independen. Hubungan dua variable independent ini akan menjadi masalah bagi hasil estimasi regresi tersebut. Hasil yang ditampilkan adalah bukan hasil estimasi yang sesungguhnya tetapi hasil yang efisien.
+Salah satu cara untuk mencari bukti adanya multikolinearitas kita bisa emnilai nilai eugine value dan vif. Untuk menampilkan uji ini kita menggunakan library (car) kemudian kita akan mnegguakan</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="regresi-dengan-rstudio-1.html#cb26-1" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<pre><code>## Warning: package &#39;car&#39; was built under R version 4.3.1</code></pre>
+<pre><code>## Loading required package: carData</code></pre>
+<pre><code>## Warning: package &#39;carData&#39; was built under R version
+## 4.3.1</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="regresi-dengan-rstudio-1.html#cb30-1" tabindex="-1"></a><span class="fu">vif</span>(regresimtcars1)</span></code></pre></div>
+<pre><code>##      cyl     disp 
+## 5.366629 5.366629</code></pre>
+<p>Dalam uji Multikolinearitas terlihat kalau nilai dari VIF yakni 5,37. Nilai ini masih jauh dibawah 10 maka kita bisa membuat kesimpulamn kalau memang tidak terjadi korelasi antara variabel independen baik cyl maupun juga disp.</p>
+</div>
+<div id="autokorelasi-1" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Autokorelasi<a href="regresi-dengan-rstudio-1.html#autokorelasi-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Jika terjadi autokorelasi maka kita harus memperbaiki terlebih dahulu. Dalam data cross section umumnya tidak didapatkan terjadinya autokorelasi atau serial korelasi. Tetapi kita dapat menguji dengan plot atau grafik dengan melihat plot reisudals dari regreis tersebut.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="regresi-dengan-rstudio-1.html#cb32-1" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span></code></pre></div>
+<pre><code>## Warning: package &#39;sandwich&#39; was built under R version
+## 4.3.1</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="regresi-dengan-rstudio-1.html#cb34-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(<span class="fu">lm</span>(mpg <span class="sc">~</span> cyl <span class="sc">+</span> disp, <span class="at">data =</span> mtcars)))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Jika ingin memastikan lagi kita bisa menggunakan Newey Test. Dalam Newey Test kita bisa melihat apakah ada nilai yang mengandung autokorelasi dari nilai t hitungnya. Untuk menggunakan uji ini kita mengaktifkan terlebih dahulu paket (package) sandwich.
+Untuk itu kita bisa menggunakan perintash seperti yang dibawah ini yakni coeftest model dan juga vcov pada model. Tulisan atau syntasx perintahnya seperti dibawah ini</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="regresi-dengan-rstudio-1.html#cb35-1" tabindex="-1"></a><span class="fu">coeftest</span>(regresimtcars1, <span class="at">vcov =</span> <span class="fu">NeweyWest</span>(regresimtcars1))</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##               Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept) 34.6609947  2.2288371 15.5512 1.319e-15 ***
+## cyl         -1.5872768  0.3668222 -4.3271 0.0001636 ***
+## disp        -0.0205836  0.0071855 -2.8646 0.0076861 ** 
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Hasil menunjukkan kalau model regresi ini tidak terjadi autokorelasi karenanya dapat digunakan sebagai bukti kalau model regresi tidak terjadi autokorelasi.</p>
+<p>Uji Breusch Godfrey
+Salah satu untuk menuji autokorelasi adalah dengan menggunakan BG Test. Untuk melakukan ini kita melakukan bg test pada model yang kita sudah cari yakni regresimtcars.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="regresi-dengan-rstudio-1.html#cb37-1" tabindex="-1"></a><span class="fu">bgtest</span>(regresimtcars1)</span></code></pre></div>
+<pre><code>## 
+##  Breusch-Godfrey test for serial correlation of
+##  order up to 1
+## 
+## data:  regresimtcars1
+## LM test = 1.1748, df = 1, p-value = 0.2784</code></pre>
+<p>Uji Durbin Watson
+Salah satu uji yang digunakan untuk autokorelasi adalah Durbin Watson. Biasanya uji ini yang paling banyak digunakan untuk mendeteksi adanya autokorelasi. Nilai yang sering digunakan adalah nilai yang mendekati dua. Kalau nilai dw mendekati dua maka hampir bisa dikatakan tidak terjadi autokorelasi. Jika terjadi nilai dibawa dua kita masih bsia melakukan beberapa hal seperti menilai du dan dl. Kita bisa melihat di dalam table ada panduan untuk menilai adanya autokorelasi dengan cara seperti dibawah ini.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="regresi-dengan-rstudio-1.html#cb39-1" tabindex="-1"></a><span class="fu">dwtest</span>(regresimtcars1)</span></code></pre></div>
+<pre><code>## 
+##  Durbin-Watson test
+## 
+## data:  regresimtcars1
+## DW = 1.5965, p-value = 0.09521
+## alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+</div>
+<div id="uji-heteroskedatisitas" class="section level3 hasAnchor" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Uji Heteroskedatisitas<a href="regresi-dengan-rstudio-1.html#uji-heteroskedatisitas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>JIka kita ingin melihat variable residualsinya maka kita bisa menampilkannya speerti ini. Kita beri perintah residuals (model regresi). Residualas adalah nilai sisa selisih anatara nilai peramalan dengan nila nilai actual. Nilai residuals ini akan kita gunakan untuk menduga adanya kesalahan heteroksedatisitas. Dengan prosedur yang seperti dilakuan oleh buku Modul Probabilitas dan statistik(Reny Rian, 2018) kita akan menduga adanya heteroksedatisitas dari model dengan langkah :
+1. Hitunglah nilai residuals
+2. Mengkuadratkan residuals menjadi kresid
+3. Kemudian ganakn taksiran fitted(regresimtcars)
+4. Buatlah suatu plot yang menghubungkan kresid dan taksiran
+5. Kita bisa menduga dari sini yang mana yang mengalami heteroskedatisitas.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="regresi-dengan-rstudio-1.html#cb41-1" tabindex="-1"></a><span class="fu">residuals</span>(regresimtcars1)</span></code></pre></div>
+<pre><code>##           Mazda RX4       Mazda RX4 Wag 
+##         -0.84395255         -0.84395255 
+##          Datsun 710      Hornet 4 Drive 
+##         -3.28885510          1.57324352 
+##   Hornet Sportabout             Valiant 
+##          4.14732774         -2.40601638 
+##          Duster 360           Merc 240D 
+##         -0.25267226         -0.89226849 
+##            Merc 230            Merc 280 
+##         -2.61371193         -2.48751693 
+##           Merc 280C          Merc 450SE 
+##         -3.88751693          0.11418581 
+##          Merc 450SL         Merc 450SLC 
+##          1.01418581         -1.08581419 
+##  Cadillac Fleetwood Lincoln Continental 
+##         -1.84730532         -2.09430892 
+##   Chrysler Imperial            Fiat 128 
+##          1.79401841          5.70804444 
+##         Honda Civic      Toyota Corolla 
+##          3.64629354          7.05160883 
+##       Toyota Corona    Dodge Challenger 
+##         -4.33979314          0.08281514 
+##         AMC Javelin          Camaro Z28 
+##         -0.50535572         -1.45850859 
+##    Pontiac Firebird           Fiat X1-9 
+##          5.47067308          0.61421953 
+##       Porsche 914-2        Lotus Europa 
+##          0.16432359          4.04561603 
+##      Ford Pantera L        Ferrari Dino 
+##          1.06207504         -2.45270705 
+##       Maserati Bora          Volvo 142E 
+##         -0.76710662         -4.42126787</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="regresi-dengan-rstudio-1.html#cb43-1" tabindex="-1"></a>kresid<span class="ot">=</span><span class="fu">residuals</span>(regresimtcars1)<span class="sc">*</span><span class="fu">residuals</span>(regresimtcars1)</span>
+<span id="cb43-2"><a href="regresi-dengan-rstudio-1.html#cb43-2" tabindex="-1"></a>taksiran<span class="ot">=</span><span class="fu">fitted</span>(regresimtcars1)</span>
+<span id="cb43-3"><a href="regresi-dengan-rstudio-1.html#cb43-3" tabindex="-1"></a><span class="fu">plot</span>(taksiran,kresid)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+Hasil menunjukkan tidak terjadi heteroskedatisitas karena tidak ada pola yang jelas antara taksiran dan juga dengan kuadrat residual. BIla ingin memastikan lagi anda bisa menggunakan beberapa uji mengenai heteroskedatisitas. Yang lain untuk memastikan adanya kehadiran heteroskedatisitas.
+Selain itu ada beberapa uji yang dapat anda lakukan seperti uji dibawah ini Berusch Pagan jadi uji ini yang cukup dikenal untuk mendeteksi adanya heteroskedattisitas. Dalam uji ini juga menggunakan hasil dari model regresi. Bentuk ini adalah bentuk yang paling sederhana , dalam uji ini kita menetapkan Hipotesis nol adalah menunjukkan tidak ada terjadinya heteroskedatisitas.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="regresi-dengan-rstudio-1.html#cb44-1" tabindex="-1"></a><span class="fu">bptest</span>(regresimtcars1)</span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  regresimtcars1
+## BP = 5.3769, df = 2, p-value = 0.06799</code></pre>
+</div>
+</div>
+<div id="regresi-dummy" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Regresi Dummy<a href="regresi-dengan-rstudio-1.html#regresi-dummy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="regresi-logistic" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Regresi Logistic<a href="regresi-dengan-rstudio-1.html#regresi-logistic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dalam Perangkat lunak Rstudio juga bisa menggunakan regresi logistik dengan seperti ini:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="regresi-dengan-rstudio-1.html#cb46-1" tabindex="-1"></a><span class="co"># Load dataset</span></span>
+<span id="cb46-2"><a href="regresi-dengan-rstudio-1.html#cb46-2" tabindex="-1"></a><span class="fu">data</span>(ChickWeight)</span>
+<span id="cb46-3"><a href="regresi-dengan-rstudio-1.html#cb46-3" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="regresi-dengan-rstudio-1.html#cb46-4" tabindex="-1"></a><span class="co"># Buat variabel target biner: berat &gt; 100 dianggap 1, sebaliknya 0</span></span>
+<span id="cb46-5"><a href="regresi-dengan-rstudio-1.html#cb46-5" tabindex="-1"></a>ChickWeight<span class="sc">$</span>weight_high <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(ChickWeight<span class="sc">$</span>weight <span class="sc">&gt;</span> <span class="dv">100</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb46-6"><a href="regresi-dengan-rstudio-1.html#cb46-6" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="regresi-dengan-rstudio-1.html#cb46-7" tabindex="-1"></a><span class="co"># Ubah ke faktor</span></span>
+<span id="cb46-8"><a href="regresi-dengan-rstudio-1.html#cb46-8" tabindex="-1"></a>ChickWeight<span class="sc">$</span>weight_high <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ChickWeight<span class="sc">$</span>weight_high)</span>
+<span id="cb46-9"><a href="regresi-dengan-rstudio-1.html#cb46-9" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="regresi-dengan-rstudio-1.html#cb46-10" tabindex="-1"></a><span class="co"># Cek struktur data</span></span>
+<span id="cb46-11"><a href="regresi-dengan-rstudio-1.html#cb46-11" tabindex="-1"></a><span class="fu">str</span>(ChickWeight)</span></code></pre></div>
+<pre><code>## Classes &#39;nfnGroupedData&#39;, &#39;nfGroupedData&#39;, &#39;groupedData&#39; and &#39;data.frame&#39;:   578 obs. of  5 variables:
+##  $ weight     : num  42 51 59 64 76 93 106 125 149 171 ...
+##  $ Time       : num  0 2 4 6 8 10 12 14 16 18 ...
+##  $ Chick      : Ord.factor w/ 50 levels &quot;18&quot;&lt;&quot;16&quot;&lt;&quot;15&quot;&lt;..: 15 15 15 15 15 15 15 15 15 15 ...
+##  $ Diet       : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ weight_high: Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 1 1 1 1 1 1 2 2 2 2 ...
+##  - attr(*, &quot;formula&quot;)=Class &#39;formula&#39;  language weight ~ Time | Chick
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_EmptyEnv&gt; 
+##  - attr(*, &quot;outer&quot;)=Class &#39;formula&#39;  language ~Diet
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_EmptyEnv&gt; 
+##  - attr(*, &quot;labels&quot;)=List of 2
+##   ..$ x: chr &quot;Time&quot;
+##   ..$ y: chr &quot;Body weight&quot;
+##  - attr(*, &quot;units&quot;)=List of 2
+##   ..$ x: chr &quot;(days)&quot;
+##   ..$ y: chr &quot;(gm)&quot;</code></pre>
+<p>Kemudian kita membangun model sehingga akan kkta dapatkan seperti ini:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="regresi-dengan-rstudio-1.html#cb48-1" tabindex="-1"></a>logit_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(weight_high <span class="sc">~</span> Time <span class="sc">+</span> Diet, <span class="at">data =</span> ChickWeight, <span class="at">family =</span> binomial)</span>
+<span id="cb48-2"><a href="regresi-dengan-rstudio-1.html#cb48-2" tabindex="-1"></a><span class="fu">summary</span>(logit_model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = weight_high ~ Time + Diet, family = binomial, data = ChickWeight)
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept) -6.63367    0.60391 -10.985  &lt; 2e-16 ***
+## Time         0.52388    0.04429  11.829  &lt; 2e-16 ***
+## Diet2        1.08314    0.41139   2.633  0.00847 ** 
+## Diet3        2.24019    0.44153   5.074 3.90e-07 ***
+## Diet4        2.76862    0.46120   6.003 1.94e-09 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 800.44  on 577  degrees of freedom
+## Residual deviance: 299.80  on 573  degrees of freedom
+## AIC: 309.8
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<p>Kita harus melihat terlebih dahulu apakah yang menjadi lebih baik
+KIta uji dengan multikolinearitasnya&gt;</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="regresi-dengan-rstudio-1.html#cb50-1" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb50-2"><a href="regresi-dengan-rstudio-1.html#cb50-2" tabindex="-1"></a><span class="fu">vif</span>(logit_model)</span></code></pre></div>
+<pre><code>##          GVIF Df GVIF^(1/(2*Df))
+## Time 1.378642  1        1.174156
+## Diet 1.378642  3        1.054974</code></pre>
+<p>NIlai VIF masih jauh dibawah 10 artinya model ini terbebas dari multikolinearitas.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="regresi-dengan-rstudio-1.html#cb52-1" tabindex="-1"></a><span class="co"># Prediksi probabilitas</span></span>
+<span id="cb52-2"><a href="regresi-dengan-rstudio-1.html#cb52-2" tabindex="-1"></a>pred_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(logit_model, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb52-3"><a href="regresi-dengan-rstudio-1.html#cb52-3" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="regresi-dengan-rstudio-1.html#cb52-4" tabindex="-1"></a><span class="co"># Ubah menjadi kategori (cutoff 0.5)</span></span>
+<span id="cb52-5"><a href="regresi-dengan-rstudio-1.html#cb52-5" tabindex="-1"></a>pred_class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pred_prob <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb52-6"><a href="regresi-dengan-rstudio-1.html#cb52-6" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="regresi-dengan-rstudio-1.html#cb52-7" tabindex="-1"></a><span class="co"># Konversi ke faktor untuk evaluasi</span></span>
+<span id="cb52-8"><a href="regresi-dengan-rstudio-1.html#cb52-8" tabindex="-1"></a>pred_class <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pred_class)</span>
+<span id="cb52-9"><a href="regresi-dengan-rstudio-1.html#cb52-9" tabindex="-1"></a></span>
+<span id="cb52-10"><a href="regresi-dengan-rstudio-1.html#cb52-10" tabindex="-1"></a><span class="co"># Confusion Matrix</span></span>
+<span id="cb52-11"><a href="regresi-dengan-rstudio-1.html#cb52-11" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code></pre></div>
+<pre><code>## Warning: package &#39;caret&#39; was built under R version
+## 4.3.3</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version
+## 4.3.1</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="regresi-dengan-rstudio-1.html#cb57-1" tabindex="-1"></a>conf_matrix <span class="ot">&lt;-</span> <span class="fu">confusionMatrix</span>(pred_class, ChickWeight<span class="sc">$</span>weight_high)</span>
+<span id="cb57-2"><a href="regresi-dengan-rstudio-1.html#cb57-2" tabindex="-1"></a><span class="fu">print</span>(conf_matrix)</span></code></pre></div>
+<pre><code>## Confusion Matrix and Statistics
+## 
+##           Reference
+## Prediction   0   1
+##          0 254  31
+##          1  24 269
+##                                           
+##                Accuracy : 0.9048          
+##                  95% CI : (0.8779, 0.9275)
+##     No Information Rate : 0.519           
+##     P-Value [Acc &gt; NIR] : &lt;2e-16          
+##                                           
+##                   Kappa : 0.8096          
+##                                           
+##  Mcnemar&#39;s Test P-Value : 0.4185          
+##                                           
+##             Sensitivity : 0.9137          
+##             Specificity : 0.8967          
+##          Pos Pred Value : 0.8912          
+##          Neg Pred Value : 0.9181          
+##              Prevalence : 0.4810          
+##          Detection Rate : 0.4394          
+##    Detection Prevalence : 0.4931          
+##       Balanced Accuracy : 0.9052          
+##                                           
+##        &#39;Positive&#39; Class : 0               
+## </code></pre>
+<p>HAsil menunjukkan test itu baik dengan nilai MC Nemar yang lebih dari 0,05 atau hasilnya sekitar o,4. pada sensisitivity dan juga Specificynya yang masing-masing sekitar 0,9 dan 0,89 berarati hanya menyisakan sedikit prosentase untuk kesalahan?</p>
+</div>
+<div id="regresi-kuadratik" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Regresi Kuadratik<a href="regresi-dengan-rstudio-1.html#regresi-kuadratik" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ketika regresi linear yang sudah kita pelajari adalah menggambarkan suatau hubungan yang dalam bentuk garis lurus atau linear. Kini dengan adanya non linear maka hal itu masih menjadi kompleks lagi dengan hubungan yang bukan linear atau non linear. Hubungan dalam grafik antara regresi non linear akan berbeda dan bukan lagi digambarkan sebagai garis lurus akan tetapi sebagai garis yang tidak lurus.
+Dalam regresi kuadratik kita dihadapi dengan nilai yang berhubungan tidak bisa liner. Umumnya kudaratik membuat gerakan seperti gerakan parabola yang akan sulit dibaca dengan menggunakan garis yang linier. Memang apakah linier itu selalu hebat? ini menjadi pertanyaan sendiri. Jarang sekali model yang bentuknya kudrat dan itu memang yang sering terjadi karena memang hubungan itu mungkin hampir setara. Mungkin banyak orang yang berpikir kalau kuadrat itu memang tidak umum. Apalagi kalau sudah variable lebih dari satu, hubungan tu akan seperti pencaran yang berbeda-beda.
+Ada pola-pola hubungan yang tidak bisa digambarkan dengan regresi non linear sehingga tidak menghasilkan regresi linier seperti polynom, logaritmik dan eksponensial. Kalau anda bisa melihat maka anda akan lihat hubungan garis ini tidak normal.
+Untuk mencari adanya hubungan yang tidak linier kita dapat untuk membuat scatter diagram atau diagram pencar. Dari kumpulan titik-titik itu kita bisa menduga sebuah hubungan antara satu variable dengan variable lainnya.
+Seharusnya atau awalnya garis dalam hubungan variabel tersebut lurus namun ternyata tidak lurus. Tentu, tidak semua hubungan akan selalau linear dan juga bukan berarti seluruh hubungan juga non linear. Kita melihat atau mendeteksi dari perubahan apakah ada data yang terlihat berubah secara drastis?
+Zaman telah berubah karena begitu pesat sekali tekhnologi dnengan nama yang awalnya mesin penghitung <em>(computer)</em> ada yang namanya perhitungan dengan model sederhana namun kini perhitungan tersebut sudah lebih canggih lagi dari keadaan masa lampau.</p>
+<p>Kalau sekarang begitu banyak software statistik yang dapat menghitung banyak dengan cepat. karenanya dengan ilmu yang modern tersebut maka bisa untuk mencari hal yang baru dengan perhitungan yang akurat.</p>
+<p>Awalnya mungkin kita akan kesulitan untuk menentukan apakah akan terjadi regresi linear atau tidak.</p>
+<p>Mendeteksi awal</p>
+<p>Ketika kita ingin menduga suatau hubungan kita dapata melihat pola hubungan variable bebas terhadap variable tidak bebas atau dependent. Kita akan membuat suatau diagram ppencar yang menunjukkan hubungan antara kedua variable tersebut di <a href="regresi-dengan-rstudio-1.html#fig:scatter2-fig">8.2</a></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="regresi-dengan-rstudio-1.html#cb59-1" tabindex="-1"></a><span class="fu">ggplot</span>(trees, <span class="fu">aes</span>(<span class="at">x =</span> Girth, <span class="at">y =</span> Volume)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="regresi-dengan-rstudio-1.html#cb59-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb59-3"><a href="regresi-dengan-rstudio-1.html#cb59-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">formula =</span> y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:scatter2-fig"></span>
+<img src="docs/images/scatter2-fig-1.png" alt="Grafik Scatter Girth" width="672" />
+<p class="caption">
+Figure 8.2: Grafik Scatter Girth
+</p>
+</div>
+<p>Ada beberapa hubungan tidak linier dan maka kita bisa lakukan untuk hal yang seperti ini ;</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="regresi-dengan-rstudio-1.html#cb60-1" tabindex="-1"></a>model_kuadrat <span class="ot">&lt;-</span> <span class="fu">lm</span>(Volume <span class="sc">~</span> Girth <span class="sc">+</span> <span class="fu">I</span>(Girth<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> trees)</span>
+<span id="cb60-2"><a href="regresi-dengan-rstudio-1.html#cb60-2" tabindex="-1"></a><span class="fu">summary</span>(model_kuadrat)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Volume ~ Girth + I(Girth^2), data = trees)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.4889 -2.4293 -0.3718  2.0764  7.6447 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 10.78627   11.22282   0.961 0.344728    
+## Girth       -2.09214    1.64734  -1.270 0.214534    
+## I(Girth^2)   0.25454    0.05817   4.376 0.000152 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.335 on 28 degrees of freedom
+## Multiple R-squared:  0.9616, Adjusted R-squared:  0.9588 
+## F-statistic: 350.5 on 2 and 28 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Kemudian kita melihat grafiknya terlebih dahulu</p>
+<p>Kemudian kita evluasi model</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="regresi-dengan-rstudio-1.html#cb62-1" tabindex="-1"></a><span class="co">#multikolinearitas </span></span>
+<span id="cb62-2"><a href="regresi-dengan-rstudio-1.html#cb62-2" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb62-3"><a href="regresi-dengan-rstudio-1.html#cb62-3" tabindex="-1"></a><span class="fu">vif</span>(model_kuadrat)</span></code></pre></div>
+<pre><code>##      Girth I(Girth^2) 
+##   72.09369   72.09369</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="regresi-dengan-rstudio-1.html#cb64-1" tabindex="-1"></a><span class="co">#heteroskedatisitas</span></span>
+<span id="cb64-2"><a href="regresi-dengan-rstudio-1.html#cb64-2" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb64-3"><a href="regresi-dengan-rstudio-1.html#cb64-3" tabindex="-1"></a><span class="fu">bptest</span>(model_kuadrat)</span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  model_kuadrat
+## BP = 4.9159, df = 2, p-value = 0.08561</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="regresi-dengan-rstudio-1.html#cb66-1" tabindex="-1"></a><span class="co">#autokorelasi</span></span>
+<span id="cb66-2"><a href="regresi-dengan-rstudio-1.html#cb66-2" tabindex="-1"></a><span class="fu">dwtest</span>(model_kuadrat)</span></code></pre></div>
+<pre><code>## 
+##  Durbin-Watson test
+## 
+## data:  model_kuadrat
+## DW = 1.9245, p-value = 0.2783
+## alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+<p>Membandingkan dengan model linier</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="regresi-dengan-rstudio-1.html#cb68-1" tabindex="-1"></a>model_linear <span class="ot">&lt;-</span> <span class="fu">lm</span>(Volume <span class="sc">~</span> Girth, <span class="at">data =</span> trees)</span>
+<span id="cb68-2"><a href="regresi-dengan-rstudio-1.html#cb68-2" tabindex="-1"></a><span class="fu">anova</span>(model_linear, model_kuadrat)</span></code></pre></div>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: Volume ~ Girth
+## Model 2: Volume ~ Girth + I(Girth^2)
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1     29 524.30                                  
+## 2     28 311.38  1    212.92 19.146 0.0001524 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div id="regresi-dengan-menggunakan-data-panel" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Regresi dengan menggunakan Data Panel<a href="regresi-dengan-rstudio-1.html#regresi-dengan-menggunakan-data-panel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mengelola data panel di RStudio untuk mengestimasi persamaan regresi dan mencari pengaruh variable independent terhadapa variable dependen.
+Salah satu metode untuk mencari pengarih variable adalah dengan data panel. Pengaruh seperti ini adalah untuk kita dapat mengestimasi daripada variable dependen. Data panel adalah data kumpulan dalam bentuk</p>
+<div id="membuat-struktur-data-panel" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Membuat Struktur Data Panel<a href="regresi-dengan-rstudio-1.html#membuat-struktur-data-panel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rstudio berbeda dari perangkat lunak (software) statistik lainnya. Untuk mengelola dalam analisis appaun membutuhkan struktur data dalam bentuk rstudio. Kalau software lain cukup menyalin dan menempel (copy and paste) data spreadsheet baik itu Excel atau Google Spreadsheet dan langsung dapat untuk mengelola data namun untuk RStuido harus merubahkan dalam bentuk model data yang dikenal oleh Rstudio.
+Langkahnya adalah mengimpor file speadhheet dan membuat beberapa pengaturan yang relatif mudah untuk membuat data anda mudah diolah. Khusus untuk analisis panel maka yang dibutuhkan bentuk data atau struktur dari data pdata.frame yang merupakan singkatan panel data frame. Ini berbeda dengan data frame biasa di Rstudio karena ini mempertimbangkan dimensi individual dan juga dimensi waktu. Perlakukan inilah yang membuat berbeda.
+Disebelah kanan anda dapat mengklik import data set dan pilihlah excel. Ada beberapa pilihan lain seperti spss sas, stata, text dan lain-lain. KAlau mempunyai speadsheet maka pilihlah excel.
+Setelah itu anda akan mmeilih beberapa sheet. Kalau anda bekerja dalam banyak sheet di satu file maka anda harus memilih salah satu sheet. Dibawah itu anda pilih. Maka anda harus meperhatikan kerapihan dari text yang anda buat. Misalnya ada sela diantara judul table dan juga isi data maka di table yang kosong itu akan tertulis NA atau Not Available yang berarti data tidak tersedia.
+Menyiapkan excel sebagai data
+Untuk menyusun data maka yang bisa kita lakukan adalah dengan data. Karena data dnegan speadhseet kita lebih mudah. Kita bisa menyusun dengan data seperti contoh dibawah ini</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="regresi-dengan-rstudio-1.html#cb70-1" tabindex="-1"></a>tobinq <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;~/jurnal/tobinq3.csv&quot;</span>)</span>
+<span id="cb70-2"><a href="regresi-dengan-rstudio-1.html#cb70-2" tabindex="-1"></a><span class="co">#setelah data diupload saya akan membuat data frame khusus panel yang disebut pdata frame dengan seperti ini. jangan lupa gunakan library plm</span></span>
+<span id="cb70-3"><a href="regresi-dengan-rstudio-1.html#cb70-3" tabindex="-1"></a><span class="fu">library</span>(plm)</span></code></pre></div>
+<pre><code>## Warning: package &#39;plm&#39; was built under R version 4.3.3</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="regresi-dengan-rstudio-1.html#cb72-1" tabindex="-1"></a>ptobinq<span class="ot">=</span><span class="fu">pdata.frame</span>(tobinq,<span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;Comp&quot;</span>,<span class="st">&quot;Tahun&quot;</span>),<span class="at">drop.index =</span> <span class="cn">TRUE</span>,<span class="at">row.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Setelah data sudah benar masuk kita dapat mengecek struktur dari data tersebut</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="regresi-dengan-rstudio-1.html#cb73-1" tabindex="-1"></a><span class="fu">str</span>(ptobinq)</span></code></pre></div>
+<pre><code>## Classes &#39;pdata.frame&#39; and &#39;data.frame&#39;:  40 obs. of  3 variables:
+##  $ DAR    : &#39;pseries&#39; Named num  0.49 0.44 0.42 0.4 0.4 0.49 0.44 0.42 0.4 0.4 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:40] &quot;Adaro-2014&quot; &quot;Adaro-2015&quot; &quot;Adaro-2016&quot; &quot;Adaro-2017&quot; ...
+##   ..- attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:    40 obs. of  2 variables:
+##   .. ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   .. ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  $ DER    : &#39;pseries&#39; Named num  0.97 0.78 0.72 0.67 0.66 0.97 0.78 0.72 0.67 0.66 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:40] &quot;Adaro-2014&quot; &quot;Adaro-2015&quot; &quot;Adaro-2016&quot; &quot;Adaro-2017&quot; ...
+##   ..- attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:    40 obs. of  2 variables:
+##   .. ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   .. ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  $ Tobin.Q: &#39;pseries&#39; Named num  -0.2702 0.2346 0.2706 0.034 0.0336 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:40] &quot;Adaro-2014&quot; &quot;Adaro-2015&quot; &quot;Adaro-2016&quot; &quot;Adaro-2017&quot; ...
+##   ..- attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:    40 obs. of  2 variables:
+##   .. ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   .. ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...
+##  - attr(*, &quot;index&quot;)=Classes &#39;pindex&#39; and &#39;data.frame&#39;:   40 obs. of  2 variables:
+##   ..$ Comp : Factor w/ 8 levels &quot;Adaro&quot;,&quot;ATPK&quot;,..: 1 1 1 1 1 2 2 2 2 2 ...
+##   ..$ Tahun: Factor w/ 5 levels &quot;2014&quot;,&quot;2015&quot;,..: 1 2 3 4 5 1 2 3 4 5 ...</code></pre>
+<p>Sudah benar maka langkahnya adlah mennetukan jenis regresi data panel yang akan kita lakukan. Kemudian sesuai langkah yang sudah kita rencanakan adalah awalnya dengan melakukan regresi dari ketiga metode seperti Pooling (pooling), Fixed Effect (within) dan Random. Dalam contoh kali ini saya akan mennamakan kalau pooling adalah regplmtobinq, untuk fixed effect adalah regplmtobinq2 dan untuk random adalah regplmtobinq3. Dalam tiap perintah aka nada Namanya perintah summary yang artinya adalah menampilkan hasil regresi tersebut.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="regresi-dengan-rstudio-1.html#cb75-1" tabindex="-1"></a><span class="co">#Regresi Model Pooling </span></span>
+<span id="cb75-2"><a href="regresi-dengan-rstudio-1.html#cb75-2" tabindex="-1"></a>regplmtobinq<span class="ot">&lt;-</span><span class="fu">plm</span>(Tobin.Q <span class="sc">~</span> DAR<span class="sc">+</span>DER,<span class="at">data=</span>ptobinq,<span class="at">model=</span><span class="st">&quot;pooling&quot;</span>)</span>
+<span id="cb75-3"><a href="regresi-dengan-rstudio-1.html#cb75-3" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="regresi-dengan-rstudio-1.html#cb75-4" tabindex="-1"></a><span class="fu">summary</span>(regplmtobinq)</span></code></pre></div>
+<pre><code>## Pooling Model
+## 
+## Call:
+## plm(formula = Tobin.Q ~ DAR + DER, data = ptobinq, model = &quot;pooling&quot;)
+## 
+## Balanced Panel: n = 8, T = 5, N = 40
+## 
+## Residuals:
+##     Min.  1st Qu.   Median  3rd Qu.     Max. 
+## -1.02749 -0.70659 -0.29490  0.20208  4.38311 
+## 
+## Coefficients:
+##               Estimate Std. Error t-value  Pr(&gt;|t|)    
+## (Intercept)  1.5134678  0.3209255  4.7159 3.381e-05 ***
+## DAR         -1.7072093  0.4715372 -3.6205 0.0008754 ***
+## DER         -0.0038299  0.0682864 -0.0561 0.9555757    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    62.653
+## Residual Sum of Squares: 46.235
+## R-Squared:      0.26204
+## Adj. R-Squared: 0.22215
+## F-statistic: 6.56918 on 2 and 37 DF, p-value: 0.003619</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="regresi-dengan-rstudio-1.html#cb77-1" tabindex="-1"></a><span class="co">#Regresi Model Fixed </span></span>
+<span id="cb77-2"><a href="regresi-dengan-rstudio-1.html#cb77-2" tabindex="-1"></a>regplmtobinq2<span class="ot">&lt;-</span><span class="fu">plm</span>(Tobin.Q <span class="sc">~</span> DAR<span class="sc">+</span>DER,<span class="at">data=</span>ptobinq,<span class="at">model=</span><span class="st">&quot;within&quot;</span>)</span>
+<span id="cb77-3"><a href="regresi-dengan-rstudio-1.html#cb77-3" tabindex="-1"></a><span class="fu">summary</span>(regplmtobinq2)</span></code></pre></div>
+<pre><code>## Oneway (individual) effect Within Model
+## 
+## Call:
+## plm(formula = Tobin.Q ~ DAR + DER, data = ptobinq, model = &quot;within&quot;)
+## 
+## Balanced Panel: n = 8, T = 5, N = 40
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -1.196028 -0.130457  0.092081  0.186883  1.890241 
+## 
+## Coefficients:
+##      Estimate Std. Error t-value  Pr(&gt;|t|)    
+## DAR -2.400988   0.589834 -4.0706 0.0003144 ***
+## DER -0.087783   0.042093 -2.0854 0.0456365 *  
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    17.173
+## Residual Sum of Squares: 11.017
+## R-Squared:      0.35847
+## Adj. R-Squared: 0.16601
+## F-statistic: 8.3817 on 2 and 30 DF, p-value: 0.001283</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="regresi-dengan-rstudio-1.html#cb79-1" tabindex="-1"></a><span class="co">#Regresi Model Random Effcet</span></span>
+<span id="cb79-2"><a href="regresi-dengan-rstudio-1.html#cb79-2" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="regresi-dengan-rstudio-1.html#cb79-3" tabindex="-1"></a>regplmtobinq3<span class="ot">&lt;-</span><span class="fu">plm</span>(Tobin.Q <span class="sc">~</span> DAR<span class="sc">+</span>DER,<span class="at">data=</span>ptobinq,<span class="at">model=</span><span class="st">&quot;random&quot;</span>)</span>
+<span id="cb79-4"><a href="regresi-dengan-rstudio-1.html#cb79-4" tabindex="-1"></a><span class="fu">summary</span>(regplmtobinq3)</span></code></pre></div>
+<pre><code>## Oneway (individual) effect Random Effect Model 
+##    (Swamy-Arora&#39;s transformation)
+## 
+## Call:
+## plm(formula = Tobin.Q ~ DAR + DER, data = ptobinq, model = &quot;random&quot;)
+## 
+## Balanced Panel: n = 8, T = 5, N = 40
+## 
+## Effects:
+##                  var std.dev share
+## idiosyncratic 0.3672  0.6060   0.4
+## individual    0.5506  0.7420   0.6
+## theta: 0.6569
+## 
+## Residuals:
+##      Min.   1st Qu.    Median   3rd Qu.      Max. 
+## -0.977977 -0.350254 -0.074708  0.106930  2.785480 
+## 
+## Coefficients:
+##              Estimate Std. Error z-value  Pr(&gt;|z|)    
+## (Intercept)  1.786432   0.417645  4.2774 1.891e-05 ***
+## DAR         -2.087653   0.510836 -4.0867 4.375e-05 ***
+## DER         -0.069591   0.043000 -1.6184    0.1056    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Total Sum of Squares:    22.526
+## Residual Sum of Squares: 15.489
+## R-Squared:      0.31236
+## Adj. R-Squared: 0.27519
+## Chisq: 16.8073 on 2 DF, p-value: 0.00022405</code></pre>
+
+</div>
+</div>
+<div id="regresi-mediasi-dengan-rstudio" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Regresi Mediasi dengan RStudio<a href="regresi-dengan-rstudio-1.html#regresi-mediasi-dengan-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dalam regresi mediasi kita akan mencari apa faktor yang menjadi mediasi dalam suaatu hubngan. apakah hubungan itu bisa langsung (direct) atauakuah hubungan itu tidak langsung (indirect). kalau hubungan itu berupa lamgsung ditandai dengan koefisein yang besar yakni perkalian antara koefisein indeirect dengan dibandingkan koefisien yang hanya melihat hubungan yang langsung saja atau indirect
+Singkatnya dalam beberapa teori ada hubungan yang langsung dan tidak langsung. Kalau ada hubungan tersebut didahului oleh variabel lain. Variabel ini yang sebagai mediasi yang kita gunakanu untuk menduga suatu hubungan tersebut. <span class="citation">Hayes (<a href="#ref-Hayes2020">2020</a>)</span>
+Dalam regresi kita mengenal apa yang Namanya Variabel independent dan variabel tersebut yakni variabel dependent juga.
+Dalam mencari hubungan ini kita akhirnya hanaya menetukan mana yang paling besar. Kita harus mengikuti. Beberapa uji yang sudah kita tentukan di awal. Hal ini akan membuat kita akan melihat penagruh langsung maupun pengaruh tidak langsungnya.
+Adapun langkah-langkah dalam regresi mediasi adalah setidaknya dengan dua hal yakni pertama meregresi nilai X dengan nilai M. Berarti kita dalam hal ini adalah meregresi X sebagai variabel Y kita akan melihat apakah ada hubungan langsung atau tidak langsung dalam hal ini. Kalau saja kita melihat ada nilai kofeisien maka ini nanti kita akan simpan. Bagaimana kalau masalah signifikasinya. Apakah kita akan terus melihat nilai signifikan. Ataukah kita cukup melihat dari nilai koefisien saja. Bisa jadi dalam regresi yang seperti ini kita bisa melihat kalau regresi sederhana saja yang terdiri dari satu variabel bebas tidak mengalami gejala dalam regresi yang membuat nilai estimasi menjadi bias.
+Kalau misalnya dalam kasus terlihat kalau ada beberapa variabel yang tidak signifikan maka kita katakan efek itu tidak bisa untuk dijadikan bukti adanya efek yang dari mediasi yang kita buat.
+Ada juga yang menghitung dengan uji sobel. maka akan terlihat dari efek hubungan yang tidak langsung tersebut. Maka dari nilai p value dalam Uji Sobel yang ada di bawah maka kita akan bisa menyimpulkan bahwa memang ada efek mediasi dalam Pengaruh ini.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="regresi-dengan-rstudio-1.html#cb81-1" tabindex="-1"></a><span class="co"># Langkah 1: Pengaruh hp terhadap wt (X -&gt; M)</span></span>
+<span id="cb81-2"><a href="regresi-dengan-rstudio-1.html#cb81-2" tabindex="-1"></a>model_med1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(wt <span class="sc">~</span> hp, <span class="at">data =</span> mtcars)</span>
+<span id="cb81-3"><a href="regresi-dengan-rstudio-1.html#cb81-3" tabindex="-1"></a><span class="fu">summary</span>(model_med1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = wt ~ hp, data = mtcars)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.41757 -0.53122 -0.02038  0.42536  1.56455 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 1.838247   0.316520   5.808 2.39e-06 ***
+## hp          0.009401   0.001960   4.796 4.15e-05 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.7483 on 30 degrees of freedom
+## Multiple R-squared:  0.4339, Adjusted R-squared:  0.4151 
+## F-statistic:    23 on 1 and 30 DF,  p-value: 4.146e-05</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="regresi-dengan-rstudio-1.html#cb83-1" tabindex="-1"></a><span class="co"># Langkah 2: Pengaruh wt terhadap mpg dengan kontrol hp (M -&gt; Y dengan X sebagai kontrol)</span></span>
+<span id="cb83-2"><a href="regresi-dengan-rstudio-1.html#cb83-2" tabindex="-1"></a>model_med2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb83-3"><a href="regresi-dengan-rstudio-1.html#cb83-3" tabindex="-1"></a><span class="fu">summary</span>(model_med2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp + wt, data = mtcars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -3.941 -1.600 -0.182  1.050  5.854 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 37.22727    1.59879  23.285  &lt; 2e-16 ***
+## hp          -0.03177    0.00903  -3.519  0.00145 ** 
+## wt          -3.87783    0.63273  -6.129 1.12e-06 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.593 on 29 degrees of freedom
+## Multiple R-squared:  0.8268, Adjusted R-squared:  0.8148 
+## F-statistic: 69.21 on 2 and 29 DF,  p-value: 9.109e-12</code></pre>
+<p>Setelah kita menguji normalitas</p>
+<p>Kemudian kita menguji asumsi homoskedatisitas</p>
+<p>mengecek autokorelasi</p>
+<p>mengecek multikolinearitas</p>
+<p>Pada model satu terjadi heteroskedatisitas maka saya akan melaksanana solusi dengan weighted Least Square</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="regresi-dengan-rstudio-1.html#cb85-1" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">fitted</span>(model_med1)<span class="sc">^</span><span class="dv">2</span>  <span class="co"># Bobot berdasarkan fitted values</span></span>
+<span id="cb85-2"><a href="regresi-dengan-rstudio-1.html#cb85-2" tabindex="-1"></a>model_wls <span class="ot">&lt;-</span> <span class="fu">lm</span>(wt <span class="sc">~</span> hp, <span class="at">data =</span> mtcars, <span class="at">weights =</span> weights)</span>
+<span id="cb85-3"><a href="regresi-dengan-rstudio-1.html#cb85-3" tabindex="-1"></a><span class="fu">summary</span>(model_wls)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = wt ~ hp, data = mtcars, weights = weights)
+## 
+## Weighted Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.45970 -0.15797  0.00722  0.14523  0.38062 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 1.565954   0.274363   5.708 3.17e-06 ***
+## hp          0.011331   0.002003   5.658 3.64e-06 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2171 on 30 degrees of freedom
+## Multiple R-squared:  0.5162, Adjusted R-squared:  0.5001 
+## F-statistic: 32.01 on 1 and 30 DF,  p-value: 3.638e-06</code></pre>
+<p>Kemudian saya akan menguji dengan beberapa hal seperti normalitas, heteroskedatisitas dan autkorelasi</p>
+<p>Ternyata pada dwtest tidak menujukkan hal yang menggembirakan maka kita buat dengan
+GLS <em>(Generalized Least Square)</em> dengan model ini maka dapat mengatasi OLS yang mengalami masalah Heteroskedatisitas dan juga autkorelasi. Tehnik penggunaan iterative weigted least square akan memperoleh suatu perkiraaaan parameter yang memungkinkan <em>(maximum likehood estimation)</em> dengan cara mentransformasi yang paling sesuai <em>(suitable)</em> <span class="citation">Nelder et al. (<a href="#ref-Nelder1972">1972</a>)</span></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="regresi-dengan-rstudio-1.html#cb87-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb87-2"><a href="regresi-dengan-rstudio-1.html#cb87-2" tabindex="-1"></a></span>
+<span id="cb87-3"><a href="regresi-dengan-rstudio-1.html#cb87-3" tabindex="-1"></a><span class="co"># Model dengan metode GLS</span></span>
+<span id="cb87-4"><a href="regresi-dengan-rstudio-1.html#cb87-4" tabindex="-1"></a>model_gls <span class="ot">&lt;-</span> <span class="fu">gls</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> wt, <span class="at">data =</span> mtcars, <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
+<span id="cb87-5"><a href="regresi-dengan-rstudio-1.html#cb87-5" tabindex="-1"></a><span class="fu">summary</span>(model_gls)</span></code></pre></div>
+<pre><code>## Generalized least squares fit by REML
+##   Model: mpg ~ hp + wt 
+##   Data: mtcars 
+##       AIC      BIC    logLik
+##   161.684 168.5204 -75.84198
+## 
+## Correlation Structure: AR(1)
+##  Formula: ~1 
+##  Parameter estimate(s):
+##       Phi 
+## 0.3732159 
+## 
+## Coefficients:
+##                Value Std.Error   t-value p-value
+## (Intercept) 36.72690 1.8756296 19.581107  0.0000
+## hp          -0.02814 0.0086509 -3.252413  0.0029
+## wt          -3.90997 0.7215335 -5.418968  0.0000
+## 
+##  Correlation: 
+##    (Intr) hp    
+## hp  0.147       
+## wt -0.785 -0.664
+## 
+## Standardized residuals:
+##          Min           Q1          Med           Q3 
+## -1.458775341 -0.602925777 -0.006730658  0.436430164 
+##          Max 
+##  2.324849808 
+## 
+## Residual standard error: 2.656835 
+## Degrees of freedom: 32 total; 29 residual</code></pre>
+<p>normalitas</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="regresi-dengan-rstudio-1.html#cb89-1" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(model_gls))</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals(model_gls)
+## W = 0.92232, p-value = 0.02404</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="regresi-dengan-rstudio-1.html#cb91-1" tabindex="-1"></a><span class="fu">vif</span>(model_gls)</span></code></pre></div>
+<pre><code>##       hp       wt 
+## 1.789882 1.789882</code></pre>
+</div>
+<div id="regresi-dengan-moderasi" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Regresi dengan Moderasi<a href="regresi-dengan-rstudio-1.html#regresi-dengan-moderasi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dalam satu pertanyaan apakah kita bisa untuk mencari hubungan X dengan Y saja. Seperti hubungan antara kinerja dan stress. MUngkin hal ini membuat kita binggung dengan hal ini. Kalau kita perhatikan maka kita akan melihat hubungan keda variabel terebut tetapi apakah ada yang mempengaruhi dari hal itu…?
+Apakah variabel dependen tersebut sama seprrti uah</p>
+<p>$X&lt;- Y &lt;- Z $</p>
+<p>Harus pahami dari jalur tersebut
+Z= moderasi yang bertugas memperkuat arah hubungan tersebut.</p>
+<p>Apakah kita bisa membuat banyak variable di regresi? Dengan kata lain kita hanya menggunakan satu variable saja.</p>
+<p><span class="math inline">\(Y = α+ β1x1 + β.X1.X2 +ε\)</span></p>
+<div id="pertanyaan-1" class="section level3 unnumbered hasAnchor">
+<h3>Pertanyaan<a href="regresi-dengan-rstudio-1.html#pertanyaan-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sebutkan langkah dari regresi moderasi ?
+Asumsi klasik apakah yang dibutuhkan ?
+Apa variabel moderasi?
+Bagaimana ditemukan variable moderasi ?
+Apa beda moderasei dengan intervensi ?</p>
+<p>Intervensi
+Dalam inetervensi kita menggunakan dummy variable sehingga model seperti ini</p>
+<p><span class="math inline">\(Y = α+ β1x1 +ε\)</span>
+<span class="math inline">\(Y = α+ β1x1 + β.X1.D +ε\)</span></p>
+<p>Dalam intervensi akan?
+Langkah -langkah dalam regresi moderasi. Adalah sebagai berikut :
+1. Persiapan data . Kita mempersiapakan data yang akan kita rergresi terdiri dari variable dependen Pada bagian ini kita mengumpulkan data dan juga melakukan pembersiahan data dan meyakinkan data kita pakai sudah benar dan menghindari adanya kekosongan data.
+2. Eksplorasi data : kita mendeksrisikan data yang sudah kita kumpullkan untuk memahami sifat dari data tersebut. Kemudian kita lakukan visualisasi data tersebut (apa tujuannya?)
+3. Melakukan regresi Awal
+Sebelum kita beranjak maka kita melakukan regresi awal yang melibatkan variabel indepneden dengan variable dependend
+<span class="math inline">\(Y = α+ β1x1 +ε\)</span>
+4. Melakuan Regresi Moderasi
+Pada tahap kedua regresi atau tahap keempat ini melakukan regresi dengan moderasi
+5. Melakukan regresi dengan factor interaksi
+6. Menjalankan analysis regresi
+7. Interprestasi terhadap hasil tersbeut
+8. Uji Asumsi
+9. Pelaporan Hasil
+Setelah itu kita harus memperhatikan bahwa ada beberapa asumsi yang harus dipatuhi dalam langkah regresi dengan moderasi .</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="regresi-dengan-rstudio-1.html#cb93-1" tabindex="-1"></a><span class="co"># Membuat variabel interaksi antara horsepower (hp) dan weight (wt)</span></span>
+<span id="cb93-2"><a href="regresi-dengan-rstudio-1.html#cb93-2" tabindex="-1"></a>mtcars<span class="sc">$</span>hp_wt <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>hp <span class="sc">*</span> mtcars<span class="sc">$</span>wt</span>
+<span id="cb93-3"><a href="regresi-dengan-rstudio-1.html#cb93-3" tabindex="-1"></a></span>
+<span id="cb93-4"><a href="regresi-dengan-rstudio-1.html#cb93-4" tabindex="-1"></a><span class="co"># Model dasar: mpg sebagai fungsi dari hp</span></span>
+<span id="cb93-5"><a href="regresi-dengan-rstudio-1.html#cb93-5" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp, <span class="at">data =</span> mtcars)</span>
+<span id="cb93-6"><a href="regresi-dengan-rstudio-1.html#cb93-6" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7121 -2.1122 -0.8854  1.5819  8.2360 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 30.09886    1.63392  18.421  &lt; 2e-16 ***
+## hp          -0.06823    0.01012  -6.742 1.79e-07 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.863 on 30 degrees of freedom
+## Multiple R-squared:  0.6024, Adjusted R-squared:  0.5892 
+## F-statistic: 45.46 on 1 and 30 DF,  p-value: 1.788e-07</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="regresi-dengan-rstudio-1.html#cb95-1" tabindex="-1"></a><span class="co"># Model dengan moderator: mpg sebagai fungsi dari hp dan wt</span></span>
+<span id="cb95-2"><a href="regresi-dengan-rstudio-1.html#cb95-2" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">+</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb95-3"><a href="regresi-dengan-rstudio-1.html#cb95-3" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp + wt, data = mtcars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -3.941 -1.600 -0.182  1.050  5.854 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 37.22727    1.59879  23.285  &lt; 2e-16 ***
+## hp          -0.03177    0.00903  -3.519  0.00145 ** 
+## wt          -3.87783    0.63273  -6.129 1.12e-06 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.593 on 29 degrees of freedom
+## Multiple R-squared:  0.8268, Adjusted R-squared:  0.8148 
+## F-statistic: 69.21 on 2 and 29 DF,  p-value: 9.109e-12</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="regresi-dengan-rstudio-1.html#cb97-1" tabindex="-1"></a><span class="co"># Model dengan interaksi: mpg sebagai fungsi dari hp, wt, dan interaksi hp*wt</span></span>
+<span id="cb97-2"><a href="regresi-dengan-rstudio-1.html#cb97-2" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">*</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb97-3"><a href="regresi-dengan-rstudio-1.html#cb97-3" tabindex="-1"></a><span class="fu">summary</span>(model3)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp * wt, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.0632 -1.6491 -0.7362  1.4211  4.5513 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 49.80842    3.60516  13.816 5.01e-14 ***
+## hp          -0.12010    0.02470  -4.863 4.04e-05 ***
+## wt          -8.21662    1.26971  -6.471 5.20e-07 ***
+## hp:wt        0.02785    0.00742   3.753 0.000811 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.153 on 28 degrees of freedom
+## Multiple R-squared:  0.8848, Adjusted R-squared:  0.8724 
+## F-statistic: 71.66 on 3 and 28 DF,  p-value: 2.981e-13</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="regresi-dengan-rstudio-1.html#cb99-1" tabindex="-1"></a><span class="co"># Menghitung residual dari model</span></span>
+<span id="cb99-2"><a href="regresi-dengan-rstudio-1.html#cb99-2" tabindex="-1"></a>residuals_model <span class="ot">&lt;-</span> <span class="fu">residuals</span>(model3)</span>
+<span id="cb99-3"><a href="regresi-dengan-rstudio-1.html#cb99-3" tabindex="-1"></a></span>
+<span id="cb99-4"><a href="regresi-dengan-rstudio-1.html#cb99-4" tabindex="-1"></a><span class="co"># Plot Q-Q</span></span>
+<span id="cb99-5"><a href="regresi-dengan-rstudio-1.html#cb99-5" tabindex="-1"></a><span class="fu">qqnorm</span>(residuals_model)</span>
+<span id="cb99-6"><a href="regresi-dengan-rstudio-1.html#cb99-6" tabindex="-1"></a><span class="fu">qqline</span>(residuals_model, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/moderasi-1.png" width="672" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="regresi-dengan-rstudio-1.html#cb100-1" tabindex="-1"></a><span class="co"># Shapiro-Wilk test</span></span>
+<span id="cb100-2"><a href="regresi-dengan-rstudio-1.html#cb100-2" tabindex="-1"></a><span class="fu">shapiro.test</span>(residuals_model)</span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  residuals_model
+## W = 0.95447, p-value = 0.1928</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="regresi-dengan-rstudio-1.html#cb102-1" tabindex="-1"></a><span class="co"># Plot residual vs fitted values</span></span>
+<span id="cb102-2"><a href="regresi-dengan-rstudio-1.html#cb102-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">fitted</span>(model3), residuals_model)</span>
+<span id="cb102-3"><a href="regresi-dengan-rstudio-1.html#cb102-3" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/moderasi-2.png" width="672" /></p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="regresi-dengan-rstudio-1.html#cb103-1" tabindex="-1"></a><span class="co"># Uji Breusch-Pagan</span></span>
+<span id="cb103-2"><a href="regresi-dengan-rstudio-1.html#cb103-2" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb103-3"><a href="regresi-dengan-rstudio-1.html#cb103-3" tabindex="-1"></a><span class="fu">bptest</span>(model3)</span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  model3
+## BP = 8.4646, df = 3, p-value = 0.03732</code></pre>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="regresi-dengan-rstudio-1.html#cb105-1" tabindex="-1"></a><span class="co"># Plot residual vs variabel independen hp</span></span>
+<span id="cb105-2"><a href="regresi-dengan-rstudio-1.html#cb105-2" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>hp, residuals_model)</span>
+<span id="cb105-3"><a href="regresi-dengan-rstudio-1.html#cb105-3" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/moderasi-3.png" width="672" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="regresi-dengan-rstudio-1.html#cb106-1" tabindex="-1"></a><span class="co"># Plot residual vs variabel independen wt</span></span>
+<span id="cb106-2"><a href="regresi-dengan-rstudio-1.html#cb106-2" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>wt, residuals_model)</span>
+<span id="cb106-3"><a href="regresi-dengan-rstudio-1.html#cb106-3" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/moderasi-4.png" width="672" /></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="regresi-dengan-rstudio-1.html#cb107-1" tabindex="-1"></a><span class="co"># Uji Durbin-Watson</span></span>
+<span id="cb107-2"><a href="regresi-dengan-rstudio-1.html#cb107-2" tabindex="-1"></a><span class="fu">dwtest</span>(model3)</span></code></pre></div>
+<pre><code>## 
+##  Durbin-Watson test
+## 
+## data:  model3
+## DW = 2.1275, p-value = 0.5339
+## alternative hypothesis: true autocorrelation is greater than 0</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="regresi-dengan-rstudio-1.html#cb109-1" tabindex="-1"></a><span class="co">#mengatasi heteroskedatisitas</span></span>
+<span id="cb109-2"><a href="regresi-dengan-rstudio-1.html#cb109-2" tabindex="-1"></a><span class="co"># Transformasi logaritma pada variabel dependen</span></span>
+<span id="cb109-3"><a href="regresi-dengan-rstudio-1.html#cb109-3" tabindex="-1"></a>mtcars<span class="sc">$</span>log_mpg <span class="ot">&lt;-</span> <span class="fu">log</span>(mtcars<span class="sc">$</span>mpg)</span>
+<span id="cb109-4"><a href="regresi-dengan-rstudio-1.html#cb109-4" tabindex="-1"></a></span>
+<span id="cb109-5"><a href="regresi-dengan-rstudio-1.html#cb109-5" tabindex="-1"></a><span class="co"># Model regresi dengan variabel dependen yang telah ditransformasi</span></span>
+<span id="cb109-6"><a href="regresi-dengan-rstudio-1.html#cb109-6" tabindex="-1"></a>model_trans <span class="ot">&lt;-</span> <span class="fu">lm</span>(log_mpg <span class="sc">~</span> hp <span class="sc">*</span> wt, <span class="at">data =</span> mtcars)</span>
+<span id="cb109-7"><a href="regresi-dengan-rstudio-1.html#cb109-7" tabindex="-1"></a><span class="fu">summary</span>(model_trans)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log_mpg ~ hp * wt, data = mtcars)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.15996 -0.08028 -0.01847  0.07809  0.21127 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  4.1117239  0.1809761  22.720  &lt; 2e-16 ***
+## hp          -0.0035277  0.0012398  -2.845  0.00821 ** 
+## wt          -0.2980027  0.0637384  -4.675 6.73e-05 ***
+## hp:wt        0.0006256  0.0003725   1.680  0.10416    
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1081 on 28 degrees of freedom
+## Multiple R-squared:  0.881,  Adjusted R-squared:  0.8683 
+## F-statistic: 69.12 on 3 and 28 DF,  p-value: 4.645e-13</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="regresi-dengan-rstudio-1.html#cb111-1" tabindex="-1"></a><span class="co"># Uji Breusch-Pagan pada model baru</span></span>
+<span id="cb111-2"><a href="regresi-dengan-rstudio-1.html#cb111-2" tabindex="-1"></a><span class="fu">bptest</span>(model_trans)</span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  model_trans
+## BP = 12.552, df = 3, p-value = 0.005712</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="regresi-dengan-rstudio-1.html#cb113-1" tabindex="-1"></a><span class="co"># Menghitung bobot sebagai invers dari residuals kuadrat</span></span>
+<span id="cb113-2"><a href="regresi-dengan-rstudio-1.html#cb113-2" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">fitted</span>(<span class="fu">lm</span>(<span class="fu">abs</span>(residuals_model) <span class="sc">~</span> model3<span class="sc">$</span>fitted.values))<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb113-3"><a href="regresi-dengan-rstudio-1.html#cb113-3" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="regresi-dengan-rstudio-1.html#cb113-4" tabindex="-1"></a><span class="co"># Model WLS</span></span>
+<span id="cb113-5"><a href="regresi-dengan-rstudio-1.html#cb113-5" tabindex="-1"></a>model_wls <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> hp <span class="sc">*</span> wt, <span class="at">data =</span> mtcars, <span class="at">weights =</span> weights)</span>
+<span id="cb113-6"><a href="regresi-dengan-rstudio-1.html#cb113-6" tabindex="-1"></a><span class="fu">summary</span>(model_wls)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ hp * wt, data = mtcars, weights = weights)
+## 
+## Weighted Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.6900 -0.9623 -0.3676  0.8809  2.2809 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 50.045973   4.208430  11.892 1.84e-12 ***
+## hp          -0.118753   0.024265  -4.894 3.70e-05 ***
+## wt          -8.385811   1.392445  -6.022 1.72e-06 ***
+## hp:wt        0.028064   0.007355   3.816 0.000687 ***
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.209 on 28 degrees of freedom
+## Multiple R-squared:  0.8751, Adjusted R-squared:  0.8617 
+## F-statistic:  65.4 on 3 and 28 DF,  p-value: 9.141e-13</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="regresi-dengan-rstudio-1.html#cb115-1" tabindex="-1"></a><span class="co"># Uji Breusch-Pagan pada model WLS</span></span>
+<span id="cb115-2"><a href="regresi-dengan-rstudio-1.html#cb115-2" tabindex="-1"></a><span class="fu">bptest</span>(model_wls)</span></code></pre></div>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  model_wls
+## BP = 3.3157, df = 3, p-value = 0.3455</code></pre>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="regresi-dengan-rstudio-1.html#cb117-1" tabindex="-1"></a><span class="fu">library</span>(sandwich)</span>
+<span id="cb117-2"><a href="regresi-dengan-rstudio-1.html#cb117-2" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
+<span id="cb117-3"><a href="regresi-dengan-rstudio-1.html#cb117-3" tabindex="-1"></a></span>
+<span id="cb117-4"><a href="regresi-dengan-rstudio-1.html#cb117-4" tabindex="-1"></a><span class="co"># Model awal dengan robust standard errors</span></span>
+<span id="cb117-5"><a href="regresi-dengan-rstudio-1.html#cb117-5" tabindex="-1"></a><span class="fu">coeftest</span>(model3, <span class="at">vcov =</span> <span class="fu">vcovHC</span>(model3, <span class="at">type =</span> <span class="st">&quot;HC1&quot;</span>))</span></code></pre></div>
+<pre><code>## 
+## t test of coefficients:
+## 
+##               Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept) 49.8084234  4.3915285 11.3419 5.569e-12 ***
+## hp          -0.1201021  0.0264559 -4.5397 9.752e-05 ***
+## wt          -8.2166243  1.4177290 -5.7956 3.176e-06 ***
+## hp:wt        0.0278481  0.0079435  3.5058  0.001553 ** 
+## ---
+## Signif. codes:  
+## 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+
+
+</div>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Hayes2020" class="csl-entry">
+Hayes, Andrew F. 2020. <em>Introduction Mediation, Moderation, and Conditional Process Analysis</em>. 3rd ed. Suite 1200, New York: Guilford Press.
+</div>
+<div id="ref-Nelder1972" class="csl-entry">
+Nelder, Author J A, R W M Wedderburn, Source Journal, Royal Statistical, and Society Series. 1972. <span>“<span class="nocase">Generalized Linear Models Published by : Wiley for the Royal Statistical Society Stable URL : https://www.jstor.org/stable/2344614</span>”</span> 135 (3): 370–84.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="asumsi-regresi-linear.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-citations.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

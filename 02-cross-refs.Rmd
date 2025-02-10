@@ -1,8 +1,77 @@
-# Cross-references {#cross}
+# Regresi Logistik
 
-Cross-references make it easier for your readers to find and link to elements in your book.
+Dalam regresi logisitik kita akan membuat sesuatu  variabel logistik atau logit yang berbeda dengan regresi linear . Hal ini berbeda karena regresi linear biasa menggunakan variabel rasio. Untuk regresi logistik kita dapat memberikan variabel independen antara 0 atau 1 @Hilbe2015 Pemilihan variabel independen ini hanya dua saja biner atau *(binary)*, misalnya antara laki dan perempuan, sakit dan sehat, sejahtera dan non sejahtera dan lain-lain. Adapun untuk variabel dependen maka hal itu dibolehkan berupa data rasio Terkadang ada juga data yang menggunakan data yang lain juga. Hal ini bergantung dengan kebutuhan penelitian yang ada. Tetapi pada beberapa kasus bisa jadi regresi yang dilakukan adalah regresi kategorik juga.
+Kita bisa mengembangkan model dari variabel independen yang akan kita cari prediksinya dengan beberapa faktor independen yang diduga dapat untuk mempengaruhi dari nilai variabel Y tersebut. Hal itu bisa kita lihat dalam studi mengenai regresi logistik tersebut yang ada di jurnal. Kita sambungkan teori dengan penerapan regresi logistik.  
+Regresi logistik sebagai suatu jawaban atau respon dari keterbatasan regresi linear. Ada nilai yang sebagai variabel explanatory yang berkisar anatara pilihan nilai 1 dan juga nili 0 saja. 
+Bagaimana interprestasi model ? 
+Hasil regresi menghasilkan beberapa nilai yang perlu dianalisis . Nilai-nilai tersebut sama-sama seputar regresi namun karena adanya nilai dikotomi maka kita ajan sedikit berbeda untuk Apakah kita akan membedakan analisis dua data kategori tersebutnya. Tentu hal itu akan dibicarakan dan akan dijelaskan dari nilai dikotomi tersebut. Misalnya untuk regresi yang nilai angka 1 dan angka 0 maka kita harus memperhatikan kedua dikotomi tersebut. Ada hal yang membedakan karena dari awalnya memang untuk melihat pengaruh antara dua variabel kategori tersebut. 
+Mungkinkah dari hal tersebut kita bisa memberikan interprestasi yang berbeda? Pada hubungan antara variable dependen dengan variable independen maka kita melihat nilai dari singnifikasi dari hubungan atau relasi antara variable dependen dengan variabel independennya. Kita melihat nilai p value atau Probability value. Seperti sudah menjadi kebiasaaan kalau nilai pvalue tidak boleh lebih dari 0,05 atau 5%, 
+Kemudian melihat table ANOVA apakah nilai model sudah sesuai dengan harapan. Nilai ini menghitung kalkulasi perbedaan antara variabel dependenden maupun variabel independen. Hipotesis nol adalah tidak terjadi perbedaan yang artinya seluruh rata-rata dari nilai akan menjadi sama. Sedangkan pada hipotesis alternatif atau Ha adalah setidaknya ada satu variabel yang memiliki nilai yang berbeda. 
+Adapun persamaan dari nilai logisitik adalah seperti ini : 
 
-## Chapters and sub-chapters
+$ln⁡〖(p/(1-p))=β_0+β_1x 〗 $
+Pada bagian variabel independen atau juga variabel bebas aka ada nilai p/(1-p) maka hal itu adalah perbandingan anatara variabel dikotomi dalam variabel independen tersebut. Misalnya kita menetapkan p itu sebagai sukses maka nilai (1-p) adalah nilai non sukses atau gagal. Contoh juka demikian kita dapat menulis kemungkinan sukses atas kemungkinan gagal. Kalau kita tetapkan kemumgkinan sukses tersebut adalah 0,7 maka kita bisa masukkan nilai sebagai berikut 0,7/(1-0,7)= 0,7/0,3 = 2,33 . hal ini berarti kita bisa artikan kalau nilai kesuksesan mempunyai peluang 2,33 kali lebih banyak daripada kegagalan. Begitu juga nilai tersebut kita bisa gunakan yang lain untuk memasukkan nilai p sebagai nilai untuk satu peluang yang sudah saya tunjuk. Perbandingan rasio antara sukses dan tidak sukse disebut juga odds. 
+$p ̅=exp(β_0+β_1x )/(1+exp⁡(β_0+β_1x ) )$
+
+Dalam regresi logistik tidak perlu lagi untuk melakukan ujian asumsi klasik seperti yang dialkukan pada regresi linear lainnya. Hal ini mungkin dikarenakan karena sifat nilainya yang sederhana sehingga berbeda. Variabel dikotomi yang lebih sederhana membuat *error* mungkin tidak seberapa besar dengan regresi linear. 
+
+Meski tidak menggunakan model asumsi linear akan tetapi kita tetap saja memerlukan untuk menggunakan nilai Chis Square. Hal ini penting juga untuk menilai dari regresi tersebut. Hal ini cukup sebagai tujuam uuntuk mendapatkan nilai regresi tersebut. 
+Untuk langkah-langkah dalam regresi logistik ini kita bisa lakukan sebagai berikut : 
+	Mengumpulkan data mengenai variabel bebas maupun variabel tidak bebas dan mendapatkan seluruhnya ke dalam suatau tabulasi yang baik. Yakinkan data sudah terhitung dengan benar sesuai dengan yang hendak kita carikan. 
+	Melakukan regresi logistik menggunakan software yang sudah digunakan sebelumnya. Saya memilih menggunakan R karena lebih mudah. 
+	Memastkam nilai dari regresi itu sesuai dengan yang kita iningnkan. Nilai dari regresi terlepas dari beberapa hal seperti nlai Chi square
+	Menginterprestasikan nilai dari regresi logistik dari perhitungan probabilitas dari hasil software. 
+
+
+**Interprestasi dari hasil regresi logistik** 
+Ketika kita sudah mendpatkan hasil regresi maka kita harus tahu untuk menerjemahkan hal ini. Dalam regresi logisitik tidak seperti regresi persamaan yang bentuknya linear. Kalau dalam regresi linear variabel bebas dapat memepengaruhi dalam besaran sekian berkat dari nilai koefisien yang ada dalam persamaan tersebut. 
+Tetapi karena ada dua dari jenis dari variabel independen. Maksudnya ada dua kemungkinan binary atau dua peluang ketika seorang untuk memeilih nilai satu atau dua saja. Mudah seperti itu maka interprestasinya dalah seperti ini. Kalau saya mencontohkan dengan anak yang luslu maka anak yang lulus harus mempunyai syarat seperti nilai ujian yang bagus, kehadiran yang menutupi yang lain. 
+Ketika itu kita dapat memilih peluang dari anak yang akan khusus dari nilai ujian Mata Kuliah Ujian tertentu harus memenuhi beberapa hal.
+Untuk yang sederhana saja kita bisa mencari hubungan perokok dengan usia yang ada. Apakah kita hubungkan anatar usia sebagai varabel bebas berhubungan dengan variabel yang kita cari. Tentu kita masih memetingkan apakah nilai signifikan dari variabel tersebut karena kalau tidak signifikan maka kita tidak bisa untuk memprediksi dari nilai tersebut. 
+Misalnya saya akan meprediksi nilai kebangrkutan dari perusahaan dengan nilai seperti ini:
+
+$Log(p/(1-p) = b0 + b1*ROA$ 
+
+Nilai p adalah nilai peluang perusahaan mengalami kesulitan keuangan, b0 adalah nilai konstanta dan b1 adalah nilai koefiseien dari variabel bebasnya, dalam hal ini variabel bebasnya adalah Return on Assets (ROA).
+Untuk kta melakukan interprestasi adalah  seperti dibawah ini. Nilai intercept atau konstanta adalah nilai yang masih ada ketika nilai ROA menjadi nol. Apakah mungkin nilia tersebut atau nilai ROA itu bisa nol. Ini mungkin saja karena ada perusahaan yang tidak menghasilkan nilai keutnungan atau nilainya menjadi nol sehingga pendapatan dari perusahaan tersebut adalah nol. Kemudian adalah nilai koefisein dari ROA ini adalah seberapa besar pengaruh jadi bukan menunjukkan kuatnya hubungan melainkan nilai besaran yang mempengaruhi rasio logit tersebut. 
+Tentu menerjemhakan dari persamaan itu butuh berupa hasil. Katakanlah jika kemungkinan dari financial distress itu hanya 0,1 maka peluang maka ada kemungkinan kebangkrutan itu hanya sekitar 0,11 kali karena dari nilai 0,1/0,9 maka akan ada nilai yang besar sekali. 
+
+Maka kita dapatkan 
+ 
+
+Dalam regresi logisitik ada berapa asumsi yang bisa kita penuhi antara lain: 
+	Error harus berdistribusi normal 
+	Heterosedatisitas 
+	Hubungan variable bebas dan tidak bebas yang ternyata tidak linear
+	
+## Glosarry {-}
+logistik 
+logit 
+probit
+
+
+## Pertanyaan {-}
+1.Apa Perbedaan Regresi Liniear dan Regresi Logistik?
+	
+2.Apa definsi dari regresi logistik? 
+
+3.Apa tahapan dalam regresi logistik?
+
+4. Setelah mendapatkan nilai regresi logsitik maka bagaimana kita meyakinkan kalau nilai hasil regresi kita sudah terbebas dari asumsi yang buruk?
+
+5.Apa saja yang bisa kita tafsirkan jika kita mendapatkan hasil regresi demikian?
+
+6. Bagiamana cara memprediksi probabilitas kejadian dari model regresi logisitik ?
+
+7. Jelaskan bagaimana menetapkan nilai 1 dan 0 pada variable independen tersebut?
+
+8. Bagiamana penerapan regresi logistik dari bidang manajemen ?
+
+9.Apa yang dimaksud odds ratio dan mengapa itu penting?
+
+10. Bagiamana cara pemilihan variable dalam regresi logistic? 
+
+
 
 There are two steps to cross-reference any heading:
 
@@ -10,19 +79,13 @@ There are two steps to cross-reference any heading:
     - Leave the label off if you like the automated heading generated based on your heading title: for example, `# Hello world` = `# Hello world {#hello-world}`.
     - To label an un-numbered heading, use: `# Hello world {-#nice-label}` or `{# Hello world .unnumbered}`.
 
-1. Next, reference the labeled heading anywhere in the text using `\@ref(nice-label)`; for example, please see Chapter \@ref(cross). 
+1. Next, reference the labeled heading anywhere in the text using `\@ref(nice-label)`;
     - If you prefer text as the link instead of a numbered reference use: [any text you want can go here](#cross).
 
 ## Captioned figures and tables
 
 Figures and tables *with captions* can also be cross-referenced from elsewhere in your book using `\@ref(fig:chunk-label)` and `\@ref(tab:chunk-label)`, respectively.
 
-See Figure \@ref(fig:nice-fig).
-
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', fig.alt='Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases.'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
 
 Don't miss Table \@ref(tab:nice-tab).
 

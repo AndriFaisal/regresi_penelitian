@@ -1,30 +1,170 @@
-# Blocks
+## Regresi Mediasi dengan RStudio 
 
-## Equations
+Dalam regresi mediasi kita akan mencari apa faktor yang menjadi mediasi dalam suaatu hubngan. apakah hubungan itu bisa langsung (direct) atauakuah hubungan itu tidak langsung (indirect). kalau hubungan itu berupa lamgsung ditandai dengan koefisein yang besar yakni perkalian antara koefisein indeirect dengan dibandingkan koefisien yang hanya melihat hubungan yang langsung saja atau indirect
+Singkatnya dalam beberapa teori ada hubungan yang langsung dan tidak langsung. Kalau ada hubungan tersebut didahului oleh variabel lain. Variabel ini yang sebagai mediasi yang kita gunakanu untuk menduga suatu hubungan tersebut. @Hayes2020
+Dalam regresi kita mengenal apa yang Namanya Variabel independent dan variabel tersebut yakni variabel dependent juga. 
+Dalam mencari hubungan ini kita akhirnya hanaya menetukan mana yang paling besar. Kita harus mengikuti. Beberapa uji yang sudah kita tentukan di awal. Hal ini akan membuat kita akan melihat penagruh langsung maupun pengaruh tidak langsungnya.
+Adapun langkah-langkah dalam regresi mediasi adalah setidaknya dengan dua hal yakni pertama meregresi nilai X dengan nilai M. Berarti kita dalam hal ini adalah meregresi X sebagai variabel Y kita akan melihat apakah ada hubungan langsung atau tidak langsung dalam hal ini. Kalau saja kita melihat ada nilai kofeisien maka ini nanti kita akan simpan. Bagaimana kalau masalah signifikasinya. Apakah kita akan terus melihat nilai signifikan. Ataukah kita cukup melihat dari nilai koefisien saja. Bisa jadi dalam regresi yang seperti ini kita bisa melihat kalau regresi sederhana saja yang terdiri dari satu variabel bebas tidak mengalami gejala dalam regresi yang membuat nilai estimasi menjadi bias.
+Kalau misalnya dalam kasus terlihat kalau ada beberapa variabel yang tidak signifikan maka kita katakan efek itu tidak bisa untuk dijadikan bukti adanya efek yang dari mediasi yang kita buat. 
+Ada juga yang menghitung dengan uji sobel. maka akan terlihat dari efek hubungan yang tidak langsung tersebut. Maka dari nilai p value dalam Uji Sobel yang ada di bawah maka kita akan bisa menyimpulkan bahwa memang ada efek mediasi dalam Pengaruh ini. 
+```{r}
+# Langkah 1: Pengaruh hp terhadap wt (X -> M)
+model_med1 <- lm(wt ~ hp, data = mtcars)
+summary(model_med1)
+# Langkah 2: Pengaruh wt terhadap mpg dengan kontrol hp (M -> Y dengan X sebagai kontrol)
+model_med2 <- lm(mpg ~ hp + wt, data = mtcars)
+summary(model_med2)
 
-Here is an equation.
+```
 
-\begin{equation} 
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  (\#eq:binom)
-\end{equation} 
+Setelah kita menguji normalitas 
 
-You may refer to using `\@ref(eq:binom)`, like see Equation \@ref(eq:binom).
+Kemudian kita menguji asumsi homoskedatisitas
 
+mengecek autokorelasi 
 
-## Theorems and proofs
+mengecek multikolinearitas 
 
-Labeled theorems can be referenced in text using `\@ref(thm:tri)`, for example, check out this smart theorem \@ref(thm:tri).
+Pada model satu terjadi heteroskedatisitas maka saya akan melaksanana solusi dengan weighted Least Square
 
-::: {.theorem #tri}
-For a right triangle, if $c$ denotes the *length* of the hypotenuse
-and $a$ and $b$ denote the lengths of the **other** two sides, we have
-$$a^2 + b^2 = c^2$$
-:::
+```{r wls}
+weights <- 1 / fitted(model_med1)^2  # Bobot berdasarkan fitted values
+model_wls <- lm(wt ~ hp, data = mtcars, weights = weights)
+summary(model_wls)
+```
 
-Read more here <https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html>.
-
-## Callout blocks
+Kemudian saya akan menguji dengan beberapa hal seperti normalitas, heteroskedatisitas dan autkorelasi 
 
 
-The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+Ternyata pada dwtest tidak menujukkan hal yang menggembirakan maka kita buat dengan 
+GLS *(Generalized Least Square)* dengan model ini maka dapat mengatasi OLS yang mengalami masalah Heteroskedatisitas dan juga autkorelasi. Tehnik penggunaan iterative weigted least square akan memperoleh suatu perkiraaaan parameter yang memungkinkan  *(maximum likehood estimation)* dengan cara mentransformasi yang paling sesuai *(suitable)* @Nelder1972
+
+```{r}
+library(nlme)
+
+# Model dengan metode GLS
+model_gls <- gls(mpg ~ hp + wt, data = mtcars, correlation = corAR1())
+summary(model_gls)
+
+```
+
+normalitas 
+```{r}
+shapiro.test(residuals(model_gls))
+vif(model_gls)
+```
+
+## Regresi dengan Moderasi 
+
+
+Dalam satu pertanyaan apakah kita bisa untuk mencari hubungan X dengan Y saja. Seperti hubungan antara kinerja dan stress. MUngkin hal ini membuat kita binggung dengan hal ini. Kalau kita perhatikan maka kita akan melihat hubungan keda variabel terebut tetapi apakah ada yang mempengaruhi dari hal itu…?
+Apakah variabel dependen tersebut sama seprrti uah
+
+$X<- Y <- Z $
+
+Harus pahami dari jalur tersebut 
+Z= moderasi yang bertugas memperkuat arah hubungan tersebut. 
+
+Apakah kita bisa membuat banyak variable di regresi? Dengan kata lain kita hanya menggunakan satu variable saja.
+
+$Y = α+ β1x1 + β.X1.X2 +ε$
+
+### Pertanyaan{-}
+
+Sebutkan  langkah dari regresi moderasi ?
+Asumsi klasik apakah yang dibutuhkan ?
+Apa variabel moderasi? 
+Bagaimana ditemukan variable moderasi ?
+Apa beda moderasei dengan intervensi ?
+
+Intervensi 
+Dalam inetervensi kita menggunakan dummy variable sehingga model seperti ini 
+
+$Y = α+ β1x1 +ε$
+$Y = α+ β1x1 + β.X1.D +ε$
+
+Dalam intervensi akan?
+Langkah -langkah dalam regresi moderasi. Adalah sebagai berikut : 
+1.	Persiapan data . Kita mempersiapakan data yang akan kita rergresi terdiri dari variable dependen Pada bagian ini kita mengumpulkan data dan juga melakukan pembersiahan data dan meyakinkan data kita pakai sudah benar dan menghindari adanya kekosongan data.
+2.	Eksplorasi data : kita mendeksrisikan data yang sudah kita kumpullkan untuk memahami sifat dari data tersebut. Kemudian kita lakukan visualisasi data tersebut (apa tujuannya?)
+3.	Melakukan regresi Awal 
+Sebelum kita beranjak maka kita melakukan regresi awal yang melibatkan variabel indepneden dengan variable dependend
+$Y = α+ β1x1 +ε$
+4.	Melakuan Regresi Moderasi 
+Pada tahap kedua regresi atau tahap keempat ini melakukan regresi dengan moderasi 
+5.	Melakukan regresi dengan factor interaksi 
+6.	Menjalankan analysis regresi 
+7.	Interprestasi terhadap hasil tersbeut
+8.	Uji Asumsi 
+9.	Pelaporan Hasil 
+Setelah itu kita harus memperhatikan bahwa ada beberapa asumsi yang harus dipatuhi dalam langkah regresi dengan moderasi . 
+
+```{r moderasi}
+# Membuat variabel interaksi antara horsepower (hp) dan weight (wt)
+mtcars$hp_wt <- mtcars$hp * mtcars$wt
+
+# Model dasar: mpg sebagai fungsi dari hp
+model1 <- lm(mpg ~ hp, data = mtcars)
+summary(model1)
+
+# Model dengan moderator: mpg sebagai fungsi dari hp dan wt
+model2 <- lm(mpg ~ hp + wt, data = mtcars)
+summary(model2)
+
+# Model dengan interaksi: mpg sebagai fungsi dari hp, wt, dan interaksi hp*wt
+model3 <- lm(mpg ~ hp * wt, data = mtcars)
+summary(model3)
+# Menghitung residual dari model
+residuals_model <- residuals(model3)
+
+# Plot Q-Q
+qqnorm(residuals_model)
+qqline(residuals_model, col = "red")
+
+# Shapiro-Wilk test
+shapiro.test(residuals_model)
+# Plot residual vs fitted values
+plot(fitted(model3), residuals_model)
+abline(h = 0, col = "red")
+
+# Uji Breusch-Pagan
+library(lmtest)
+bptest(model3)
+# Plot residual vs variabel independen hp
+plot(mtcars$hp, residuals_model)
+abline(h = 0, col = "red")
+
+# Plot residual vs variabel independen wt
+plot(mtcars$wt, residuals_model)
+abline(h = 0, col = "red")
+# Uji Durbin-Watson
+dwtest(model3)
+#mengatasi heteroskedatisitas
+# Transformasi logaritma pada variabel dependen
+mtcars$log_mpg <- log(mtcars$mpg)
+
+# Model regresi dengan variabel dependen yang telah ditransformasi
+model_trans <- lm(log_mpg ~ hp * wt, data = mtcars)
+summary(model_trans)
+
+# Uji Breusch-Pagan pada model baru
+bptest(model_trans)
+
+# Menghitung bobot sebagai invers dari residuals kuadrat
+weights <- 1 / fitted(lm(abs(residuals_model) ~ model3$fitted.values))^2
+
+# Model WLS
+model_wls <- lm(mpg ~ hp * wt, data = mtcars, weights = weights)
+summary(model_wls)
+
+# Uji Breusch-Pagan pada model WLS
+bptest(model_wls)
+
+library(sandwich)
+library(lmtest)
+
+# Model awal dengan robust standard errors
+coeftest(model3, vcov = vcovHC(model3, type = "HC1"))
+```
+
+

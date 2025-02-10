@@ -5,11 +5,14 @@ Ada hal yang selalu berubah itu kita tidak pungkisiri seperti itu. Kita kesulita
 Sifat asli manusia yang mempunyai rasa ingin tahu dan mencari faktor yang menjadi pneghubung. Kenapa sesuatua yaitu faktor independen mempunyai pengaruh. Ada beberapa pengaruh yang harus di cari untuk menerangkan hal yang lain. 
 Dalam buku ini saya akan menyajikan pengenalan terhadap regresi itu sendiri. *Regresi adalah sesuatu metode perhitungan atau kalkulasi dari covarian berhubungan antara variabel bebas dan juga variabel tak bebas.* Dari nilai ini kita akan dapat menduga nilai hubungan yang erat yang diwakili dengan nilai satu sampai dengan nilai 0. Sesudah itu akan diterangkan konsep dasar statistik mengenai regresi. Kita tahu regresi adalah berbeda dnegan stataistik sebelumnya yakni stataistik deskriptif. Untuk kalkukasi regresi termasuk da;lam stataistik analisis. Dari sini seorang mulai menganalisis data yang sudah ada berita megenai hubungan antara kedua data. 
 Sebelumnya juga ada suatau ulangan mengenai apa itu stataistik. Pengenalan regresi akan ada pada variabel. Variabel yang merupakan nilai dari kharakteristik suatu sample. Kita mendapat nilai tersebut untuk dihubungkan dengan dengan yang lain. Penulis memandang penting agar para pembaca bisa untuk memahami maksuda dari model analisis regresi tersebut. 
-Setelah penegnalan maka masuk ke dalam regresi sederhana yang hanya memuat satu variabel independen saja. Dalam regresi sederhana , maka faktor dependen atau variabel terikat hanya terpengaruh dari satu variabel saja. Ada variabel dominan yang dapat mempengaruhi suatu faktor seperti hubungan anatara penghasilan dengan kepandaian. Bisa jadi nilai kepandaian atau variabel kepandaian tersebut dapat ubtu mempengaruhi penghasilan orang.
-Karena hanya satu variable maka rasanya kurang untuk menghitung hanya satu variabel saja arenanya ada regresi dengan eberapa faktor independen. Faktor-faktor inilah yang diduga dengan bersama-sama turut dalam memepgaruhi variabel indeonden tersbeut. Dengan regresi yang begitu komplek tersebut maka akan ada sejumlah asumsi. 
-Sebelum ke asumsi namanya regresi juga mempunyai syarat yang harus dipenuhi. Appaun model analisis juga harus memenuhi syarat. Dari syarat tersebut nanti kita akan mendapatkan sutaua bentuk peramalan yang sesuai atau sedikit kesalahan. Peramalan yang baik adalah peramalan yang bukan memiliki kesalahalan akan tetapi peramalan yang baik adalah yang kesalahannya sedikit. Dengan adanya asusmi linear itu akan memastikan kalau model sudah cukup untuk memenuhi kriteria peramalan yang baik. 
+Setelah pengenalan maka masuk ke dalam regresi sederhana yang hanya memuat satu variabel independen saja. Dalam regresi sederhana , maka faktor dependen atau variabel terikat hanya terpengaruh dari satu variabel saja. Ada variabel dominan yang dapat mempengaruhi suatu faktor seperti hubungan antara penghasilan dengan kepandaian. Bisa jadi nilai kepandaian atau variabel kepandaian tersebut dapat ubtu mempengaruhi penghasilan orang. 
+
+Kita membutuhkan suatau nilai yang digunakan untuk mengukur derajat dari pengaruh variable ke variabel lainnya. @Heumann2016
+
+Karena hanya satu variable maka rasanya kurang untuk menghitung hanya satu variabel saja karenanya ada regresi dengan eberapa faktor independen. Faktor-faktor inilah yang diduga dengan bersama-sama turut dalam mempegaruhi variabel independen tersebut. Dengan regresi yang begitu komplek tersebut maka akan ada sejumlah asumsi. 
+Sebelum ke asumsi namanya regresi juga mempunyai syarat yang harus dipenuhi. Appaun model analisis juga harus memenuhi syarat. Dari syarat tersebut nanti kita akan mendapatkan sautu bentuk peramalan yang sesuai atau sedikit kesalahan. Peramalan yang baik adalah peramalan yang bukan memiliki kesalahalan akan tetapi peramalan yang baik adalah yang kesalahannya sedikit. Dengan adanya asusmi linear itu akan memastikan kalau model sudah cukup untuk memenuhi kriteria peramalan yang baik. 
 Adapun asumsi linear yang harus dipenuhi seperti multikolinearitas, autokorelasi, heteroskedatisitas dan lainnya. Dalam regresi linear juga harus mempertimbangkan asumsi normal. Data harus terdistribusi normal agar setiap bentuk pendugaan akan benar. 
-Setelah regresi selesai maka ada evaluasi model dengan ebebrapa kriteria seperti nilai MSE dan MAE. Dengan penulaian seperti ini kita akan mengetahu ada regresi yang baik. Buku ini ditutup dengan studi kasus agar setiap pembavca dapat mempelajari kasus apa yang terjadi. Hal ini akan bisa untuk semakin mendalami maksud dari pelajaran regresi kali ini. 
+Setelah regresi selesai maka ada evaluasi model dengan bebebrapa kriteria seperti nilai MSE dan MAE. Dengan penilaian seperti ini kita akan mengetahui ada regresi yang baik. Buku ini ditutup dengan studi kasus agar setiap pembavca dapat mempelajari kasus apa yang terjadi. Hal ini akan bisa untuk semakin mendalami maksud dari pelajaran regresi kali ini. 
 
 # Regresi Linier Sederhana
 
@@ -142,7 +145,7 @@ Kemudian kita akan melihat dari jenis hubungan tersebut. Inilah yang menandakan 
 2.	Korelasi negative 
 3.	Korelasi non linear 
 
-Salah satu contoh adalah menggunakan seperti ini, Scatter bis adilihat di sini \@ref(fig:scatter-fig)
+Salah satu contoh adalah menggunakan seperti ini, Scatter bisa dilihat di sini \@ref(fig:scatter-fig)
 
 ```{r scatter-fig, fig.cap='Grafik Scatter Horse Power dan Milage', fig.path="docs/images/"}
 hpMpg <- mtcars[,c('hp','mpg')]
@@ -158,7 +161,7 @@ plot(x = hpMpg$hp,y = hpMpg$mpg,
 
  
 Istilah 
-Korelasi : Hubungan anatara suatau variable dengan suatu variable 
+Korelasi : Hubungan anatara suatau variable dengan suatu variabel 
 Regresi : Metode Statistik untuk mencari hubungan antara peubah bebas terhadap peubah tidak bebas 
 Model regresi : model prediksi yang merupakan hasil regresi 
 Outlier : data yang nilainya berbeda dari banyak data umumnya atau rata-ratanya. 
@@ -199,44 +202,37 @@ Soal
 
 10.	Apakah beda korelasi dengan regresi? 
 
-## Regresi dengan menggunakan Data Panel 
+## Regresi dengan Dummy
+Regresi dummy 
+Kalai kita menetapkan Y sebagai variabel kategorik nitu berarti kita melakukan regresi logistik atau logit. Hanya saja ada yang masuk dalam variabel kategorik yang bisa kita gunakan untk menyelidiki hubungan kategorik dengan varoabel tertentu. Dalam regresi linear menggunakan data kategori sebagai variable independent dengan menamakan huruf satu dengan variable tertentu dan angka 0 untuk variable lainnya. 
+Contoh perempuan yang cenderung rajin daripada laki-laki akan menghasilkan nilai yang lebih baik dari laki-laki. Tentu kasus per kasus akan berbeda dengan yang lainnya karena bisa jadi di beberapa bagian lelaki akan ada yang mempunyai prestasi lebih baik. Off course, kita bukan bicara mwngenai hal itu karena Statistik itu akan bicara banyak sample yang mewakili.
+Variabel kategori atau disebut dummy ini memang akan membuat sesuatu yang berbeda dengan variable yang lainnya. Variabel ini bukan masuk dalam variable angka atau kuantitaif melainkan ini adalah variable 
+Hal itu karena antara dua kategori itu ada hal yang berbeda seperti laki-laki dan perempuan. Pemaksaan untjk mencari nilai akan membuat sesuatu menjadi terpaksa dan akan terjadi nilia residual yang sangat besar sekali dan patutu diduga model regresi akan bias tidak memenuhi BLUE.
+Adanya aktegori ini sedikitnya melonggarkan .dalam satu persamaan ada aetidkanya dua kategori kalau dalam satu variabel. Maka kita akan membedakan anatara laki-laki dan perempuan. Untuk memudahkan maka si peneliti akan memberikan angka 0 untuk perempuan dan angka 1 untuk laki-laki. Seperti habg kita sudaj bahasa sebelumnya jika nilai peramalan atau corecast dari perempuan hanya berupa Beta Sajam karena nilai 0 akan menihilkan angka X maupun nilai Beta yang ada dalam persamaan. Sedangkan untuk nilai laki-laki akan mendapatkan tambahan dari Beta selain nilai dari alpha tentunya.
 
-Mengelola data panel di RStudio untuk mengestimasi persamaan regresi dan mencari pengaruh variable independent terhadapa variable dependen. 
-Salah satu metode untuk mencari pengarih variable adalah dengan data panel. Pengaruh seperti ini adalah untuk kita dapat mengestimasi daripada variable dependen. Data panel adalah data kumpulan dalam bentuk 
+Apakah model Dummy selalau dipakai. Hal itu tentu dengan kebutuhan yang ada. Kalau terajdi perbedaan yang behitu signifikan maka kita akan menggunakan hal seperti itu tetapi kalai kita yka wlihat hal yang penting maka kita pehih baik tidak usah memakai dummy.
+Bagaimana anda membuat model?
 
-### Membuat Struktur Data Panel 
-Rstudio berbeda dari perangkat lunak (software) statistik lainnya. Untuk mengelola dalam analisis appaun membutuhkan struktur data dalam bentuk rstudio. Kalau software lain cukup menyalin dan menempel (copy and paste) data spreadsheet baik itu Excel atau Google Spreadsheet dan langsung dapat untuk mengelola data namun untuk RStuido harus merubahkan dalam bentuk model data yang dikenal oleh Rstudio. 
-Langkahnya adalah mengimpor file speadhheet dan membuat ebberapa pengaturan yang relative mudah untuk membuat data anda mudah diolah. Khusus untuk analisis panel maka yang dibutuhkan bentuk data atau struktur dari data pdata.frame yang merupakan singkatan panel data frame. Ini berbeda dengan data frame biasa di rtsuido karena ini mempertimbangkan dimensi individual dan juga dimensi waktu. Perlakukan inilah yang membuat berbeda. 
-Disebelak kana anda dapat mengklik import data set dan pilihlah excel. Ada beberapa pilihan lain seperti spss sas, stata, text dan lain-lain. KAlau mempunyai speadsheet maka pilihlah excel. 
-Setelah itu anda akan mmeilih beberapa sheet. Kalau anda bekerja dalam banyak sheet di satu file maka anda harus memilih salah satu sheet. Dibawah itu anda pilih. Maka anda harus meperhatikan kerapihan dari text yang anda buat. Misalnya ada sela diantara judul table dan juga isi data maka di table yang kosong itu akan tertulis NA atau Not Available yang berarti data tidak tersedia. 
-Menyiapkan excel sebagai data
-Untuk menyusun data maka yang bisa kita lakukan adalah dengan data. Karena data dnegan speadhseet kita lebih mudah. Kita bisa menyusun dengan data seperti contoh dibawah ini
+Membuat model bagi seorang yang pemula dan peneliti pemula adalah dengan menggunakan model yang sebelumnya. Bukan menyalin adalah sesuatu yang mudah. setidaknya dalam menggunakan model yang sudah ada karena model tersebut sudah terbukti . Kalau belum terbukti atau merancang memang akan sulit sekali dengan demikian. misalnya kita sudah pasti tdak ada perbedaan aanatara kecerdasan wanta dan laki-laki dalam ilmu bahasa maka akan sulit sekali mmenggunakan hal itu untuk membedakan anytara satu dengan yang lainnya. Hal itu menjadi percuma saja kalau kita tidak menemukan hal yang membedakan dalam model tersebut maka lebih sederhana saja kita tidak usah untuk membuat model seperti itu. Kita tinggal menggunakan regresi yang sudha biasa diguankan saja yang lebih sederhana maka itu akan lebih baik dan tidak perlu untuk membuat teori yang baru. 
+Ketika anda bisa untuk mencari model yang membutuhkan dummy maka anda sebaiknya juga dapat mengikuti hal itu. Hal seperti ini
+Ketika sebuah regresi tidak memenuhi syarat kita mungkin bertanya apakah penyebabnya? Padahal kita sudah memenuhi asumsi yang sudah kita penuhi sebelumnya . Kita sudah melakukan perbaiki asumsi yang sudah ditetapkan.
+Permasalahan adalah bukan karena datanya. Kita sudah sepakat kalau data adalah netral. Ia seperti halnyaa bahan makanan yang segar tentu saja kalau anda memilih data yabg benar
+Data yang salah akan menghasilkan olahan yang salah. Sama seperti telur busuk yang akan menghasilkan kue yang dihasilkan dari telur busuk. Bagaimana rasanya? Pasti rasanya sudah tidak bagus lagi. Hal ini karena sudah buruk.
+Dalam membuat suatu model maka kita juga harus memperhatikan model yang sebelumnya sudah ada ini penting juga. Sebaiknya kita sudah mencontoh apa  model apalagi hanya dalam tataran sekolah sarjana saja.
+Dengan mencontoh model bukan berarti plagaitor karena model yang sudah ada bisa menjadi rujukan bagi kita untuk menjadikan sebuah penelitian yang akan kita lakukan. Jika seorang peneliti muda maka mereka seharusnya membuat yang mirip saja atau duplikasi saja.
+Ketika kita memilih regresi maka kita tahu bahwa akan memeriksa hubungan antara satu faktor dengan faktor yang lainnya. Apakah ada hubungan dengan hubungan yang lain? Karena itu memang ada hubungannya dengan hubungan yang lain. Kalau tidak ada hubujgan dengan yang lain maka kita tidak bisa memeriksakannya. Kalaupun memqksakan visa jadi ada hubungan seperti yang saya jelaskan namun hubunga tersebut tidak bisa valid.
+Salah satu cara meyakini adalah denga literatur. LIteratur tersebut adalah landasan kita untuk membuat 
+Kira aka. Membagi beberapa hal yang bisa kita bagikan. Dalam hal ini kita menggunakan variabel dummy atau variabel boneka. Variabel ini menggunakan angka 10 dan 0. Lalu bagaimana penetapannya? Umumnya dua angka ini untuk membedakan. Jangan kita membuat sendiri tanpa adanya pertimbangan yang matang dengan hal itu. Kita harua bisa memberikan pertimbangan yang pas bagi model yang kita bangun. Sebab namanya statistik bisa dibuat apa saja.
+Setelah itu kita membagi kategori itu. Berapa yang hendak kita gunakan kategori. Kalau kita hanya menggunakan dua kategori maka kita hanya membutuhkan satu data dummy saja. 
+Kalau kita mempunyai tiga kategori maka kita setidaknya bisa untuk membuat dua variabel dummy saja. Maka kalau kita mempunyai beberapa kategori kita akan membuat dengan banyaknya kategori dikurangi satu atau variabel atau 
+banyaknya variabel dummy = kategori - 1 
+Maka kita juga ahrus bijak dalam menggunakan variabel dummy tersebut karenan banyaknya akan kemungkinan membuat asusmi regresi bisa menjadi tidak terpenuhi terutama adalah masalah multikolinearitas. Maka kita harus membuatnya sesuai dengan kndis dan pemenuhan data. yang ada . 
 
-```{r}
-tobinq <- read.csv2("~/jurnal/tobinq3.csv")
-#setelah data diupload saya akan membuat data frame khusus panel yang disebut pdata frame dengan seperti ini. jangan lupa gunakan library plm
-library(plm)
-ptobinq=pdata.frame(tobinq,index=c("Comp","Tahun"),drop.index = TRUE,row.names=TRUE)
-```
-Setelah data sudah benar masuk kita dapat mengecek struktur dari data tersebut
-```{r}
-str(ptobinq)
-```
-Sudah benar maka langkahnya adlah mennetukan jenis regresi data panel yang akan kita lakukan. Kemudian sesuai langkah yang sudah kita rencanakan adalah awalnya dengan melakukan regresi dari ketiga metode seperti Pooling (pooling), Fixed Effect (within) dan Random. Dalam contoh kali ini saya akan mennamakan kalau pooling adalah regplmtobinq, untuk fixed effect adalah regplmtobinq2 dan untuk random adalah regplmtobinq3.  Dalam tiap perintah aka nada Namanya perintah summary yang artinya adalah menampilkan hasil regresi tersebut. 
+Misalnya kita ingin membuat kategori pendidikan dari tiga tingkatan stratat yakni kategori bawah sarjana, kategori sarjana , dan kategori di atas sarjana maka akan dibuat dua dummy variabel. yakni 
 
-```{r}
-#Regresi Model Pooling 
-regplmtobinq<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="pooling")
+Y= a + b1.X1 + b2.D1.X2 + b3.D2.X2 + e 
 
-summary(regplmtobinq)
+kategori satu akan saya masukkan untuk sarjana sedangkan kategori dua adalah master maka yang bukan sarjana akan masuk dalam kategori tersebut. Hasilnya kita akan bisa melihat bahwa dengan adanya data dummy tersebut maka saya bisa memprediksi ada perbedaan antra beberapa kategori tersebut.
+Regresi dengan 
 
-#Regresi Model Fixed 
-regplmtobinq2<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="within")
-summary(regplmtobinq2)
 
-#Regresi Model Random Effcet
-
-regplmtobinq3<-plm(Tobin.Q ~ DAR+DER,data=ptobinq,model="random")
-summary(regplmtobinq3)
-
-```
